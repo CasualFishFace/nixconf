@@ -18,7 +18,7 @@
 
     monitor = ", preferred, auto, auto";
     "$terminal" = "ghostty";
-    "$menu" = "rofi --show drun";
+    "$menu" = "rofi -show drun";
 
 
     #################
