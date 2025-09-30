@@ -10,7 +10,7 @@
     services.pipewire.enable = true;
 
     environment = {
-      systemPackages = with pkgs; [      
+      systemPackages = with pkgs; [
         fd
         ghostty
         git
