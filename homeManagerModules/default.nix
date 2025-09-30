@@ -1,3 +1,8 @@
 {
-  imports = [];
+  imports = [
+    ./bundles
+    ./programs
+    ./services
+    ./system
+  ];
 }
