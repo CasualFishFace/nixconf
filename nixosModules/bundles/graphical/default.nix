@@ -9,13 +9,15 @@
     security.rtkit.enable = true;
     services.pipewire.enable = true;
 
+    fonts.fontDir.enable = true;
+    fonts.fontconfig.enable = true;
+    fonts.packages = with pkgs; [
+      font-awesome
+      nerd-fonts.jetbrains-mono
+    ];
+
     environment = {
       systemPackages = with pkgs; [
-        # Fonts ===============================================================
-        font-awesome
-        nerd-fonts.jetbrains-mono
-
-        # Packages ============================================================
         fd
         ghostty
         git
