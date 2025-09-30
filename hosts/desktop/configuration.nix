@@ -40,9 +40,7 @@
   };
 
   programs.hyprland.enable = true;
-
   security.rtkit.enable = true;
-
   services.pipewire.enable = true;
 
   environment = {
@@ -53,6 +51,8 @@
       nil
       ripgrep
       tree
+
+      kitty
     ];
     sessionVariables = {
       EDITOR = "hx";
