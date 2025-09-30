@@ -1,22 +1,28 @@
-{ pkgs, ... }: {
-  programs.firefox.enable = true;
-  programs.hyprland.enable = true;
+{ pkgs, lib, config, ... }: {
+  options.myNixos.graphical.enable = lib.mkEnableOption ''
+    Enables a preset of packages I typically use with graphical NixOS installations.
+  '';
 
-  security.rtkit.enable = true;
-  services.pipewire.enable = true;
+  config = lib.mkIf config.myNixos.graphical.enable {
+    programs.firefox.enable = true;
+    programs.hyprland.enable = true;
 
-  environment = {
-    systemPackages = with pkgs; [      
-      fd
-      ghostty
-      git
-      helix
-      nil
-      ripgrep
-      tree
-    ];
-    sessionVariables = {
-      EDITOR = "hx";
+    security.rtkit.enable = true;
+    services.pipewire.enable = true;
+
+    environment = {
+      systemPackages = with pkgs; [      
+        fd
+        ghostty
+        git
+        helix
+        nil
+        ripgrep
+        tree
+      ];
+      sessionVariables = {
+        EDITOR = "hx";
+      };
     };
   };
 }
