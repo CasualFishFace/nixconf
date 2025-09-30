@@ -38,16 +38,6 @@
     variant = "";
   };
 
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # # Enable the GNOME Desktop Environment.
-  # services.displayManager.gdm.enable = true;
-  # services.desktopManager.gnome.enable = true;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -80,6 +70,7 @@
     helix
     nil
     ripgrep
+    tree
   ];
 
   # This value determines the NixOS release from which the default

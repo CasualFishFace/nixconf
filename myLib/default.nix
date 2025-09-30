@@ -1,10 +1,9 @@
 inputs@{ self, nixpkgs, ... }: rec {
-  mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts (host:
-    mkSystem ./../hosts/${host}/configuration.nix
-  );
-  
-  mkSystem = config: nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
+  mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;
+  mkSystem = host: let
+    config = ./../hosts/${host}/configuration.nix;
+  in nixpkgs.lib.nixosSystem {
+    specialArgs = { flake-inputs = inputs; };
     modules = [ config self.outputs.nixosModules.default ];
   };
 }
