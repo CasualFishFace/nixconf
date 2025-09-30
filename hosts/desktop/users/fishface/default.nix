@@ -8,6 +8,4 @@
 
   wayland.windowManager.hyprland.enable = true;
   programs.rofi.enable = true;
-
-  programs.home-manager.enable = true;
 }

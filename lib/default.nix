@@ -2,9 +2,8 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
   # Helper functions ==========================================================
 
   usersOnHost = host: let
-    fullUsers = builtins.filter
-      (nixpkgs.lib.hasSuffix "@${host}")
-      (builtins.attrNames self.outputs.homeConfigurations);
+    uah = builtins.attrNames self.outputs.homeConfigurations;
+    fullUsers = builtins.filter (nixpkgs.lib.hasSuffix "@${host}") uah;
   in builtins.map (nixpkgs.lib.removeSuffix "@${host}") fullUsers;
 
   homeFilesOnHost = host: builtins.map (name: ./../hosts/${host}/users/${name}) (usersOnHost host);
@@ -17,10 +16,7 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
     homeFiles = homeFilesOnHost host;
   in nixpkgs.lib.nixosSystem {
     specialArgs = { inherit inputs; };
-    modules = [
-      config
-      self.outputs.nixosModules.default
-    ] ++ homeFiles;
+    modules = [ config self.outputs.nixosModules.default ] ++ homeFiles;
   };
 
   # Home Manager functions ====================================================
