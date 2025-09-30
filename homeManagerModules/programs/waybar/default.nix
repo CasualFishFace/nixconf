@@ -1,5 +1,5 @@
 {
-  programs.waybar.style = import ./style.css;
+  programs.waybar.style = builtins.readFile ./style.css;
   programs.waybar.settings = {
     main = {
       layer = "top";
