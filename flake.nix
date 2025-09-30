@@ -4,16 +4,26 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: let
     myLib = import ./myLib inputs;
-    inherit (myLib) mkAllSystems;
+    inherit (myLib) mkAllSystems mkHome;
   in {
     nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
+
     nixosConfigurations = mkAllSystems [
       "desktop"
     ];
+
+    homeConfigurations = {
+      "fishface@desktop" = mkHome "fishface" "desktop";
+    };
   };
 }
