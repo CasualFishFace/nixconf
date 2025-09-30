@@ -1,8 +1,4 @@
-{ flake-inputs, ... }: {
-  imports = [
-    flake-inputs.self.outputs.homeManagerModules.default
-  ];
-  
+{ ... }: {
   home = {
     stateVersion = "25.05";
     username = "fishface";
