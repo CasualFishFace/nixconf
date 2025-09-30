@@ -1,5 +1,7 @@
-{ ... }: {
+{
   imports = [
-    ./hyprland
+    ./programs
+    ./services
+    ./system
   ];
 }

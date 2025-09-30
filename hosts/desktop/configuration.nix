@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./users
   ];
 
   # Allow unfree packages
@@ -38,43 +39,24 @@
     variant = "";
   };
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  programs.hyprland.enable = true;
+
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  services.pipewire.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fishface = {
-    isNormalUser = true;
-    description = "Jovanni Bair";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    fd
-    git
-    helix
-    nil
-    ripgrep
-    tree
-  ];
-
-  environment.sessionVariables = {
-    EDITOR = "hx";
+  environment = {
+    systemPackages = with pkgs; [
+      fd
+      git
+      helix
+      nil
+      ripgrep
+      tree
+    ];
+    sessionVariables = {
+      EDITOR = "hx";
+    };
   };
 
   # This value determines the NixOS release from which the default
