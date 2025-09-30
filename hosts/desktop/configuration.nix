@@ -39,6 +39,11 @@
     variant = "";
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPkgs = true;
+  };
+
   myNixos.graphical.enable = true;
 
   # This value determines the NixOS release from which the default
