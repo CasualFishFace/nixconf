@@ -1,6 +1,6 @@
-{ ... }: {
+{ outputs, ... }: {
   imports = [
-    ./../../../../homeManagerModules
+    outputs.homeManagerModules.default
   ];
   
   home = {

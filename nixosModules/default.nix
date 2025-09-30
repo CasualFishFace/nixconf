@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, outputs, myLib, ... }: {
   imports = [
     ./bundles
     ./programs
@@ -8,9 +8,10 @@
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager = {
+        extraSpecialArgs = { inherit inputs outputs myLib; };
         backupFileExtension = "bak";
-        useGlobalPkgs = true;
-        useUserPackages = true;
+        # useGlobalPkgs = true;
+        # useUserPackages = true;
       };
     }
   ];

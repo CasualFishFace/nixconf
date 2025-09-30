@@ -16,7 +16,7 @@ in rec {
   mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;
   mkSystem = host: let
     config = ./../hosts/${host}/configuration.nix;
-    users = usersOnHost host;
+    # users = usersOnHost host;
   in nixpkgs.lib.nixosSystem {
     specialArgs = { inherit inputs outputs; myLib = lib; };
     modules = [
