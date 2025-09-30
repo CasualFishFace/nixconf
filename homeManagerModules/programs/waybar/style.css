@@ -16,6 +16,10 @@ window#waybar {
   text-shadow: none;
 }
 
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
 .modules-left {
   margin-left: 5px;
 }
