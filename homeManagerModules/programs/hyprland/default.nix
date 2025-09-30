@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./hyprpanel
+  ];
+  
   wayland.windowManager.hyprland.settings = {
     # This is an example Hyprland config file.
     # Refer to the wiki for more information.

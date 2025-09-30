@@ -4,10 +4,13 @@
   '';
   
   config = lib.mkIf config.myHome.bundles.graphical.enable {
+    # General =================================================================
     programs.discord.enable = true;
     programs.firefox.enable = true;
-    programs.rofi.enable = true;
 
+    # Hyprland ================================================================
     wayland.windowManager.hyprland.enable = true;
+    programs.hyprpanel.enable = true;
+    programs.rofi.enable = true;
   };
 }
