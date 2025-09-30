@@ -10,8 +10,8 @@
       home-manager = {
         extraSpecialArgs = { inherit inputs outputs myLib; };
         backupFileExtension = "bak";
-        # useGlobalPkgs = true;
-        # useUserPackages = true;
+        useGlobalPkgs = true;
+        useUserPackages = true;
       };
     }
   ];
