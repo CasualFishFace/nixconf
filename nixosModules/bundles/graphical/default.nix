@@ -15,6 +15,7 @@
         ghostty
         git
         helix
+        nerd-fonts.jetbrains-mono
         nil
         ripgrep
         tree
