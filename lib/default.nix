@@ -1,22 +1,32 @@
-inputs@{ self, nixpkgs, home-manager, ... }: rec {
+inputs@{ self, nixpkgs, home-manager, ... }: let
+  lib = import ./default.nix inputs;
+in rec {
   # Helper functions ==========================================================
 
-  usersOnHost = host: let
-    uah = builtins.attrNames self.outputs.homeConfigurations;
-    fullUsers = builtins.filter (nixpkgs.lib.hasSuffix "@${host}") uah;
-  in builtins.map (nixpkgs.lib.removeSuffix "@${host}") fullUsers;
+  dirsIn = dir: let
+    entries = builtins.readDir dir;
+    filtered = nixpkgs.lib.filterAttrs (_: t: t == "directory") entries;
+  in builtins.attrNames filtered;
 
-  homeFilesOnHost = host: builtins.map (name: ./../hosts/${host}/users/${name}) (usersOnHost host);
+  usersOnHost = host: dirsIn ./../hosts/${host}/users;
 
   # NixOS system functions ====================================================
   
   mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;
   mkSystem = host: let
     config = ./../hosts/${host}/configuration.nix;
-    homeFiles = homeFilesOnHost host;
+    users = usersOnHost host;
   in nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
-    modules = [ config self.outputs.nixosModules.default ] ++ homeFiles;
+    specialArgs = { inherit inputs; myLib = lib; };
+    modules = [
+      config
+      self.outputs.nixosModules.default
+      {
+        home-manager.users = nixpkgs.lib.genAttrs users (username:
+          ./../hosts/${host}/users/${username}
+        );
+      }
+    ];
   };
 
   # Home Manager functions ====================================================
@@ -34,7 +44,7 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
     system = self.outputs.nixosConfigurations.${host}.nixpkgs.hostPlatform;
   in home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs { inherit system; };
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; myLib = lib; };
     modules = [ config self.outputs.homeMangerModules.default ];
   };
 }

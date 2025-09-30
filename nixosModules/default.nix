@@ -4,7 +4,9 @@
     ./programs
     ./services
     ./system
-    inputs.home-manager.nixosModules.home-manager {
+
+    inputs.home-manager.nixosModules.home-manager
+    {
       home-manager = {
         backupFileExtension = "bak";
         useGlobalPkgs = true;
