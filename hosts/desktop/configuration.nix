@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
     ./hardware-configuration.nix
     ./users
@@ -39,24 +39,7 @@
     variant = "";
   };
 
-  programs.hyprland.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire.enable = true;
-
-  environment = {
-    systemPackages = with pkgs; [
-      fd
-      ghostty
-      git
-      helix
-      nil
-      ripgrep
-      tree
-    ];
-    sessionVariables = {
-      EDITOR = "hx";
-    };
-  };
+  myNixos.graphical.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
