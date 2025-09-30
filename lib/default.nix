@@ -1,10 +1,6 @@
 inputs@{ self, nixpkgs, home-manager, ... }: rec {
   # Helper functions ==========================================================
 
-  usersOnHost = host: nixpkgs.lib.filterAttrs (
-    name: _: nixpkgs.lib.hasSuffix "@${host}" name
-  ) self.outputs.homeConfigurations;
-
   # NixOS system functions ====================================================
   
   mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;
@@ -15,14 +11,6 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
     modules = [
       config
       self.outputs.nixosModules.default
-      {
-        home-manager = {
-          backupFileExtension = "bak";
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users = usersOnHost host;
-        };
-      }
     ];
   };
 
