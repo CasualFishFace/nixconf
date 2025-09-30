@@ -1,5 +1,6 @@
 inputs@{ self, nixpkgs, home-manager, ... }: let
   lib = import ./default.nix inputs;
+  inherit (self) outputs;
 in rec {
   # Helper functions ==========================================================
 
@@ -17,7 +18,7 @@ in rec {
     config = ./../hosts/${host}/configuration.nix;
     users = usersOnHost host;
   in nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; myLib = lib; };
+    specialArgs = { inherit inputs outputs; myLib = lib; };
     modules = [
       config
       self.outputs.nixosModules.default
@@ -44,7 +45,7 @@ in rec {
     system = self.outputs.nixosConfigurations.${host}.nixpkgs.hostPlatform;
   in home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs { inherit system; };
-    extraSpecialArgs = { inherit inputs; myLib = lib; };
+    extraSpecialArgs = { inherit inputs outputs; myLib = lib; };
     modules = [ config self.outputs.homeMangerModules.default ];
   };
 }
