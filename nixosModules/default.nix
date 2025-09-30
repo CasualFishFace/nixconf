@@ -1,6 +1,6 @@
-{ flake-inputs, ... }: {
+{ inputs, ... }: {
   imports = [
-    flake-inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
     ./bundles
     ./programs
     ./services

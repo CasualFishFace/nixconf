@@ -12,8 +12,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: let
-    myLib = import ./myLib inputs;
-    inherit (myLib) mkAllSystems mkAllHomes;
+    lib = import ./lib inputs;
+    inherit (lib) mkAllSystems mkAllHomes;
   in {
     nixosModules.default = ./nixosModules;
     homeManagerModules.default = ./homeManagerModules;

@@ -6,7 +6,7 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
   mkSystem = host: let
     config = ./../hosts/${host}/configuration.nix;
   in nixpkgs.lib.nixosSystem {
-    specialArgs = { flake-inputs = inputs; };
+    specialArgs = { inherit inputs; };
     modules = [ config self.outputs.nixosModules.default ];
   };
 
@@ -25,7 +25,7 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
     system = self.outputs.nixosConfigurations.${host}.nixpkgs.hostPlatform;
   in home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs { inherit system; };
-    extraSpecialArgs = { flake-inputs = inputs; };
+    extraSpecialArgs = { inherit inputs; };
     modules = [ config self.outputs.homeMangerModules.default ];
   };
 }
