@@ -46,13 +46,12 @@
   environment = {
     systemPackages = with pkgs; [
       fd
+      ghostty
       git
       helix
       nil
       ripgrep
       tree
-
-      kitty
     ];
     sessionVariables = {
       EDITOR = "hx";
