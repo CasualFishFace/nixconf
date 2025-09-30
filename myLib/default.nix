@@ -26,6 +26,6 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
   in home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs { inherit system; };
     extraSpecialArgs = { flake-inputs = inputs; };
-    modules = [ config ];
+    modules = [ config self.outputs.homeMangerModules.default ];
   };
 }
