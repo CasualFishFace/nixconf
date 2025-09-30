@@ -1,7 +1,8 @@
 # Define user accounts. Remember to set passwords with `passwd`.
-{ lib, config, ... }: {
-  home-manager.users =
-    lib.genAttrs (builtins.attrNames config.users.users) (user: ./${user});
+{ lib, ... }: {
+  home-manager.users = lib.genAttrs [
+    "fishface"
+  ] (user: ./${user});
   
   users.users = {
     fishface = {
