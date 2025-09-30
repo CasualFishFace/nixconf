@@ -3,7 +3,7 @@
     Enables the Discord Instant Messenger
   '';
 
-  config.home.packages = lib.mkIf config.programs.discord.enable [
-    pkgs.discord
-  ];
+  config = lib.mkIf config.programs.discord.enable {
+    home.packages = [ pkgs.discord ];
+  };
 }
