@@ -11,11 +11,15 @@
 
     environment = {
       systemPackages = with pkgs; [
+        # Fonts ===============================================================
+        font-awesome
+        nerd-fonts
+
+        # Packages ============================================================
         fd
         ghostty
         git
         helix
-        nerd-fonts.jetbrains-mono
         nil
         ripgrep
         tree
