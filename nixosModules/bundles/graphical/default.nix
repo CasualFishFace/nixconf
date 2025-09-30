@@ -13,7 +13,7 @@
       systemPackages = with pkgs; [
         # Fonts ===============================================================
         font-awesome
-        nerd-fonts
+        nerd-fonts.jetbrains-mono
 
         # Packages ============================================================
         fd
