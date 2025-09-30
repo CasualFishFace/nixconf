@@ -1,5 +1,7 @@
-{ outputs, ... }: {
-  imports = [ outputs.homeManagerModules.default ];
+{ ... }: {
+  imports = [
+    ./../../../../homeManagerModules
+  ];
   
   home = {
     stateVersion = "25.05";
