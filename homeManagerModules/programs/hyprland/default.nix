@@ -21,6 +21,7 @@
     monitor = ", preferred, auto, auto";
     "$terminal" = "ghostty";
     "$menu" = "rofi -show drun";
+    "$bar" = "waybar";
 
     #################
     ### AUTOSTART ###
@@ -31,7 +32,7 @@
 
     exec-once = [
       "$terminal"
-      # "$browser"
+      "$bar &"
     ];
 
     #############################

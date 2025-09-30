@@ -1,1 +1,73 @@
-* {}
+@define-color bg0 #004070;
+@define-color bg1 #006080;
+@define-color fg0 white;
+@define-color inactive #00a0dd;
+@define-color active #00f0dd;
+@define-color urgent #e00060;
+@define-color selection white;
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+window#waybar {
+  background-color: alpha(@bg0, 0.8);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.modules-left {
+  margin-left: 5px;
+}
+
+.modules-right {
+  margin-right: 5px;
+}
+
+.modules-center {
+  margin: 0 5px;
+}
+
+.module {
+  background: @bg1;
+  border-radius: 10px;
+  color: @fg0;
+  margin: 2.5px;
+  min-height: 0;
+  padding: 0 5px;
+}
+
+#workspaces {
+  margin: 2px 20px;
+  min-height: 0;
+  padding: 2.5px 0;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button {
+  background: @inactive;
+  border-radius: 9999px;
+  color: transparent;
+  font-size: 0;
+  margin: 2.5px 5px;
+  min-width: 10px;
+  min-height: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+  background: @active;
+  min-width: 40px;
+}
+
+#workspaces button.urgent {
+  background: @urgent;
+  min-width: 40px;
+}
+
+#workspaces button:hover {
+  border: 2px solid @selection;
+  box-shadow: none;
+  text-shadow: none;
+  transition: border-width 0;
+}
