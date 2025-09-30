@@ -14,12 +14,13 @@ inputs@{ self, nixpkgs, home-manager, ... }: rec {
   mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;
   mkSystem = host: let
     config = ./../hosts/${host}/configuration.nix;
+    homeFiles = homeFilesOnHost host;
   in nixpkgs.lib.nixosSystem {
     specialArgs = { inherit inputs; };
     modules = [
       config
       self.outputs.nixosModules.default
-    ] ++ homeFilesOnHost;
+    ] ++ homeFiles;
   };
 
   # Home Manager functions ====================================================
