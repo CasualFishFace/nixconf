@@ -39,12 +39,6 @@
     variant = "";
   };
 
-  home-manager = {
-    backupFileExtension = "bak";
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
-
   myNixos.graphical.enable = true;
 
   # This value determines the NixOS release from which the default
