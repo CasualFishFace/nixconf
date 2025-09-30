@@ -10,6 +10,5 @@
     packages = [];
   };
 
-  wayland.windowManager.hyprland.enable = true;
-  programs.rofi.enable = true;
+  myHome.bundles.graphical.enable = true;
 }

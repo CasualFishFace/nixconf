@@ -1,10 +1,9 @@
 { pkgs, lib, config, ... }: {
-  options.myNixos.graphical.enable = lib.mkEnableOption ''
+  options.myNixos.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages I typically use with graphical NixOS installations.
   '';
 
-  config = lib.mkIf config.myNixos.graphical.enable {
-    programs.firefox.enable = true;
+  config = lib.mkIf config.myNixos.bundles.graphical.enable {
     programs.hyprland.enable = true;
 
     security.rtkit.enable = true;
