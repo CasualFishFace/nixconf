@@ -11,7 +11,6 @@
     # Create your files separately and then link them to this file like this:
     # source = ~/.config/hypr/myColors.conf
 
-
     ################
     ### MONITORS ###
     ################
@@ -19,7 +18,6 @@
     monitor = ", preferred, auto, auto";
     "$terminal" = "ghostty";
     "$menu" = "rofi -show drun";
-
 
     #################
     ### AUTOSTART ###
@@ -33,7 +31,6 @@
       # "$browser"
     ];
 
-
     #############################
     ### ENVIRONMENT VARIABLES ###
     #############################
@@ -42,7 +39,6 @@
       "XCURSOR_SIZE,24"
       "HYPRCURSOR_SIZE,24"
     ];
-
 
     ###################
     ### PERMISSIONS ###
@@ -85,6 +81,8 @@
         layout = "dwindle";
     };
 
+    cursor.no_hardware_cursors = 1;
+    
     # https://wiki.hypr.land/Configuring/Variables/#decoration
     decoration = {
         rounding = 10;
