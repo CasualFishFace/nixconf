@@ -22,11 +22,6 @@ in rec {
     modules = [
       config
       self.outputs.nixosModules.default
-      {
-        home-manager.users = nixpkgs.lib.genAttrs users (username:
-          ./../hosts/${host}/users/${username}
-        );
-      }
     ];
   };
 
