@@ -13,7 +13,7 @@
 
   outputs = inputs@{ self, nixpkgs, ... }: let
     myLib = import ./myLib inputs;
-    inherit (myLib) mkAllSystems mkHome;
+    inherit (myLib) mkAllSystems mkAllHomes;
   in {
     nixosModules.default = ./nixosModules;
     homeManagerModules.default = ./homeManagerModules;
@@ -22,8 +22,8 @@
       "desktop"
     ];
 
-    homeConfigurations = {
-      "fishface@desktop" = mkHome "fishface" "desktop";
+    homeConfigurations = mkAllHomes {
+      fishface = { hosts = [ "desktop" ]; };
     };
   };
 }
