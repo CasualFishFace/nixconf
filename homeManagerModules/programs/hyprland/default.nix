@@ -1,6 +1,5 @@
 {
   imports = [
-    ./hyprpanel
   ];
   
   wayland.windowManager.hyprland.settings = {

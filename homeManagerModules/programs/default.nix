@@ -2,5 +2,6 @@
   imports = [
     ./discord
     ./hyprland
+    ./waybar
   ];
 }

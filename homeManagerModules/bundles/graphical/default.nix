@@ -10,7 +10,7 @@
 
     # Hyprland ================================================================
     wayland.windowManager.hyprland.enable = true;
-    programs.hyprpanel.enable = true;
+    programs.waybar.enable = true;
     programs.rofi.enable = true;
   };
 }
