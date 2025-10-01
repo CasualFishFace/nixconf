@@ -44,7 +44,7 @@ window#waybar.empty #window {
 #workspaces {
   margin: 2px 20px;
   min-height: 0;
-  padding: 2.5px 0;
+  padding: 2.5px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -53,7 +53,7 @@ window#waybar.empty #window {
   border-radius: 9999px;
   color: transparent;
   font-size: 0;
-  margin: 2.5px 5px;
+  margin: 2.5px;
   min-width: 10px;
   min-height: 0;
   transition: all 0.2s ease-in-out;
