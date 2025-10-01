@@ -3,7 +3,9 @@
     Enables the gaming specialisation, allowing it to appear in the bootloader.
   '';
 
-  specialisation = lib.mkIf config.myNixos.specialisations.gaming.enable {
+  config.specialisation = let
+    gaming = config.myNixos.specialisations.gaming;
+  in lib.mkIf gaming.enable {
     gaming.configuration = {
       system.nixos.tags = [ "gaming" ];
 
