@@ -170,8 +170,9 @@
       # General binds
       "$mainMod, RETURN, exec, $terminal"
       "$mainMod, Q, killactive,"
-      "$mainMod SHIFT, X, exit,"
+      "$mainMod, F, togglefullscreen,"
       "$mainMod, SPACE, togglefloating,"
+      "$mainMod SHIFT, X, exit,"
       "$mainMod, D, exec, $menu"
       "$mainMod, P, pseudo, # dwindle"
       "$mainMod, O, togglesplit, # dwindle"
