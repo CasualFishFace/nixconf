@@ -1,6 +1,8 @@
 { inputs, outputs, myLib, ... }: {
   imports = [
     ./bundles
+    ./specialisations
+
     ./programs
     ./services
     ./system
