@@ -7,6 +7,7 @@
     # General =================================================================
     programs.discord.enable = true;
     programs.firefox.enable = true;
+    programs.helix.enable = true;
 
     # Hyprland ================================================================
     wayland.windowManager.hyprland.enable = true;
