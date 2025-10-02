@@ -1,19 +1,20 @@
-{
+{ config, ... }: {
   stylix.targets.waybar.enable = false;
   
   programs.waybar.style = let
     unprocessed = builtins.readFile ./style.css;
+    inherit (config.lib.stylix) colors;
     names = builtins.map (x: "--${x}") [
       "bg0" "bg1"
       "fg0"
       "border0"
       "inactive" "active" "urgent"
     ];
-    values = [      
-      "#004070" "#006080"
-      "#ffffff"
-      "#ffffff"
-      "#00a0dd" "#00f0dd" "#e00060"
+    values = with colors.withHashtag; [
+      base00 base01
+      base05
+      base05
+      base03 base08 base0D
     ];
   in builtins.replaceStrings names values unprocessed;
 
