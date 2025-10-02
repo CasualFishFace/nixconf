@@ -52,6 +52,7 @@ in rec {
     modules = [
       config
       self.outputs.homeMangerModules.default
+      inputs.stylix.homeModules.stylix
     ];
   };
 
