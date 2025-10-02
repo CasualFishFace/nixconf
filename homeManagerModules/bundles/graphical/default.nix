@@ -9,6 +9,14 @@
     wallpaper = myLib.themeWallpaper selectedTheme;
   in lib.mkIf config.myHome.bundles.graphical.enable {
     # Theming =================================================================
+    home.pointerCursor = {
+      enable = true;
+      size = 96;
+
+      hyprcursor.enable = true;
+      hyprcursor.size = 96;
+    };
+    
     stylix = {
       enable = true;
       image = wallpaper;
