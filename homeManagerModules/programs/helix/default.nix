@@ -1,7 +1,8 @@
 {
   programs.helix.settings = {
-    theme = "catppuccin_mocha";
+    # theme = "catppuccin_mocha";
     editor = {
+      bufferline = "multiple";
       rulers = [ 80 ];
     };
   };
