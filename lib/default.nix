@@ -1,8 +1,16 @@
-inputs@{ self, nixpkgs, stylix, home-manager, ... }: let
+inputs@{ self, nixpkgs, home-manager, ... }: let
   lib = import ./default.nix inputs;
   inherit (self) outputs;
 in rec {
   # Helper functions ==========================================================
+
+  firstFileStartingWith = directory: prefix: let
+    entries = builtins.readDir directory;
+    filtered = nixpkgs.lib.filterAttrs (name: type:
+      (type == "regular") &&
+      (nixpkgs.lib.hasPrefix prefix name)
+    ) entries;
+  in builtins.head (builtins.attrNames filtered);
 
   dirsIn = dir: let
     entries = builtins.readDir dir;
@@ -46,4 +54,8 @@ in rec {
       self.outputs.homeMangerModules.default
     ];
   };
+
+  # Theme functions ===========================================================
+
+  themeWallpaper = directory: firstFileStartingWith directory "wallpaper.";
 }

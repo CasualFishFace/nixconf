@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, myLib, lib, ... }: {
   options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages someone might typically use in their graphical installation
   '';
@@ -6,11 +6,15 @@
   config = let
     themesDirectory = ./../../themes;
     selectedTheme = "${themesDirectory}/${config.myHome.theme}";
+    wallpaper = myLib.themeWallpaper selectedTheme;
   in lib.mkIf config.myHome.bundles.graphical.enable {
     # Theming =================================================================
-    stylix.enable = true;
-    stylix.base16Scheme = lib.mkIf (config.myHome.theme != null)
-      "${selectedTheme}/scheme.yaml";
+    stylix = {
+      enable = true;
+      image = wallpaper;
+      polarity = "dark";
+      base16Scheme = "${selectedTheme}/scheme.yaml";
+    };
     
     # General =================================================================
     programs.discord.enable = true;
