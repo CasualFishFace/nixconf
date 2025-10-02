@@ -13,6 +13,9 @@
       enable = true;
       size = 96;
 
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+
       hyprcursor.enable = true;
       hyprcursor.size = 96;
     };
@@ -23,11 +26,6 @@
       polarity = "dark";
       base16Scheme = lib.mkIf (config.myHome.theme != null)
         "${selectedTheme}/scheme.yaml";
-
-      cursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-      };
 
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
