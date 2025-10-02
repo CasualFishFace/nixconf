@@ -13,7 +13,8 @@
       enable = true;
       image = wallpaper;
       polarity = "dark";
-      base16Scheme = "${selectedTheme}/scheme.yaml";
+      base16Scheme = lib.mkIf (config.myHome.theme != null)
+        "${selectedTheme}/scheme.yaml";
     };
     
     # General =================================================================
