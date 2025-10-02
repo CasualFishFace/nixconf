@@ -3,9 +3,14 @@
     Enables a preset of packages someone might typically use in their graphical installation
   '';
   
-  config = lib.mkIf config.myHome.bundles.graphical.enable {
+  config = let
+    themesDirectory = ./../../themes;
+    selectedTheme = "${themesDirectory}/${config.myHome.theme}";
+  in lib.mkIf config.myHome.bundles.graphical.enable {
     # Theming =================================================================
     stylix.enable = true;
+    stylix.base16Scheme = lib.mkIf (config.myHome.theme != null)
+      "${selectedTheme}/scheme.yaml";
     
     # General =================================================================
     programs.discord.enable = true;

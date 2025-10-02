@@ -6,6 +6,7 @@
   config = lib.mkIf config.myNixos.bundles.graphical.enable {
     # Theming ================================================================
     stylix.enable = true;
+    
     fonts.fontDir.enable = true;
     fonts.fontconfig.enable = true;
     fonts.packages = with pkgs; [
