@@ -11,4 +11,5 @@
   };
 
   myHome.bundles.graphical.enable = true;
+  myHome.theme = "celeste/core";
 }
