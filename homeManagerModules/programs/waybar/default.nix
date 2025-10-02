@@ -1,4 +1,6 @@
 {
+  stylix.targets.waybar.enable = false;
+  
   programs.waybar.style = let
     unprocessed = builtins.readFile ./style.css;
     names = builtins.map (x: "--${x}") [
