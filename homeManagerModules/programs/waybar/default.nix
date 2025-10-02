@@ -14,7 +14,7 @@
       base00 base01
       base05
       base05
-      base03 base08 base0D
+      base03 base0D base08
     ];
   in builtins.replaceStrings names values unprocessed;
 
