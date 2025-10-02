@@ -1,11 +1,9 @@
-@import("${colors}");
-
 * {
   font-family: "JetBrainsMono Nerd Font";
 }
 
 window#waybar {
-  background-color: alpha(@bg0, 0.8);
+  background-color: alpha(--bg0, 0.8);
   box-shadow: none;
   text-shadow: none;
 }
@@ -15,14 +13,14 @@ window#waybar.empty #window {
 }
 
 tooltip {
-  background-color: alpha(@bg0, 0.8);
+  background-color: alpha(--bg0, 0.8);
   border: none;
 }
 
 tooltip label {
-  background-color: @bg1;
+  background-color: --bg1;
   border-radius: 9999px;
-  color: @fg0;
+  color: --fg0;
 }
 
 .modules-left {
@@ -38,9 +36,9 @@ tooltip label {
 }
 
 .module {
-  background: @bg1;
+  background: --bg1;
   border-radius: 10px;
-  color: @fg0;
+  color: --fg0;
   margin: 2.5px;
   min-height: 0;
   padding: 0 5px;
@@ -54,7 +52,7 @@ tooltip label {
 }
 
 #workspaces button {
-  background: @inactive;
+  background: --inactive;
   border-radius: 9999px;
   color: transparent;
   font-size: 0;
@@ -65,17 +63,17 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background: @active;
+  background: --active;
   min-width: 40px;
 }
 
 #workspaces button.urgent {
-  background: @urgent;
+  background: --urgent;
   min-width: 40px;
 }
 
 #workspaces button:hover {
-  border: 2px solid @selection;
+  border: 2px solid --border0;
   box-shadow: none;
   text-shadow: none;
   transition: border-width 0;

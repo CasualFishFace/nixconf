@@ -1,7 +1,19 @@
 {
   programs.waybar.style = let
     unprocessed = builtins.readFile ./style.css;
-  in builtins.replaceStrings ["\${colors}"] ["${./colors.css}"] unprocessed;
+    names = builtins.map (x: "--${x}") [
+      "bg0" "bg1"
+      "fg0"
+      "border0"
+      "inactive" "active" "urgent"
+    ];
+    values = [      
+      "#004070" "#006080"
+      "#ffffff"
+      "#00a0dd"
+      "#00f0dd" "#e00060" "#ffffff"
+    ];
+  in builtins.replaceStrings names values unprocessed;
 
   programs.waybar.settings = {
     main = {
