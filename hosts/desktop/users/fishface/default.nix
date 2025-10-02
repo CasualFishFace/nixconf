@@ -9,10 +9,12 @@
     homeDirectory = "/home/fishface";
     packages = [
       (pkgs.writeShellScriptBin "startgaming" ''
-        sudo /run/current-system/gaming/switch-to-configuration switch
+        sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
       '')
     ];
   };
+
+  stylix.targets.firefox.profileNames = [ "fishface" ];
 
   myHome.bundles.graphical.enable = true;
   myHome.theme = "celeste/core";
