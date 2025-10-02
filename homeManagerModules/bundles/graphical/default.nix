@@ -4,6 +4,9 @@
   '';
   
   config = lib.mkIf config.myHome.bundles.graphical.enable {
+    # Theming =================================================================
+    stylix.enable = true;
+    
     # General =================================================================
     programs.discord.enable = true;
     programs.firefox.enable = true;

@@ -4,17 +4,18 @@
   '';
 
   config = lib.mkIf config.myNixos.bundles.graphical.enable {
-    programs.hyprland.enable = true;
-
-    security.rtkit.enable = true;
-    services.pipewire.enable = true;
-
+    # Theming ================================================================
+    stylix.enable = true;
     fonts.fontDir.enable = true;
     fonts.fontconfig.enable = true;
     fonts.packages = with pkgs; [
       font-awesome
       nerd-fonts.jetbrains-mono
     ];
+
+    # General ================================================================
+    security.rtkit.enable = true;
+    services.pipewire.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
@@ -28,5 +29,8 @@
         EDITOR = "hx";
       };
     };
+
+    # Hyprland ================================================================
+    programs.hyprland.enable = true;
   };
 }
