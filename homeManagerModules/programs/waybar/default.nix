@@ -10,8 +10,8 @@
     values = [      
       "#004070" "#006080"
       "#ffffff"
-      "#00a0dd"
-      "#00f0dd" "#e00060" "#ffffff"
+      "#ffffff"
+      "#00a0dd" "#00f0dd" "#e00060"
     ];
   in builtins.replaceStrings names values unprocessed;
 
