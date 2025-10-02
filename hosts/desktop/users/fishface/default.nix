@@ -1,4 +1,4 @@
-{ outputs, ... }: {
+{ outputs, pkgs, ... }: {
   imports = [
     outputs.homeManagerModules.default
   ];
@@ -7,7 +7,11 @@
     stateVersion = "25.05";
     username = "fishface";
     homeDirectory = "/home/fishface";
-    packages = [];
+    packages = [
+      (pkgs.writeShellScriptBin "startgaming" ''
+        sudo /run/current-system/gaming/switch-to-configuration switch
+      '')
+    ];
   };
 
   myHome.bundles.graphical.enable = true;
