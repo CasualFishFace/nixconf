@@ -58,5 +58,7 @@ in rec {
 
   # Theme functions ===========================================================
 
-  themeWallpaper = directory: firstFileStartingWith directory "wallpaper.";
+  themeWallpaper = directory: let
+    fileName = firstFileStartingWith directory "wallpaper.";
+  in directory + "/${fileName}";
 }
