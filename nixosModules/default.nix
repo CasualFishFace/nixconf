@@ -1,13 +1,14 @@
 { inputs, outputs, myLib, ... }: {
   imports = [
     ./bundles
-    ./specialisations
-
     ./programs
     ./services
+    ./specialisations
     ./system
 
     inputs.home-manager.nixosModules.home-manager
+    inputs.stylix.nixosModules.stylix
+
     {
       home-manager = {
         extraSpecialArgs = { inherit inputs outputs myLib; };

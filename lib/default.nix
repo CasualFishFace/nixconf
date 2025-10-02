@@ -1,4 +1,4 @@
-inputs@{ self, nixpkgs, home-manager, ... }: let
+inputs@{ self, nixpkgs, stylix, home-manager, ... }: let
   lib = import ./default.nix inputs;
   inherit (self) outputs;
 in rec {
@@ -41,6 +41,9 @@ in rec {
   in home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs { inherit system; };
     extraSpecialArgs = { inherit inputs outputs; myLib = lib; };
-    modules = [ config self.outputs.homeMangerModules.default ];
+    modules = [
+      config
+      self.outputs.homeMangerModules.default
+    ];
   };
 }
