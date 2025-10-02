@@ -1,0 +1,16 @@
+base00: "2a132a" # bg0 -- default bg
+base01: "603960" # bg1 -- alt bg
+base02: "726294" # bg2 -- selection bg
+base03: "e771de" # comment
+base04: "fb95ef" # fg1
+base05: "eadfec" # fg0
+base06: "fdf0c6" # fgl0 -- light fg
+base07: "fdf0c8" # bgl0 -- light bg
+base08: "e35530" # variable
+base09: "e35530" # const, int, bool
+base0A: "59bfcd" # class
+base0B: "a7def7" # string
+base0C: "ff50f0" # escapechar
+base0D: "59bfcd" # function
+base0E: "ff50f0" # keyword
+base0F: "fff3a7" # deprecated
