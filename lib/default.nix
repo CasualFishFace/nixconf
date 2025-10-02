@@ -60,5 +60,5 @@ in rec {
 
   themeWallpaper = directory: let
     fileName = firstFileStartingWith directory "wallpaper.";
-  in directory + "/${fileName}";
+  in "${directory}/${fileName}";
 }

@@ -5,7 +5,10 @@
 
   config = lib.mkIf config.myNixos.bundles.graphical.enable {
     # Theming ================================================================
-    stylix.enable = true;
+    stylix = {
+      enable = true;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    };
     
     fonts.fontDir.enable = true;
     fonts.fontconfig.enable = true;
