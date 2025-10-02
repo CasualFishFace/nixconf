@@ -1,5 +1,8 @@
 {
-  programs.waybar.style = builtins.readFile ./style.css;
+  programs.waybar.style = let
+    unprocessed = builtins.readFile ./style.css;
+  in builtins.replaceStrings ["\${colors}"] ["${./colors.css}"] unprocessed;
+
   programs.waybar.settings = {
     main = {
       layer = "top";
