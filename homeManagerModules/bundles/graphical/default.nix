@@ -1,4 +1,4 @@
-{ config, myLib, lib, ... }: {
+{ pkgs, config, myLib, lib, ... }: {
   options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages someone might typically use in their graphical installation
   '';
@@ -15,6 +15,11 @@
       polarity = "dark";
       base16Scheme = lib.mkIf (config.myHome.theme != null)
         "${selectedTheme}/scheme.yaml";
+
+      fonts.monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
     };
     
     # General =================================================================

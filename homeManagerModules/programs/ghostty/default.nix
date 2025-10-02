@@ -1,6 +1,6 @@
 {
   programs.ghostty.settings = {
-    font-family = "JetBrainsMono Nerd Font";
+    font-size = 12;
   };
 
   programs.ghostty.themes = {
