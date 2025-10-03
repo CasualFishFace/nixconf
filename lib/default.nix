@@ -67,7 +67,8 @@ in rec {
   themeWallpaper = themeName: let
     directory = themePath themeName;
     fileName = firstFileStartingWith directory "wallpaper.";
-  in if (themeName != null)
-    then "${directory}/${fileName}"
+    path = "${directory}/${fileName}";
+  in if (themeName != null && builtins.pathExists path)
+    then path
     else null;
 }

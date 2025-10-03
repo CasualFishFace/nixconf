@@ -8,11 +8,12 @@
     stylix = let
       selected = myLib.themePath config.myNixos.theme;
       wallpaper = myLib.themeWallpaper config.myNixos.theme;
+      scheme = selected + "/scheme.yaml";
     in {
       enable = true;
       image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";
-      base16Scheme = lib.mkIf (selected != null) "${selected}/scheme.yaml";
+      base16Scheme = lib.mkIf (builtins.pathExists scheme) scheme;
 
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
