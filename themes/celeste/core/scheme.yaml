@@ -5,7 +5,7 @@ base03: "e771de" # comment
 base04: "fb95ef" # fg1
 base05: "eadfec" # fg0
 base06: "fdf0c6" # fgl0 -- light fg
-base07: "fdf0c8" # bgl0 -- light bg
+base07: "fdf0c6" # bgl0 -- light bg
 base08: "e35530" # variable
 base09: "e35530" # const, int, bool
 base0A: "59bfcd" # class
