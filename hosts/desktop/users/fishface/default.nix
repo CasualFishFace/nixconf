@@ -1,4 +1,4 @@
-{ outputs, pkgs, ... }: {
+{ outputs, pkgs, lib, ... }: {
   imports = [
     outputs.homeManagerModules.default
   ];
@@ -16,4 +16,9 @@
 
   myHome.bundles.graphical.enable = true;
   stylix.targets.firefox.profileNames = [ "fishface" ];
+
+  programs.helix.themes.stylix."ui.background" = lib.mkForce {
+    fg = "foreground";
+    bg = "none";
+  };
 }
