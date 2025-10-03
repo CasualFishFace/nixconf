@@ -58,19 +58,22 @@ in rec {
 
   # Theme functions ===========================================================
 
-  themesDirectory = ./../themes;
+  themes = rec {
+    dir = ./../themes;
 
-  themePath = themeName: if (themeName != null)
-    then "${themesDirectory}/${themeName}"
-    else null;
+    path = name: if name != null then "${dir}/${name}" else null;
 
-  themeWallpaper = themeName: let
-    directory = themePath themeName;
-    fileName = firstFileStartingWith directory "wallpaper.";
-    path = "${directory}/${fileName}";
-  in if (themeName != null && builtins.pathExists path)
-    then path
-    else null;
+    wallpaper = name: let
+      directory = path name;
+      fileName = firstFileStartingWith directory "wallpaper.";
+      p = "${directory}/${fileName}";
+    in if name != null && builtins.pathExists p then p else null;
+
+    scheme = name: let
+      directory = path name;
+      p = "${directory}/scheme.yaml";
+    in if name != null && builtins.pathExists p then p else null;
+  };
 
   stylixConfig = {
     enable ? true,
@@ -78,9 +81,8 @@ in rec {
     polarity ? "dark",
     themeName ? null,
   }: let
-    path = themePath themeName;
-    scheme = if path != null then path + "/scheme.yaml" else null;
-    wallpaper = themeWallpaper themeName;
+    scheme = themes.scheme themeName;
+    wallpaper = themes.wallpaper themeName;
   in {
     inherit enable polarity;
     ${if fonts != null then "fonts" else null} = fonts;
