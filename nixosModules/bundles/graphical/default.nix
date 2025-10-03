@@ -13,7 +13,8 @@
       enable = true;
       image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";
-      base16Scheme = lib.mkIf (builtins.pathExists scheme) scheme;
+      base16Scheme = lib.mkIf (scheme != null && builtins.pathExists scheme)
+        scheme;
 
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
