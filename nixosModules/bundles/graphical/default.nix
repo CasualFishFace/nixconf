@@ -5,8 +5,14 @@
 
   config = lib.mkIf config.myNixos.bundles.graphical.enable {
     # Theming ================================================================
-    stylix = myLib.stylixConfig {
-      themeName = "balatro";
+    stylix = let
+      image = myLib.themes.wallpaper config.myNixos.theme;
+      scheme = myLib.themes.scheme config.myNixos.theme;
+    in {
+      enable = true;
+      polarity = "dark";
+      ${if image != null then "image" else null} = image;
+      ${if scheme != null then "base16Scheme" else null} = scheme;
 
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

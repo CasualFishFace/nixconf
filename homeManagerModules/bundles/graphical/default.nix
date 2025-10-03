@@ -1,4 +1,4 @@
-{ pkgs, config, myLib, lib, ... }: {
+{ pkgs, config, lib, ... }: {
   options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages someone might typically use in their graphical installation
   '';
@@ -16,12 +16,7 @@
       hyprcursor.size = 96;
     };
     
-    stylix = myLib.stylixConfig {
-      fonts.monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
-      };
-    };
+    stylix.enable = true;
     
     # General =================================================================
     programs.discord.enable = true;

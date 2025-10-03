@@ -75,18 +75,18 @@ in rec {
     in if name != null && builtins.pathExists p then p else null;
   };
 
-  stylixConfig = {
-    enable ? true,
-    fonts ? null,
-    polarity ? "dark",
-    themeName ? null,
-  }: let
-    scheme = themes.scheme themeName;
-    wallpaper = themes.wallpaper themeName;
-  in {
-    inherit enable polarity;
-    ${if fonts != null then "fonts" else null} = fonts;
-    ${if wallpaper != null then "image" else null} = wallpaper;
-    ${if builtins.pathExists scheme then "base16Scheme" else null} = scheme;
-  };
+  # stylixConfig = {
+  #   enable ? true,
+  #   fonts ? null,
+  #   polarity ? "dark",
+  #   themeName ? null,
+  # }: let
+  #   scheme = themes.scheme themeName;
+  #   wallpaper = themes.wallpaper themeName;
+  # in {
+  #   inherit enable polarity;
+  #   ${if fonts != null then "fonts" else null} = fonts;
+  #   ${if wallpaper != null then "image" else null} = wallpaper;
+  #   ${if builtins.pathExists scheme then "base16Scheme" else null} = scheme;
+  # };
 }
