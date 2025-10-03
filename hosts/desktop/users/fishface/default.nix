@@ -14,8 +14,6 @@
     ];
   };
 
-  stylix.targets.firefox.profileNames = [ "fishface" ];
-
   myHome.bundles.graphical.enable = true;
-  myHome.theme = "celeste/core";
+  stylix.targets.firefox.profileNames = [ "fishface" ];
 }

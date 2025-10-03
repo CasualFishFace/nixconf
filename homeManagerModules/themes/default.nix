@@ -1,8 +1,7 @@
 { lib, ... }: {
   options.myHome.theme = lib.mkOption {
     description = ''
-      The system theme (determined by the subpath within
-      `homeManagerModules/themes`).
+      The user theme (determined by the subpath within the themes directory).
     '';
     type = with lib.types; nullOr str;
     default = null;

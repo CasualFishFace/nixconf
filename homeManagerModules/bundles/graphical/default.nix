@@ -4,9 +4,8 @@
   '';
   
   config = let
-    themesDirectory = ./../../themes;
-    selectedTheme = "${themesDirectory}/${config.myHome.theme}";
-    wallpaper = myLib.themeWallpaper selectedTheme;
+    selected = myLib.themePath config.myHome.theme;
+    wallpaper = myLib.themeWallpaper config.myHome.theme;
   in lib.mkIf config.myHome.bundles.graphical.enable {
     # Theming =================================================================
     home.pointerCursor = {
@@ -22,10 +21,9 @@
     
     stylix = {
       enable = true;
-      image = wallpaper;
+      image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";
-      base16Scheme = lib.mkIf (config.myHome.theme != null)
-        "${selectedTheme}/scheme.yaml";
+      base16Scheme = lib.mkIf (selected != null) "${selected}/scheme.yaml";
 
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

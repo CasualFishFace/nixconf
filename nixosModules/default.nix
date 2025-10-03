@@ -5,6 +5,7 @@
     ./services
     ./specialisations
     ./system
+    ./themes
 
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix

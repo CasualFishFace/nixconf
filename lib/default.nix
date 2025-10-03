@@ -58,7 +58,16 @@ in rec {
 
   # Theme functions ===========================================================
 
-  themeWallpaper = directory: let
+  themesDirectory = ./../themes;
+
+  themePath = themeName: if (themeName != null)
+    then "${themesDirectory}/${themeName}"
+    else null;
+
+  themeWallpaper = themeName: let
+    directory = themePath themeName;
     fileName = firstFileStartingWith directory "wallpaper.";
-  in "${directory}/${fileName}";
+  in if (themeName != null)
+    then "${directory}/${fileName}"
+    else null;
 }
