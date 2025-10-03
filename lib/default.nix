@@ -79,11 +79,12 @@ in rec {
     themeName ? null,
   }: let
     path = themePath themeName;
+    scheme = if path != null then path + "/scheme.yaml" else null;
     wallpaper = themeWallpaper themeName;
   in {
     inherit enable polarity;
     ${if fonts != null then "fonts" else null} = fonts;
     ${if wallpaper != null then "image" else null} = wallpaper;
-    ${if path != null then "base16Scheme" else null} = path + "/scheme.yaml";
+    ${if builtins.pathExists scheme then "base16Scheme" else null} = scheme;
   };
 }
