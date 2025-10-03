@@ -21,6 +21,7 @@ tooltip label {
   background-color: --bg1;
   border-radius: 9999px;
   color: --fg0;
+  text-shadow: none;
 }
 
 .modules-left {

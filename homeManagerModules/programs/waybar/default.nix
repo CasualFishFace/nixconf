@@ -70,9 +70,9 @@
 
       network = {
         format-ethernet = " {ipaddr}/{cidr}";
-        format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
-        format-wifi = "{icon}{essid}";
+        format-wifi = "{icon}";
         format-disconnected = "";
+        format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
         tooltip-format-wifi = "{essid} ({signalStrength}%)";
         tooltip-format-ethernet = "{ifname}";
         tooltip-format-disconnected = "Disconnected";
