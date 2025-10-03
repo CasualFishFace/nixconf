@@ -19,7 +19,7 @@
     stylix = let
       selected = myLib.themePath config.myHome.theme;
       wallpaper = myLib.themeWallpaper config.myHome.theme;
-    in lib.mkDefault {
+    in {
       enable = true;
       image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";

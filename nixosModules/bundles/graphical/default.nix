@@ -8,7 +8,7 @@
     stylix = let
       selected = myLib.themePath config.myNixos.theme;
       wallpaper = myLib.themeWallpaper config.myNixos.theme;
-    in lib.mkDefault {
+    in {
       enable = true;
       image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";
