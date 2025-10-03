@@ -16,17 +16,7 @@
       hyprcursor.size = 96;
     };
     
-    stylix = let
-      selected = myLib.themePath config.myHome.theme;
-      wallpaper = myLib.themeWallpaper config.myHome.theme;
-      scheme = selected + "/scheme.yaml";
-    in {
-      enable = true;
-      image = lib.mkIf (wallpaper != null) wallpaper;
-      polarity = "dark";
-      base16Scheme = lib.mkIf (scheme != null && builtins.pathExists scheme)
-        scheme;
-
+    stylix = myLib.stylixConfig {
       fonts.monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";

@@ -71,4 +71,19 @@ in rec {
   in if (themeName != null && builtins.pathExists path)
     then path
     else null;
+
+  stylixConfig = {
+    enable ? true,
+    fonts ? null,
+    polarity ? "dark",
+    themeName ? null,
+  }: let
+    path = themePath themeName;
+    wallpaper = themeWallpaper themeName;
+  in {
+    inherit enable polarity;
+    ${if fonts != null then "fonts" else null} = fonts;
+    ${if wallpaper != null then "image" else null} = wallpaper;
+    ${if path != null then "base16Scheme" else null} = path + "/scheme.yaml";
+  };
 }
