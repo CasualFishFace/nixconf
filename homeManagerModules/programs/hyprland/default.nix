@@ -209,6 +209,11 @@
       # Scroll through existing workspaces with mainMod + scroll
       "$mainMod, mouse_down, workspace, e+1"
       "$mainMod, mouse_up, workspace, e-1"
+
+      # Hyprshot specific
+      ", PRINT, exec, hyprshot -m region"
+      "SUPER, PRINT, exec, hyprshot -m window"
+      "SUPER SHIFT, PRINT, exec, hyprshot -m monitor"
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging
