@@ -4,6 +4,7 @@
     ./ghostty
     ./helix
     ./hyprland
+    ./hyprshot
     ./waybar
   ];
 }
