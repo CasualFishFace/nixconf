@@ -17,8 +17,9 @@
   myHome.bundles.graphical.enable = true;
   stylix.targets.firefox.profileNames = [ "fishface" ];
 
-  programs.helix.themes.stylix."ui.background" = lib.mkForce {
-    fg = "foreground";
-    bg = "none";
+  programs.helix.settings.theme = lib.mkForce "stylix_transparent";
+  programs.helix.themes.stylix_transparent = {
+    inherits = "stylix";
+    "ui.background" = {};
   };
 }
