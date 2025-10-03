@@ -3,10 +3,7 @@
     Enables a preset of packages someone might typically use in their graphical installation
   '';
   
-  config = let
-    selected = myLib.themePath config.myHome.theme;
-    wallpaper = myLib.themeWallpaper config.myHome.theme;
-  in lib.mkIf config.myHome.bundles.graphical.enable {
+  config = lib.mkIf config.myHome.bundles.graphical.enable {
     # Theming =================================================================
     home.pointerCursor = {
       enable = true;
@@ -19,7 +16,10 @@
       hyprcursor.size = 96;
     };
     
-    stylix = {
+    stylix = let
+      selected = myLib.themePath config.myHome.theme;
+      wallpaper = myLib.themeWallpaper config.myHome.theme;
+    in lib.mkDefault {
       enable = true;
       image = lib.mkIf (wallpaper != null) wallpaper;
       polarity = "dark";

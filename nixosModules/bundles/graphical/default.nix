@@ -1,13 +1,23 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, myLib, lib, config, ... }: {
   options.myNixos.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages I typically use with graphical NixOS installations.
   '';
 
   config = lib.mkIf config.myNixos.bundles.graphical.enable {
     # Theming ================================================================
-    stylix = {
+    stylix = let
+      selected = myLib.themePath config.myNixos.theme;
+      wallpaper = myLib.themeWallpaper config.myNixos.theme;
+    in lib.mkDefault {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      image = lib.mkIf (wallpaper != null) wallpaper;
+      polarity = "dark";
+      base16Scheme = lib.mkIf (selected != null) "${selected}/scheme.yaml";
+
+      fonts.monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
     };
     
     fonts.fontDir.enable = true;
