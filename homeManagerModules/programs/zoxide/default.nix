@@ -1,3 +1,6 @@
 {
-  programs.zoxide.options = [ "--cmd cd" ];
+  programs.zoxide.options = [
+    "--no-cmd"
+    "--cmd cd"
+  ];
 }
