@@ -6,5 +6,6 @@
     ./hyprland
     ./hyprshot
     ./waybar
+    ./zoxide
   ];
 }

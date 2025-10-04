@@ -23,6 +23,7 @@
     programs.firefox.enable = true;
     programs.ghostty.enable = true;
     programs.helix.enable = true;
+    programs.zoxide.enable = true;
 
     # Hyprland ================================================================
     wayland.windowManager.hyprland.enable = true;
