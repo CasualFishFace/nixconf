@@ -19,6 +19,7 @@
     stylix.enable = true;
     
     # General =================================================================
+    programs.bash.enable = true;
     programs.discord.enable = true;
     programs.firefox.enable = true;
     programs.ghostty.enable = true;
