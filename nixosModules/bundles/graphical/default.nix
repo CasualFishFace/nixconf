@@ -30,6 +30,7 @@
     # General ================================================================
     security.rtkit.enable = true;
     services.pipewire.enable = true;
+    services.xserver.displayManager.lightdm.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
