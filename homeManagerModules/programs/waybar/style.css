@@ -28,11 +28,11 @@ tooltip label {
 }
 
 box.module {
-  font-size: 0;
+  font-size: 14px;
 }
 
 label.module {
-  font-size: 14px;;
+  font-size: 14px;
 }
 
 .modules-left {
@@ -54,6 +54,7 @@ label.module {
   margin: 2.5px;
   min-height: 0;
   padding: 0 5px;
+  transition: all 0.2s ease-in-out;
 }
 
 #workspaces {
