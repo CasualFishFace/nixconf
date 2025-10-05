@@ -21,7 +21,18 @@ tooltip label {
   background-color: --bg1;
   border-radius: 9999px;
   color: --fg0;
+  font-size: 14px;
+  margin: 2.5px;
+  padding: 2.5px;
   text-shadow: none;
+}
+
+box.module {
+  font-size: 0;
+}
+
+label.module {
+  font-size: 14px;;
 }
 
 .modules-left {
@@ -54,12 +65,15 @@ tooltip label {
 
 #workspaces button {
   background: --inactive;
+  border: 2px solid transparent;
   border-radius: 9999px;
+  box-shadow: none;
   color: transparent;
   font-size: 0;
   margin: 2.5px;
   min-width: 10px;
   min-height: 0;
+  text-shadow: none;
   transition: all 0.2s ease-in-out;
 }
 
@@ -75,7 +89,4 @@ tooltip label {
 
 #workspaces button:hover {
   border: 2px solid --border0;
-  box-shadow: none;
-  text-shadow: none;
-  transition: border-width 0;
 }
