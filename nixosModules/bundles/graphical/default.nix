@@ -30,13 +30,7 @@
     # General ================================================================
     security.rtkit.enable = true;
     services.pipewire.enable = true;
-    services.xserver = {
-      enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        greeters.gtk.enable = true;
-      };
-    };
+    services.displayManager.ly.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
