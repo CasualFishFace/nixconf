@@ -37,6 +37,7 @@
         fd
         git
         nil
+        pavucontrol
         ripgrep
         tree
       ];
