@@ -28,6 +28,7 @@
     # Or execute your favorite apps at launch like this:
 
     exec-once = [
+      "hyprpaper"
       "$terminal"
       "$bar &"
     ];
