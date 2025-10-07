@@ -1,5 +1,6 @@
 * {
   font-family: "JetBrainsMono Nerd Font";
+  transition: all 0.2s ease-in-out;
 }
 
 window#waybar {
