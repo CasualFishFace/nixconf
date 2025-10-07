@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, myLib, lib, ... }: {
   options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
     Enables a preset of packages someone might typically use in their graphical installation
   '';
@@ -28,7 +28,13 @@
 
     # Hyprland ================================================================
     wayland.windowManager.hyprland.enable = true;
-    services.hyprpaper.enable = true;
+    services.hyprpaper = let
+      theme = config.myHome.theme or config.myNixos.theme;
+    in {
+      enable = true;
+      settings.preload = lib.mkIf theme [ myLib.themes.wallpaper theme ];
+    };
+
     programs.hyprshot.enable = true;
     programs.waybar.enable = true;
     programs.rofi.enable = true;

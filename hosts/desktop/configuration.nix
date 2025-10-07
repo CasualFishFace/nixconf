@@ -42,7 +42,7 @@
 
   myNixos.bundles.graphical.enable = true;
   myNixos.specialisations.gaming.enable = true;
-  myNixos.theme = "celeste/core";
+  myNixos.theme = "balatro";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
