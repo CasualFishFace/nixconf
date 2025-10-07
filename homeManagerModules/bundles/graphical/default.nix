@@ -32,7 +32,9 @@
       theme = config.myHome.theme or config.myNixos.theme;
     in {
       enable = true;
-      settings.preload = lib.mkIf theme [ myLib.themes.wallpaper theme ];
+      settings.preload = lib.mkIf (theme != null) [
+        myLib.themes.wallpaper theme
+      ];
     };
 
     programs.hyprshot.enable = true;
