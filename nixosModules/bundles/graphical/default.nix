@@ -30,7 +30,6 @@
     # General ================================================================
     security.rtkit.enable = true;
     services.pipewire.enable = true;
-    services.displayManager.ly.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
