@@ -26,10 +26,11 @@
 
     nixosConfigurations = mkAllSystems [
       "desktop"
+      "laptop"
     ];
 
     homeConfigurations = mkAllHomes {
-      fishface = { hosts = [ "desktop" ]; };
+      fishface = { hosts = [ "desktop" "laptop" ]; };
     };
   };
 }
