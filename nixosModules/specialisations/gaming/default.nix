@@ -27,15 +27,6 @@
       };
 
       hardware.graphics.enable = true;
-      hardware.nvidia.open = true;
-
-      services.xserver.videoDrivers = [
-        "nvidia" # NVIDIA graphics card
-        # "amdgpu" # AMD graphics card
-      ];
-
-      # Enable this for further performance increases (only if you need it)
-      # hardware.nvidia.modesetting.enable = true;
     };
   };
 }

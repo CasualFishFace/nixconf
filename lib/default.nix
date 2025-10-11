@@ -17,8 +17,6 @@ in rec {
     filtered = nixpkgs.lib.filterAttrs (_: t: t == "directory") entries;
   in builtins.attrNames filtered;
 
-  usersOnHost = host: dirsIn ./../hosts/${host}/users;
-
   # NixOS system functions ====================================================
   
   mkAllSystems = hosts: nixpkgs.lib.genAttrs hosts mkSystem;

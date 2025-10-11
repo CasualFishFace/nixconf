@@ -23,7 +23,7 @@
       layer = "top";
       position = "top";
       height = 24;
-      output = [ "DVI-D-1" "HDMI-A-1" ];
+      output = [ "eDP-1" "DVI-D-1" "HDMI-A-1" ];
       modules-left = [ "tray" "hyprland/window" ];
       modules-center = [ "hyprland/workspaces" ];
       modules-right = [ "cpu" "memory" "network" "bluetooth" "clock" ];
