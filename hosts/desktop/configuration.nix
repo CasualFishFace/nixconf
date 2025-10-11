@@ -4,7 +4,7 @@
     ./users
   ];
 
-  # Allow unfree packages
+  # Flakes and unfree packages.
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
