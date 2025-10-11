@@ -5,11 +5,11 @@
 in {
   flake.nixosConfugurations = let
     hosts = myLib.dirsIn ./.;
-    configuration = hostName: ./. + "${hostName}/configuration.nix";
+    configurationFor = hostName: ./. + "${hostName}/configuration.nix";
   in lib.genAttrs hosts (hostName: lib.nixosSystem {
     specialArgs = { inherit inputs outputs myLib; };
     modules = [
-      (configuration hostName)
+      (configurationFor hostName)
       outputs.nixosModules.default
     ];
   });
