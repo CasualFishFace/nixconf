@@ -33,7 +33,7 @@
     in {
       enable = true;
       settings.preload = lib.mkIf (theme != null) [
-        myLib.themes.wallpaper theme
+        ",${myLib.themes.wallpaper theme}"
       ];
     };
 

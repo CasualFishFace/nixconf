@@ -6,6 +6,11 @@
   inputs = {
     nixpkgs.url = "nixpkgs";
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,20 +22,19 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: let
-    lib = import ./lib inputs;
-    inherit (lib) mkAllSystems mkAllHomes;
-  in {
-    nixosModules.default = ./nixosModules;
-    homeManagerModules.default = ./homeManagerModules;
-
-    nixosConfigurations = mkAllSystems [
-      "desktop"
-      "laptop"
+  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
+    inherit inputs;
+  } (top: {
+    imports = [
+      ./hosts
     ];
 
-    homeConfigurations = mkAllHomes {
-      fishface = { hosts = [ "desktop" "laptop" ]; };
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    perSystem = { ... }: {};
+
+    flake = {
+      nixosModules.default = ./nixosModules;
+      homeManagerModules.default = ./homeManagerModules;
     };
-  };
+  });
 }
