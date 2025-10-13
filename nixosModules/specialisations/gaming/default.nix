@@ -9,6 +9,9 @@
     gaming.configuration = {
       system.nixos.tags = [ "gaming" ];
 
+      hardware.firmware.enable = true;
+      services.fwupd.enable = true;
+
       programs.gamemode.enable = true;
       programs.steam = {
         enable = true;
