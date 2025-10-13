@@ -10,6 +10,15 @@
       system.nixos.tags = [ "gaming" ];
 
       services.fwupd.enable = true;
+      services.udev.extraRules = ''
+        # 8BitDo Ultimate Bluetooth Controller's boot HID interface (seems to be shared by multiple 8BitDo devices)
+        # Change it only if lsusb prints different Product ID when device is in bootloader mode.
+        SUBSYSTEM=="hidraw", ATTRS{idProduct}=="3208", ATTRS{idVendor}=="2dc8", TAG+="uaccess"
+
+        # 8BitDo Ultimate Bluetooth Controller receiver's HID interface (exposed when the controller is not connected)
+        # When it is exposed, the upgrade tool can detect the receiver and automatically put in in bootloader mode.
+        SUBSYSTEM=="hidraw", ATTRS{idProduct}=="3106", ATTRS{idVendor}=="2dc8", TAG+="uaccess"
+      '';
 
       programs.gamemode.enable = true;
       programs.steam = {
