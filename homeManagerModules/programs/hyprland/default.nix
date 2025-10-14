@@ -96,7 +96,10 @@
     };
 
     # https://wiki.hypr.land/Configuring/Variables/#animations
-    animations.enabled = false;
+    animations.enabled = true;
+    animation = [
+      "workspaces, 1, 0.2, easeinout"
+    ];
 
     # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
     # "Smart gaps" / "No gaps when only"

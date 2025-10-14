@@ -29,6 +29,7 @@
 
       environment.systemPackages = with pkgs; [
         bottles
+        corefonts
         mangohud
         wl-clicker
       ];
