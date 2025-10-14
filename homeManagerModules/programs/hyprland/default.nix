@@ -98,7 +98,7 @@
     # https://wiki.hypr.land/Configuring/Variables/#animations
     animations.enabled = true;
     animation = [
-      "workspaces, 1, 0.2, easeinout"
+      "workspaces, 1, 0.2, easeInOutCirc"
     ];
 
     # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
