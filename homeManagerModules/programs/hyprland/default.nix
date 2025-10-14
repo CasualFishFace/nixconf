@@ -98,6 +98,7 @@
     # https://wiki.hypr.land/Configuring/Variables/#animations
     animations.enabled = true;
     animation = [
+      "global, 1, 2, default"
       "workspaces, 1, 2, default"
     ];
 
