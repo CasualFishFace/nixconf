@@ -26,11 +26,26 @@
       output = [ "eDP-1" "DVI-D-1" "HDMI-A-1" ];
       modules-left = [ "tray" "hyprland/window" ];
       modules-center = [ "hyprland/workspaces" ];
-      modules-right = [ "cpu" "memory" "network" "bluetooth" "clock" ];
+      modules-right = [ "bluetooth" "network" "group/sysinfo" ];
+
+      "custom/info" = {
+        format = " 󰋽 ";
+        tooltip = false;
+      };
+
+      "group/sysinfo" = {
+        orientation = "inherit";
+        modules = [ "custom/info" "clock" "cpu" "memory" ];
+        drawer.transition-duration = 200;
+        drawer.transition-left-to-right = false;
+        drawer.click-to-reveal = false;
+      };
 
       "hyprland/window" = {
         format = "{title}";
-        rewrite = {};
+        rewrite = {
+          " *(.*) *" = "$1";
+        };
         separate-outputs = true;
         icon = true;
         icon-size = 16;
@@ -64,7 +79,7 @@
       };
 
       memory = {
-        format = "󰍛 {used}/{total}";
+        format = " {used}/{total}";
         tooltip = false;
       };
 

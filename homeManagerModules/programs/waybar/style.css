@@ -1,11 +1,15 @@
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font Propo";
 }
 
 window#waybar {
   background-color: transparent;
   box-shadow: none;
   text-shadow: none;
+}
+
+window#waybar.empty .module {
+  border: 2px solid --inactive;
 }
 
 .module {
@@ -48,9 +52,14 @@ tooltip label {
   text-shadow: none;
 }
 
+#sysinfo {
+  color: --active;
+}
+
 window#waybar.empty #window {
   border: none;
   background-color: transparent;
+  transition: none;
 }
 
 #workspaces {

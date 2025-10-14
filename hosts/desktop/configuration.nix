@@ -42,11 +42,10 @@
 
   myNixos.bundles.graphical.enable = true;
   myNixos.specialisations.gaming.enable = true;
-  myNixos.theme = "balatro";
+  myNixos.theme = "celeste/core";
 
   # Gaming.
   hardware.nvidia.open = true;
-
   services.xserver.videoDrivers = [
     "nvidia" # NVIDIA graphics card
     # "amdgpu" # AMD graphics card
