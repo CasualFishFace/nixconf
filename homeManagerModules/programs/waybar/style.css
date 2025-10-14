@@ -18,7 +18,7 @@ window#waybar.empty #window {
   border-radius: 10px;
   color: --fg0;
   font-size: 14px;
-  margin: 3px 0;
+  margin-top: 5px;
   min-height: 0;
   padding: 0 5px;
   transition: all 0.2s ease-in-out;
@@ -55,7 +55,7 @@ tooltip label {
 #workspaces {
   font-size: 0;
   min-height: 0;
-  padding: 5px;
+  padding: 0;
   transition: all 0.2s ease-in-out;
 }
 
@@ -65,6 +65,7 @@ tooltip label {
   border-radius: 10px;
   box-shadow: none;
   color: transparent;
+  margin: 5px;
   min-width: 10px;
   min-height: 0;
   text-shadow: none;
