@@ -98,7 +98,7 @@
     # https://wiki.hypr.land/Configuring/Variables/#animations
     animations.enabled = true;
     animation = [
-      "workspaces, 1, 0.2, default"
+      "workspaces, 1, 2, default"
     ];
 
     # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
