@@ -1,39 +1,16 @@
 * {
   font-family: "JetBrainsMono Nerd Font";
-  transition: all 0.2s ease-in-out;
 }
 
 window#waybar {
-  background-color: alpha(--bg0, 0.8);
+  background-color: transparent;
   box-shadow: none;
+  padding: 0 15px;
   text-shadow: none;
 }
 
 window#waybar.empty #window {
   background-color: transparent;
-}
-
-tooltip {
-  background-color: alpha(--bg0, 0.8);
-  border: none;
-}
-
-tooltip label {
-  background-color: --bg1;
-  border-radius: 9999px;
-  color: --fg0;
-  font-size: 14px;
-  margin: 2.5px;
-  padding: 2.5px;
-  text-shadow: none;
-}
-
-box.module {
-  font-size: 14px;
-}
-
-label.module {
-  font-size: 14px;
 }
 
 .modules-left {
@@ -49,16 +26,33 @@ label.module {
 }
 
 .module {
-  background: --bg1;
+  background: alpha(--bg0, 0.8);
   border-radius: 10px;
   color: --fg0;
+  font-size: 14px;
   margin: 2.5px;
   min-height: 0;
   padding: 0 5px;
   transition: all 0.2s ease-in-out;
 }
 
+tooltip {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+tooltip label {
+  background-color: alpha(--bg0, 0.8);
+  border-radius: 10px;
+  color: --fg0;
+  padding: 5px;
+  text-shadow: none;
+}
+
 #workspaces {
+  font-size: 0;
   margin: 2px 20px;
   min-height: 0;
   padding: 2.5px;
@@ -71,7 +65,6 @@ label.module {
   border-radius: 9999px;
   box-shadow: none;
   color: transparent;
-  font-size: 0;
   margin: 2.5px;
   min-width: 10px;
   min-height: 0;
