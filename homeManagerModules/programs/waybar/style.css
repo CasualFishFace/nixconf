@@ -8,10 +8,6 @@ window#waybar {
   text-shadow: none;
 }
 
-window#waybar.empty #window {
-  background-color: transparent;
-}
-
 .module {
   background-color: alpha(--bg0, 0.8);
   border: 2px solid --active;
@@ -50,6 +46,11 @@ tooltip label {
   background-color: transparent;
   color: --fg0;
   text-shadow: none;
+}
+
+window#waybar.empty #window {
+  border: none;
+  background-color: transparent;
 }
 
 #workspaces {
