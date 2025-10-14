@@ -41,13 +41,12 @@ window#waybar.empty #window {
 }
 
 tooltip {
-  background-color: transparent;
+  background-color: alpha(--bg0, 0.8);
   border: 2px solid --active;
   border-radius: 10px;
 }
 
 tooltip label {
-  background-color: alpha(--bg0, 0.8);
   color: --fg0;
   text-shadow: none;
 }
