@@ -65,7 +65,7 @@
     # https://wiki.hypr.land/Configuring/Variables/#general
     general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 5;
 
         border_size = 2;
 
@@ -83,7 +83,7 @@
     # https://wiki.hypr.land/Configuring/Variables/#decoration
     decoration = {
         rounding = 10;
-        rounding_power = 2;
+        rounding_power = 1;
 
         # Change transparency of focused and unfocused windows
         active_opacity = 1;
