@@ -90,6 +90,37 @@ tooltip label {
   transition: none;
 }
 
+#power {
+  background: alpha(--bg0, 0.8);
+  border: 2px solid --active;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+#power:hover {
+  border-right: none;
+}
+
+#power .module {
+  background: transparent;
+  padding: 0;
+}
+
+#power .drawer .module {
+  margin: -2px 0px -2px 5px;
+}
+
+#power > widget .module {
+  border: 2px solid --active;
+  margin: -2px;
+  transition: margin-right 0.2s ease-in-out;
+}
+
+#power:hover > widget .module {
+  margin-right: 0;
+  transition: none;
+}
+
 #workspaces {
   font-size: 0;
   padding: 5px 0 5px 5px;

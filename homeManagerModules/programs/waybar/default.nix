@@ -24,13 +24,39 @@
       position = "top";
       height = 24;
       output = [ "eDP-1" "DVI-D-1" "HDMI-A-1" ];
-      modules-left = [ "tray" "hyprland/window" ];
+      modules-left = [ "group/power" "tray" "hyprland/window" ];
       modules-center = [ "hyprland/workspaces" ];
       modules-right = [ "bluetooth" "network" "group/sysinfo" ];
 
       "custom/info" = {
         format = " 󰋽 ";
         tooltip = false;
+      };
+
+      "custom/power-off" = {
+        format = " ⏻ ";
+        tooltip = false;
+        on-click = "shutdown now";
+      };
+
+      "custom/restart" = {
+        format = "  ";
+        tooltip = false;
+        on-click = "shutdown -r now";
+      };
+
+      "custom/logout" = {
+        format = " 󰗽 ";
+        tooltip = false;
+        on-click = "hyprctl dispatch exit";
+      };
+
+      "group/power" = {
+        orientation = "inherit";
+        modules = [ "custom/power-off" "custom/restart" "custom/logout" ];
+        drawer.transition-duration = 200;
+        drawer.transition-left-to-right = true;
+        drawer.click-to-reveal = false;
       };
 
       "group/sysinfo" = {
