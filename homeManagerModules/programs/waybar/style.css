@@ -5,7 +5,15 @@
 
 window#waybar {
   background: transparent;
+  color: --fg0;
   font-size: 14px;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  border: none;
+  color: transparent;
+  font-size: 0;
 }
 
 tooltip {
@@ -104,5 +112,5 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  border-color: --active;
+  border-color: --fg0;
 }
