@@ -44,7 +44,7 @@
       "hyprland/window" = {
         format = "{title}";
         rewrite = {
-          " *(.*) *" = "$1";
+          "title<(\\s*)(.*)(\\s*)>" = "$2";
         };
         separate-outputs = true;
         icon = true;
