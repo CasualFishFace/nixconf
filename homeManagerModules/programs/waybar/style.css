@@ -16,6 +16,12 @@ window#waybar.empty #window {
   font-size: 0;
 }
 
+window#waybar.top .modules-left,
+window#waybar.top .modules-right,
+window#waybar.top .modules-center {
+  margin-top: 5px;
+}
+
 tooltip {
   background: alpha(--bg0, 0.8);
   border: 2px solid --active;
