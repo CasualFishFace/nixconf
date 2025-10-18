@@ -59,8 +59,8 @@ colors: extraConfig: extraConfig // {
   };
 
   battery = let
-    urgent = colors.withHashTag.base08;
-    low-battery = colors.withHashTag.base0D;
+    urgent = colors.withHashtag.base08;
+    low-battery = colors.withHashtag.base0D;
   in {
     format-10 = "<span style=\"color: ${urgent}\">󰁺 {capacity}%</span>";
     format-20 = "<span style=\"color: ${low-battery}\">󰁻 {capacity}%</span>";
