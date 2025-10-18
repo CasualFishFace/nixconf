@@ -40,7 +40,7 @@
 
   myNixos.bundles.graphical.enable = true;
   myNixos.specialisations.gaming.enable = true;
-  myNixos.theme = "celeste/core";
+  myNixos.theme = "balatro";
 
   # Gaming.
   # hardware.nvidia.open = true;
