@@ -18,8 +18,10 @@
     ];
   in builtins.replaceStrings names values unprocessed;
 
-  programs.waybar.settings = {
-    desktop = import ./withModules.nix {
+  programs.waybar.settings = let
+    withModules = import ./withModules.nix config.lib.stylix.colors;
+  in {
+    desktop = withModules {
       layer = "top";
       position = "top";
       height = 24;
@@ -30,7 +32,7 @@
       modules-right = [ "bluetooth" "network" "clock" "group/usage" ];
     };
 
-    laptop = import ./withModules.nix {
+    laptop = withModules {
       layer = "top";
       position = "top";
       height = 24;

@@ -53,19 +53,19 @@ tooltip label {
   margin-left: 5px;
 }
 
-#sysinfo {
+#usage {
   background: alpha(--bg0, 0.8);
   border: 2px solid --active;
   border-radius: 10px;
   margin-left: 5px;
 }
 
-#sysinfo .drawer .module {
+#usage .drawer .module {
   background: transparent;
   margin: -2px 5px -2px 0px;
 }
 
-#sysinfo > widget .module {
+#usage > widget .module {
   background: transparent;
   border: 2px solid --active;
   margin: -2px;
@@ -73,11 +73,11 @@ tooltip label {
   transition: margin-left 0.2s ease-in-out;
 }
 
-#sysinfo:hover {
+#usage:hover {
   border-left: none;
 }
 
-#sysinfo:hover > widget .module {
+#usage:hover > widget .module {
   margin-left: 0;
   transition: none;
 }

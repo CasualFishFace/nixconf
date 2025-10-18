@@ -1,4 +1,4 @@
-extraConfig: extraConfig // {
+colors: extraConfig: extraConfig // {
   "custom/info" = {
     format = " 󰋽 ";
     tooltip = false;
@@ -56,6 +56,33 @@ extraConfig: extraConfig // {
     on-scroll-up = "hyprctl distpatch workspace e+1";
     on-scroll-down = "hyprctl dispatch workspace e-1";
     on-click = "activate";
+  };
+
+  battery = let
+    urgent = colors.withHashTag.base08;
+    low-battery = colors.withHashTag.base0D;
+  in {
+    format-10 = "<span style=\"color: ${urgent}\">󰁺 {capacity}%</span>";
+    format-20 = "<span style=\"color: ${low-battery}\">󰁻 {capacity}%</span>";
+    format-30 = "󰁼 {capacity}%";
+    format-40 = "󰁽 {capacity}%";
+    format-50 = "󰁾 {capacity}%";
+    format-60 = "󰁿 {capacity}%";
+    format-70 = "󰂀 {capacity}%";
+    format-80 = "󰂁 {capacity}%";
+    format-90 = "󰂂 {capacity}%";
+    format-100 = "󰁹 {capacity}%";
+    format-charging-10 = "󰢜 {capacity}%";
+    format-charging-20 = "󰂆 {capacity}%";
+    format-charging-30 = "󰂇 {capacity}%";
+    format-charging-40 = "󰂈 {capacity}%";
+    format-charging-50 = "󰢝 {capacity}%";
+    format-charging-60 = "󰂉 {capacity}%";
+    format-charging-70 = "󰢞 {capacity}%";
+    format-charging-80 = "󰂊 {capacity}%";
+    format-charging-90 = "󰂋 {capacity}%";
+    format-charging-100 = "󰂅 {capacity}%";
+    states = [ "10" "20" "30" "40" "50" "60" "70" "80" "90" "100" ];
   };
 
   bluetooth = {
