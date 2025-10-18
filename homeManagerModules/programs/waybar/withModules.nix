@@ -2,6 +2,7 @@ colors: extraConfig: extraConfig // {
   "custom/info" = {
     format = " 󰋽 ";
     tooltip = false;
+    on-click = "ghostty -e \"nix-shell -p neofetch --run neofetch\"";
   };
 
   "custom/power-off" = {
