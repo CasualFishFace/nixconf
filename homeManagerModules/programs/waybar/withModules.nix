@@ -41,8 +41,9 @@ colors: extraConfig: extraConfig // {
 
   "hyprland/window" = {
     format = "{title}";
+    max-length = 24;
     rewrite = {
-      "^\\s*(.*)\\s*$" = "$1";
+      "^\\s*(.*?)\\s*$" = "$1";
     };
     separate-outputs = true;
     icon = true;
