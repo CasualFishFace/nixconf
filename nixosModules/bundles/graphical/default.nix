@@ -36,6 +36,8 @@
     security.rtkit.enable = true;
     services.pipewire.enable = true;
 
+    programs.direnv.enable = true;
+
     environment = {
       systemPackages = with pkgs; [
         fd
