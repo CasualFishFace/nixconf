@@ -5,6 +5,7 @@
     ./helix
     ./hyprland
     ./hyprshot
+    ./krita
     ./waybar
     ./zoxide
   ];
