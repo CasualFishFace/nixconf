@@ -31,7 +31,7 @@
         bottles
         corefonts
         mangohud
-        minecraft
+        prismlauncher
         wl-clicker
       ];
 
