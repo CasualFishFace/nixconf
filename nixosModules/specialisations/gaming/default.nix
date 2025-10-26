@@ -31,6 +31,7 @@
         bottles
         corefonts
         mangohud
+        minecraft
         wl-clicker
       ];
 
