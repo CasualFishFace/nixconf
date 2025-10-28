@@ -17,6 +17,11 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:zen-browser/desktop";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
@@ -24,13 +29,14 @@
   } (top: {
     imports = [
       ./hosts
+      ./homeManagerModules
+      ./nixosModules
     ];
 
     systems = [ "x86_64-linux" "aarch64-linux" ];
 
     flake = {
       nixosModules.default = ./nixosModules;
-      homeManagerModules.default = ./homeManagerModules;
     };
   });
 }
