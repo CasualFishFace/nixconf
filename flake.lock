@@ -234,8 +234,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "stylix": "stylix",
-        "zen-browser": "zen-browser"
+        "stylix": "stylix"
       }
     },
     "stylix": {
@@ -365,22 +364,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1761561907,
-        "narHash": "sha256-dykks8MOtLacNxUYWrTQQcG6ynBccRK+euNIqU0yq6Y=",
-        "owner": "zen-browser",
-        "repo": "desktop",
-        "rev": "b3736dfe3214c37aec6ada4717c1595ab90d92f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zen-browser",
-        "repo": "desktop",
         "type": "github"
       }
     }

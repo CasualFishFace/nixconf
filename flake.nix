@@ -17,11 +17,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-browser = {
-      url = "github:zen-browser/desktop";
-      flake = false;
-    };
   };
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
@@ -33,10 +28,19 @@
       ./nixosModules
     ];
 
-    systems = [ "x86_64-linux" "aarch64-linux" ];
+    # flake.packages = let
+    #   myLib = import ./lib inputs;
+    # in myLib.forEachSystem ({ pkgs }: {
+    #   zen-browser = pkgs.stdenv.mkDerivation {
+    #     pname = "zen-browser";
+    #     version = "0.0.0";
+    #     src = builtins.fetchGit {
+    #       url = "https://github.com/zen-browser/desktop";
+    #       rev = "b3736dfe3214c37aec6ada4717c1595ab90d92f9";
+    #     };
+    #   };
+    # });
 
-    flake = {
-      nixosModules.default = ./nixosModules;
-    };
+    systems = [ "x86_64-linux" "aarch64-linux" ];
   });
 }
