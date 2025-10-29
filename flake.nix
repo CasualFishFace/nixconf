@@ -19,8 +19,11 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
-    inherit inputs;
+  outputs = inputs@{ flake-parts, ... }: let
+    myLib = import ./lib inputs;
+  in flake-parts.lib.mkFlake {
+    inherit inputs myLib;
+    outputs = inputs.self.outputs;
   } (top: {
     imports = [
       ./hosts
@@ -28,19 +31,33 @@
       ./nixosModules
     ];
 
-    # flake.packages = let
-    #   myLib = import ./lib inputs;
-    # in myLib.forEachSystem ({ pkgs }: {
-    #   zen-browser = pkgs.stdenv.mkDerivation {
-    #     pname = "zen-browser";
-    #     version = "0.0.0";
-    #     src = builtins.fetchGit {
-    #       url = "https://github.com/zen-browser/desktop";
-    #       rev = "b3736dfe3214c37aec6ada4717c1595ab90d92f9";
-    #     };
-    #   };
-    # });
+    flake.packages = myLib.forEachSystem ({ pkgs }: {
+      huion-driver = pkgs.stdenv.mkDerivation {
+        pname = "huion-driver";
+        version = "1.0";
+        src = pkgs.fetchurl {
+          url = "https://driverdl.huion.com/driver/Linux/HuionTablet_LinuxDriver_v15.0.0.175.x86_64.deb";
+          hash = "sha256-vPTZJj8qgulCx5kpqJ2YQa3vUn/r+RxDAnqzMR8sPt4=";
+        };
+        nativeBuildInputs = [ pkgs.dpkg ];
+        unpackPhase = ''
+          dpkg-deb --fsys-tarfile $src | tar -x --no-same-owner
+        '';
+        installPhase = ''
+          mkdir -p $out
+          cp -r ./* $out/
+        '';
+      };
+      # zen-browser = pkgs.stdenv.mkDerivation {
+      #   pname = "zen-browser";
+      #   version = "0.0.0";
+      #   src = builtins.fetchGit {
+      #     url = "https://github.com/zen-browser/desktop";
+      #     rev = "b3736dfe3214c37aec6ada4717c1595ab90d92f9";
+      #   };
+      # };
+    });
 
-    systems = [ "x86_64-linux" "aarch64-linux" ];
+    systems = myLib.supportedSystems;
   });
 }
