@@ -23,7 +23,7 @@
     inherit inputs;
   } (top: {
     imports = [
-      # inputs.home-manager.flakeModules.home-manager
+      inputs.home-manager.flakeModules.home-manager
       
       ./hosts
       ./homeModules
@@ -51,14 +51,6 @@
           cp -r ./* $out/
         '';
       };
-      # zen-browser = pkgs.stdenv.mkDerivation {
-      #   pname = "zen-browser";
-      #   version = "0.0.0";
-      #   src = builtins.fetchGit {
-      #     url = "https://github.com/zen-browser/desktop";
-      #     rev = "b3736dfe3214c37aec6ada4717c1595ab90d92f9";
-      #   };
-      # };
     };
   });
 }
