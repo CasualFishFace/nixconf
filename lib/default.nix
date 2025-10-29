@@ -8,7 +8,7 @@
 
   # Helper functions ==========================================================
 
-  configurationFor = hostName: ./. + "/${hostName}/configuration.nix";
+  configurationFor = hostName: ./../hosts + "/${hostName}/configuration.nix";
 
   dirsIn = dir: let
     entries = builtins.readDir dir;
