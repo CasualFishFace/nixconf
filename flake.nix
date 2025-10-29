@@ -21,6 +21,7 @@
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
     inherit inputs;
+    specialArgs.myLib = import ./lib inputs;
   } {
     imports = [
       ./hosts

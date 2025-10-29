@@ -1,5 +1,5 @@
-{ pkgs, config, myLib, lib, ... }: {
-  flake.homeModules.default = {
+{ myLib, pkgs, config, lib, ... }: {
+  # flake.homeModules.default = {
     options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
       Enables a preset of packages someone might typically use in their graphical installation
     '';
@@ -43,5 +43,5 @@
       programs.waybar.enable = true;
       programs.rofi.enable = true;
     };
-  };
+  # };
 }

@@ -1,5 +1,5 @@
 {
-  flake.homeModules.default = {
+  # flake.homeModules.default = {
     imports = [
       ./discord
       ./ghostty
@@ -10,5 +10,5 @@
       ./waybar
       ./zoxide
     ];
-  };
+  # };
 }

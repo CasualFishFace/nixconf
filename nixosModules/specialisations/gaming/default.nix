@@ -1,5 +1,5 @@
-{ pkgs, config, lib, ... }: {
-  flake.nixosModules.default = {
+{
+  flake.nixosModules.default = { pkgs, config, lib, ... }: {
     options.myNixos.specialisations.gaming.enable = lib.mkEnableOption ''
       Enables the gaming specialisation, allowing it to appear in the bootloader.
     '';
