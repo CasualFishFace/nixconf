@@ -19,19 +19,20 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }: let
-    myLib = import ./lib inputs;
-  in flake-parts.lib.mkFlake {
-    inherit inputs myLib;
-    outputs = inputs.self.outputs;
+  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
+    inherit inputs;
   } (top: {
     imports = [
       ./hosts
-      ./homeManagerModules
+      ./homeModules
       ./nixosModules
     ];
 
-    flake.packages = myLib.forEachSystem ({ pkgs }: {
+    systems = (import ./lib inputs).supportedSystems;
+
+    flake.packages.x86_64-linux.huion-driver = let
+      pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+    in {
       huion-driver = pkgs.stdenv.mkDerivation {
         pname = "huion-driver";
         version = "1.0";
@@ -56,8 +57,6 @@
       #     rev = "b3736dfe3214c37aec6ada4717c1595ab90d92f9";
       #   };
       # };
-    });
-
-    systems = myLib.supportedSystems;
+    };
   });
 }

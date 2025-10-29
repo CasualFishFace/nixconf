@@ -6,10 +6,6 @@
     "aarch64-darwin"
   ];
 
-  forEachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-    pkgs = import nixpkgs { inherit system; };
-  });
-  
   # Helper functions ==========================================================
 
   firstFileStartingWith = directory: prefix: let

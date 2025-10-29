@@ -1,6 +1,6 @@
 { outputs, pkgs, lib, ... }: {
   imports = [
-    outputs.homeManagerModules.default
+    outputs.homeModules.default
   ];
   
   home = {
