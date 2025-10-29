@@ -1,5 +1,5 @@
-{ lib, ... }: {
-  flake.nixosModules.default = {
+{
+  flake.nixosModules.default = { lib, ... }: {
     # Enable sound with pipewire.
     services.pulseaudio.enable = lib.mkDefault false;
     security.rtkit.enable = lib.mkDefault false;
