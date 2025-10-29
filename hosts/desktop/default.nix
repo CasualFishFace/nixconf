@@ -4,7 +4,7 @@
     modules = [
       ./configuration.nix
       ./hardware-configuration.nix
-      self.nixosModules.default
+      self.outputs.nixosModules.default
     ];
   };
 }
