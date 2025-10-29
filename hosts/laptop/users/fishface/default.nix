@@ -1,6 +1,6 @@
-{ outputs, pkgs, lib, ... }: {
+{ inputs, pkgs, lib, ... }: {
   imports = [
-    outputs.homeModules.default
+    inputs.self.outputs.homeModules.default
   ];
   
   home = {

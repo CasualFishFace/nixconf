@@ -1,4 +1,4 @@
-{ inputs, outputs, myLib, ... }: {
+{ inputs, myLib, ... }: {
   flake.nixosModules.default = {
     imports = [
       ./bundles
@@ -13,7 +13,7 @@
 
       {
         home-manager = {
-          extraSpecialArgs = { inherit inputs outputs myLib; };
+          extraSpecialArgs = { inherit inputs myLib; };
           backupFileExtension = "bak";
           useGlobalPkgs = true;
           useUserPackages = true;

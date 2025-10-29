@@ -23,6 +23,8 @@
     inherit inputs;
   } (top: {
     imports = [
+      # inputs.home-manager.flakeModules.home-manager
+      
       ./hosts
       ./homeModules
       ./nixosModules
