@@ -1,4 +1,4 @@
-{ inputs }: {
+{ inputs, ... }: {
   flake.packages.x86_64-linux.huion-driver = let
     pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
   in {
