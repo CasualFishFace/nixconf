@@ -1,8 +1,8 @@
 # Define user accounts. Remember to set passwords with `passwd`.
-{ lib, myLib, ... }: {
-  home-manager.users = lib.genAttrs (myLib.dirsIn ./.) (username:
-    ./${username}
-  );
+{
+  home-manager.users = {
+    fishface = ./fishface;
+  };
   
   users.users = {
     fishface = {
