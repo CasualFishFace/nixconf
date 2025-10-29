@@ -1,19 +1,5 @@
 { nixpkgs, ... }: rec {
-  supportedSystems = [
-    "x86_64-linux"
-    "x86_64-darwin"
-    "aarch64-linux"
-    "aarch64-darwin"
-  ];
-
   # Helper functions ==========================================================
-
-  configurationFor = hostName: ./../hosts + "/${hostName}/configuration.nix";
-
-  dirsIn = dir: let
-    entries = builtins.readDir dir;
-    filtered = nixpkgs.lib.filterAttrs (_: t: t == "directory") entries;
-  in builtins.attrNames filtered;
 
   firstFileStartingWith = directory: prefix: let
     entries = builtins.readDir directory;

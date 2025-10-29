@@ -1,5 +1,5 @@
 { pkgs, config, myLib, lib, ... }: {
-  flake.nixosConfigurations.default = {
+  flake.homeModules.default = {
     options.myHome.bundles.graphical.enable = lib.mkEnableOption ''
       Enables a preset of packages someone might typically use in their graphical installation
     '';

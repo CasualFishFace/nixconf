@@ -21,17 +21,19 @@
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
     inherit inputs;
-    specialArgs.myLib = import ./lib inputs;
   } {
     imports = [
-      inputs.home-manager.flakeModules.home-manager
-      
       ./hosts
       ./homeModules
       ./nixosModules
       ./packages
     ];
 
-    systems = (import ./lib inputs).supportedSystems;
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
   };
 }

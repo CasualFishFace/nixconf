@@ -1,11 +1,9 @@
 {
-  flake.homeModules.default = {
-    imports = [
-      ./bundles
-      ./programs
-      ./services
-      ./system
-      ./themes
-    ];
-  };
+  imports = [
+    ./bundles
+    ./programs
+    ./services
+    ./system
+    ./themes
+  ];
 }
