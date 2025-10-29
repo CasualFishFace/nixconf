@@ -7,16 +7,9 @@
     };
   };
 
-  programs.helix.languages.language = [
-    {
-      name = "rust";
-      rulers = [ 100 ];
-    }
-    {
-      name = "zig";
-      rulers = [ 100 ];
-    }
-  ];
+  programs.helix.languages.language = let
+    withRulers = rulers: builtins.map (l: { name = l; rulers = rulers; });
+  in withRulers [ 100 ] [ "nix" "rust" "zig" ];
 
   programs.helix.languages.language-server = {};
 }
