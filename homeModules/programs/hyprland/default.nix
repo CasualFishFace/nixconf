@@ -148,6 +148,8 @@
         touchpad = {
             natural_scroll = false;
         };
+
+        tablet.output = "current";
     };
 
     ###################

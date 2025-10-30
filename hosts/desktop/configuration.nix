@@ -1,4 +1,4 @@
-{ inputs, config, ... }: {
+{ inputs, pkgs, config, ... }: {
   imports = [
     ./users
   ];
@@ -12,7 +12,6 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
-    boot.extraModulePackages = [ config.boot.kernelPackages.digimend ];
 
     # Networking
     networking.hostName = "desktop"; # Define your hostname.
@@ -52,11 +51,13 @@
       # "amdgpu" # AMD graphics card
     ];
 
-    hardware.opentabletdriver.enable = true;
+    boot.kernelModules = [ "digimend" ];
+    boot.extraModulePackages = [ config.boot.kernelPackages.digimend ];
     services.xserver.digimend.enable = true;
     services.xserver.wacom.enable = true;
     environment.systemPackages = [
       inputs.self.outputs.packages.x86_64-linux.huion-driver
+      pkgs.libwacom
     ];
 
     # Enable this for further performance increases (only if you need it)
