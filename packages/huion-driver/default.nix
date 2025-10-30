@@ -1,7 +1,7 @@
-{ inputs, ... }: {
-  flake.packages.x86_64-linux.huion-driver = let
-    pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
-  in pkgs.stdenv.mkDerivation {
+{ inputs, ... }: let
+  pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+in {
+  flake.packages.x86_64-linux.huion-driver = pkgs.stdenv.mkDerivation {
     pname = "huion-driver";
     version = "1.0";
     src = pkgs.fetchurl {
@@ -13,8 +13,13 @@
       dpkg-deb --fsys-tarfile $src | tar -x --no-same-owner
     '';
     installPhase = ''
+      cp ./usr/lib/huiontablet/huion*.sh .
       mkdir -p $out
       cp -r ./* $out/
     '';
+  };
+
+  flake.devShells.x86_64-linux.huion-driver = pkgs.mkShell {
+    packages = [ inputs.self.outputs.packages.x86_64-linux.huion-driver ];
   };
 }

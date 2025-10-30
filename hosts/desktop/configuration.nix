@@ -50,6 +50,7 @@
     # "amdgpu" # AMD graphics card
   ];
 
+  hardware.opentabletdriver.enable = true;
   environment.systemPackages = [
     inputs.self.outputs.packages.x86_64-linux.huion-driver
   ];
