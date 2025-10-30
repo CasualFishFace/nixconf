@@ -13,13 +13,11 @@ in {
       dpkg-deb --fsys-tarfile $src | tar -x --no-same-owner
     '';
     installPhase = ''
-      cp ./usr/lib/huiontablet/huion*.sh .
+      runHook preInstall
+      cp ./usr/lib/huiontablet/huion* .
       mkdir -p $out
       cp -r ./* $out/
+      runHook postInstall
     '';
-  };
-
-  flake.devShells.x86_64-linux.huion-driver = pkgs.mkShell {
-    packages = [ inputs.self.outputs.packages.x86_64-linux.huion-driver ];
   };
 }
