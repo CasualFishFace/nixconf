@@ -1,4 +1,4 @@
-{
+{ inputs, ... }: {
   imports = [
     ./users
   ];
@@ -48,6 +48,10 @@
   services.xserver.videoDrivers = [
     "nvidia" # NVIDIA graphics card
     # "amdgpu" # AMD graphics card
+  ];
+
+  environment.systemPackages = [
+    inputs.self.outputs.packages.x86_64-linux.huion-driver
   ];
 
   # Enable this for further performance increases (only if you need it)
