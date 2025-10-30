@@ -1,63 +1,67 @@
-{ inputs, ... }: {
+{ inputs, config, ... }: {
   imports = [
     ./users
   ];
 
-  # Flakes and unfree packages.
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  config = {
+    # Flakes and unfree packages.
+    nixpkgs.config.allowUnfree = true;
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+    # Bootloader
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+    boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+    boot.extraModulePackages = [ config.boot.kernelPackages.digimend ];
 
-  # Networking
-  networking.hostName = "desktop"; # Define your hostname.
-  networking.networkmanager.enable = true;
+    # Networking
+    networking.hostName = "desktop"; # Define your hostname.
+    networking.networkmanager.enable = true;
 
-  # Time Zone
-  time.timeZone = "America/Chicago";
+    # Time Zone
+    time.timeZone = "America/Chicago";
 
-  # Internationalisation properties
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    # Internationalisation properties
+    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+
+    # Configure keymap in X11
+    services.xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    myNixos.bundles.graphical.enable = true;
+    myNixos.specialisations.gaming.enable = true;
+    myNixos.theme = "celeste/core";
+
+    # Gaming.
+    hardware.nvidia.open = true;
+    services.xserver.videoDrivers = [
+      "nvidia" # NVIDIA graphics card
+      # "amdgpu" # AMD graphics card
+    ];
+
+    hardware.opentabletdriver.enable = true;
+    services.xserver.digimend.enable = true;
+    services.xserver.wacom.enable = true;
+    environment.systemPackages = [
+      inputs.self.outputs.packages.x86_64-linux.huion-driver
+    ];
+
+    # Enable this for further performance increases (only if you need it)
+    # hardware.nvidia.modesetting.enable = true;
+
+    system.stateVersion = "25.05";
   };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  myNixos.bundles.graphical.enable = true;
-  myNixos.specialisations.gaming.enable = true;
-  myNixos.theme = "celeste/core";
-
-  # Gaming.
-  hardware.nvidia.open = true;
-  services.xserver.videoDrivers = [
-    "nvidia" # NVIDIA graphics card
-    # "amdgpu" # AMD graphics card
-  ];
-
-  hardware.opentabletdriver.enable = true;
-  services.xserver.digimend.enable = true;
-  environment.systemPackages = [
-    inputs.self.outputs.packages.x86_64-linux.huion-driver
-  ];
-
-  # Enable this for further performance increases (only if you need it)
-  # hardware.nvidia.modesetting.enable = true;
-
-  system.stateVersion = "25.05";
 }
