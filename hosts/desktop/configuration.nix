@@ -51,6 +51,7 @@
   ];
 
   hardware.opentabletdriver.enable = true;
+  services.xserver.digimend.enable = true;
   environment.systemPackages = [
     inputs.self.outputs.packages.x86_64-linux.huion-driver
   ];
