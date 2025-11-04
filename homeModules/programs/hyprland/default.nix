@@ -149,7 +149,7 @@
             natural_scroll = false;
         };
 
-        tablet.output = "current";
+        tablet.output = "DVI-D-1";
     };
 
     ###################
@@ -217,6 +217,15 @@
       ", PRINT, exec, hyprshot -m region"
       "SUPER, PRINT, exec, hyprshot -m window"
       "SUPER SHIFT, PRINT, exec, hyprshot -m monitor"
+
+      # Drawing tablet bindings
+      # ", code:3, sendshortcut, CTRL Z, activewindow"
+      # ", code:4, sendshortcut, CTRL SHIFT, Z, activewindow"
+    ];
+
+    bindn = [
+      # Discord toggle mute
+      ", code:82, pass, class:^(discord)$"
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging

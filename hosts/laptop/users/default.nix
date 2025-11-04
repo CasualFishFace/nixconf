@@ -8,7 +8,7 @@
     fishface = {
       isNormalUser = true;
       description = "Jovanni Bair";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "video" ];
       packages = [];
     };
   };

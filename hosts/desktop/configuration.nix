@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }: {
+{
   imports = [
     ./users
   ];
@@ -51,14 +51,11 @@
       # "amdgpu" # AMD graphics card
     ];
 
-    boot.kernelModules = [ "digimend" ];
-    boot.extraModulePackages = [ config.boot.kernelPackages.digimend ];
-    services.xserver.digimend.enable = true;
-    services.xserver.wacom.enable = true;
-    environment.systemPackages = [
-      inputs.self.outputs.packages.x86_64-linux.huion-driver
-      pkgs.libwacom
-    ];
+    boot.kernelModules = [ "uinput" ];
+    hardware.opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
+    };
 
     # Enable this for further performance increases (only if you need it)
     # hardware.nvidia.modesetting.enable = true;
