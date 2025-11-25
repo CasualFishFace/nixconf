@@ -1,7 +1,6 @@
 {
   # flake.homeModules.default = {
     imports = [
-      ./discord
       ./ghostty
       ./helix
       ./hyprland
