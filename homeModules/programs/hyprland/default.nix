@@ -17,7 +17,7 @@
 
     monitor = ", preferred, auto, auto";
     "$terminal" = "ghostty";
-    "$menu" = "rofi -show drun";
+    "$menu" = "fuzzel";
     "$bar" = "waybar";
 
     #################
@@ -149,7 +149,7 @@
             natural_scroll = false;
         };
 
-        tablet.output = "DVI-D-1";
+        tablet.output = "current";
     };
 
     ###################

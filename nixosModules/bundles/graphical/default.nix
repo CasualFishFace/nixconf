@@ -56,6 +56,8 @@
       # Hyprland ================================================================
       programs.hyprland.enable = true;
       programs.hyprland.xwayland.enable = true;
+
+      programs.niri.enable = true;
     };
   };
 }
