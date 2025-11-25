@@ -29,7 +29,6 @@
       ];
 
       # General ================================================================
-      services.xserver.enable = true;
       services.displayManager.gdm = {
         enable = true;
         wayland = true;
@@ -59,7 +58,7 @@
       programs.hyprland.xwayland.enable = true;
 
       # Niri
-      programs.niri.enable = true;
+      myNixos.bundles.niri.enable = true;
     };
   };
 }
