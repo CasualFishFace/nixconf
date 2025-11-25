@@ -31,7 +31,7 @@
       # General ================================================================
       services.displayManager.gdm = {
         enable = true;
-        wayland.enable = true;
+        wayland = true;
       };
     
       security.rtkit.enable = true;
