@@ -57,6 +57,7 @@
       programs.hyprland.enable = true;
       programs.hyprland.xwayland.enable = true;
 
+      # Niri
       programs.niri.enable = true;
     };
   };
