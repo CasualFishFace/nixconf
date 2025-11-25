@@ -7,9 +7,7 @@
     config = lib.mkIf config.myNixos.bundles.niri.enable {
       programs.niri.enable = true;
       programs.xwayland.enable = true;
-      environment.sessionVariables = {
-        DISPLAY = ":0";
-      };
+      environment.systemPackages = [ pkgs.xwayland-satellite ];
     };
   };
 }
