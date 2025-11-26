@@ -19,7 +19,7 @@
     "$terminal" = "ghostty";
     "$menu" = "fuzzel";
     "$bar" = "waybar";
-    "$emoji-picker" = "bemoji";
+    "$emoji-picker" = "bemoji -t";
 
     #################
     ### AUTOSTART ###

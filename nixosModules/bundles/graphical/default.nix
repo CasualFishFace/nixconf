@@ -49,6 +49,7 @@
           ripgrep
           tree
           wl-clipboard
+          wtype
         ];
         sessionVariables = {
           EDITOR = "hx";
