@@ -19,6 +19,7 @@
     "$terminal" = "ghostty";
     "$menu" = "fuzzel";
     "$bar" = "waybar";
+    "$emoji-picker" = "bemoji";
 
     #################
     ### AUTOSTART ###
@@ -167,6 +168,7 @@
       "$mainMod, SPACE, togglefloating,"
       "$mainMod SHIFT, X, exit,"
       "$mainMod, D, exec, $menu"
+      "$mainMod, E, exec, $emoji-picker"
       "$mainMod, P, pseudo, # dwindle"
       "$mainMod, O, togglesplit, # dwindle"
 

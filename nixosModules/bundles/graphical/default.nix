@@ -41,12 +41,14 @@
 
       environment = {
         systemPackages = with pkgs; [
+          bemoji
           fd
           git
           nil
           pavucontrol
           ripgrep
           tree
+          wl-clipboard
         ];
         sessionVariables = {
           EDITOR = "hx";
