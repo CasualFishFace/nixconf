@@ -1,4 +1,4 @@
-{
+{ inputs, ... }: {
   imports = [
     ./users
   ];
@@ -39,6 +39,10 @@
       layout = "us";
       variant = "";
     };
+
+    environment.systemPackages = [
+      inputs.zen-browser.packages.x86_64-linux.specific
+    ];
 
     myNixos.bundles.graphical.enable = true;
     myNixos.specialisations.gaming.enable = true;
