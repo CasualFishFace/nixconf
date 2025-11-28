@@ -15,7 +15,7 @@
   };
 
   myHome.bundles.graphical.enable = true;
-  stylix.targets.firefox.profileNames = [ "fishface" ];
+  # stylix.targets.firefox.profileNames = [ "fishface" ];
 
   programs.helix.settings.theme = lib.mkForce "stylix_transparent";
   programs.helix.themes.stylix_transparent = {
