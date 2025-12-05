@@ -42,6 +42,7 @@
       programs.hyprshot.enable = true;
       programs.waybar.enable = true;
       programs.fuzzel.enable = true;
+      programs.quickshell.enable = true;
     };
   # };
 }
