@@ -24,6 +24,7 @@
       programs.discord.enable = true;
       # programs.firefox.enable = true;
       programs.ghostty.enable = true;
+      programs.godot.enable = true;
       programs.helix.enable = true;
       programs.krita.enable = true;
       programs.zoxide.enable = true;
