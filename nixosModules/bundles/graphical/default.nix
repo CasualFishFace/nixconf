@@ -38,6 +38,7 @@
       services.pipewire.enable = true;
 
       programs.direnv.enable = true;
+      programs.godot.enable = true;
 
       environment = {
         systemPackages = with pkgs; [
