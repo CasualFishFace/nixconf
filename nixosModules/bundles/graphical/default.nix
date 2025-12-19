@@ -44,6 +44,7 @@
           bemoji
           fd
           git
+          godot
           nil
           pavucontrol
           ripgrep
