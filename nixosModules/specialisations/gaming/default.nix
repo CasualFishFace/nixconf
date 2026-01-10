@@ -32,6 +32,7 @@
           bottles
           corefonts
           mangohud
+          optifine
           prismlauncher
           wl-clicker
         ];
