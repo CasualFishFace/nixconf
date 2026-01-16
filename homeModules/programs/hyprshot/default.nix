@@ -1,3 +1,3 @@
-{ config, ... }: {
-  programs.hyprshot.saveLocation = config.home.homeDirectory + "/Pictures";
+{
+  programs.hyprshot.saveLocation = "$HOME/Pictures/Screenshots";
 }
