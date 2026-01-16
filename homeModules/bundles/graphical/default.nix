@@ -36,6 +36,7 @@
         settings.preload = lib.mkIf (theme != null) [
           ",${myLib.themes.wallpaper theme}"
         ];
+        settings.splash = false;
       };
 
       programs.hyprshot.enable = true;
