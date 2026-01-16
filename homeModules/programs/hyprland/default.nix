@@ -260,14 +260,5 @@
 
     # See https://wiki.hypr.land/Configuring/Window-Rules/ for more
     # See https://wiki.hypr.land/Configuring/Workspace-Rules/ for workspace rules
-
-    # Example windowrule
-    # windowrule = float,class:^(kitty)$,title:^(kitty)$
-    windowrule = [
-      # Ignore maximize requests from apps. You'll probably like this.
-      "suppressevent maximize, class:.*"
-      # Fix some dragging issues with XWayland
-      "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-    ];
   };
 }
