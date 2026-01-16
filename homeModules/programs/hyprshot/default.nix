@@ -1,3 +1,3 @@
-{
-  programs.hyprshot.saveLocation = "/home/fishface/Pictures";
+{ config, ... }: {
+  programs.hyprshot.saveLocation = config.home.homeDirectory + "/Pictures";
 }
