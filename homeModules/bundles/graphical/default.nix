@@ -25,6 +25,7 @@
       programs.ghostty.enable = true;
       programs.helix.enable = true;
       programs.krita.enable = true;
+      programs.zathura.enable = true;
       programs.zoxide.enable = true;
 
       # Hyprland ================================================================

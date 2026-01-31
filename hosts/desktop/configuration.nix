@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [
     ./users
   ];
@@ -42,6 +42,7 @@
 
     environment.systemPackages = [
       inputs.zen-browser.packages.x86_64-linux.specific
+      pkgs.tailscale
     ];
 
     myNixos.bundles.graphical.enable = true;
