@@ -1,5 +1,6 @@
 {
   imports = [
     ./huion-driver
+    # ./fluxer
   ];
 }

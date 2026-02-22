@@ -7,6 +7,7 @@
     # Flakes and unfree packages.
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.trusted-users = [ "root" "fishface" ];
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
