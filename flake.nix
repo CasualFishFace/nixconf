@@ -17,8 +17,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-browser.url = "github:marcecoll/zen-browser-flake";
   };
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
