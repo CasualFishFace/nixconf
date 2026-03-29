@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  programs.emacs.package = pkgs.emacs-gtk;
-  programs.emacs.extraConfig = ''
-  '';
+  programs.emacs = {
+    package = pkgs.emacs-gtk;
+    extraConfig = ''
+    '';
+  };
 }
