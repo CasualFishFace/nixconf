@@ -1,6 +1,7 @@
 {
   # flake.homeModules.default = {
     imports = [
+      ./emacs
       ./ghostty
       ./helix
       ./hyprland
