@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.emacs = {
-    package = pkgs.emacs-gtk;
+    package = pkgs.emacs-pgtk;
     extraConfig = ''
     '';
   };
