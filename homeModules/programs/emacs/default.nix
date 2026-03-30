@@ -5,5 +5,8 @@
     '';
   };
 
-  stylix.targets.emacs.opacity.enable = false;
+  stylix.targets.emacs = {
+    fonts.enable = false;
+    opacity.enable = false;
+  };
 }
