@@ -4,4 +4,6 @@
     extraConfig = ''
     '';
   };
+
+  stylix.targets.emacs.opacity.enable = false;
 }
