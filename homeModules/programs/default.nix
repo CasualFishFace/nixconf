@@ -1,6 +1,7 @@
 {
   # flake.homeModules.default = {
     imports = [
+      ./direnv
       ./emacs
       ./ghostty
       ./helix
