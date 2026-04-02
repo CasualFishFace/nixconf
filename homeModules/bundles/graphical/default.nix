@@ -21,6 +21,7 @@
     
       # General =================================================================
       programs.bash.enable = true;
+      programs.blender.enable = true;
       programs.discord.enable = true;
       programs.emacs.enable = true;
       programs.firefox.enable = true;
