@@ -1,7 +1,5 @@
-{ inputs, ... }: let
-  inherit (inputs.nixpkgs) lib;
-in {
-  flake.nixosModules.time = {
+{
+  flake.nixosModules.time = { lib, ... }: {
     time.timeZone = lib.mkForce null;
     services.automatic-timezoned.enable = true;
     dconf.settings = {
