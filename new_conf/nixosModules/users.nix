@@ -28,7 +28,7 @@
     };
     
     config.users.users = lib.mergeAttrsList (builtins.map (f: f { inherit mkUser; }) [
-      inputs.import-tree ./../users
+      (inputs.import-tree ./../users)
     ]);
   };
 }
