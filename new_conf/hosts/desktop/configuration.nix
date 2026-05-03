@@ -1,4 +1,27 @@
 {
+  home-manager.users = {
+    fishface = ./fishface;
+  };
+
+  users.users = {
+    fishface = {
+      isNormalUser = true;
+      description = "CasualFishFace";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "video"
+      ];
+      packages = [ ];
+    };
+  };
+  
+  # Flakes, experimental features, overlays.
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "fishface" ];
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ ];
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
