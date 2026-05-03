@@ -24,7 +24,6 @@ in {
 
         boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
         networking.hostName = "desktop"; # Define your hostname.
-        time.timeZone = "America/Chicago";
 
         # Internationalisation properties
         i18n.defaultLocale = "en_US.UTF-8";
