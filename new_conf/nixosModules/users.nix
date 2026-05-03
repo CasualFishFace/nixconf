@@ -1,14 +1,10 @@
 { inputs, ... }: {
-  flake.nixosModules.users = { config, lib, ... }: let
+  flake.nixosModules.users = args@{ config, lib, ... }: let
     inherit (config.users) blacklist whitelist;
 
     allowed-user = u:
       (blacklist == null || !(builtins.elem u blacklist))
       && (whitelist == null || (builtins.elem u whitelist));
-
-    mkUser = name: attrs: if allowed-user name then {
-      ${name} = attrs;
-    } else {};
   in {
     options.users = {
       blacklist = lib.mkOption {
@@ -25,10 +21,19 @@
         '';
         type = with lib.types; nullOr (listOf str);
       };
+      imported-users = lib.mkOption {
+        default = null;
+      };
     };
     
-    config.users.users = lib.mergeAttrsList (builtins.map (f: f { inherit mkUser; }) [
-      (inputs.import-tree ./../users)
-    ]);
+    config = {
+      users.imported-users = inputs.import-tree ./../users;
+      users.users = let
+        tree = inputs.import-tree ./../users;
+        tree-imports = map (f: f args) tree.imports;
+        user-files = (inputs.nixpkgs.lib.mergeAttrsList tree-imports).imports;
+        all-users = inputs.nixpkgs.lib.mergeAttrsList (map import user-files);
+      in lib.filterAttrs (n: _: allowed-user n) all-users;
+    };
   };
 }

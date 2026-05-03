@@ -1,5 +1,7 @@
-{ mkUser, ... }: mkUser "fishface" {
-  isNormalUser = true;
-  description = "CasualFishFace";
-  extraGroups = [ "networkmanager" "wheel" "video" ];
+{
+  fishface = {
+    isNormalUser = true;
+    description = "CasualFishFace";
+    extraGroups = [ "networkmanager" "wheel" "video" ];
+  };
 }
