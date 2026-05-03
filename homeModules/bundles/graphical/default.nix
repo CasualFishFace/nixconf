@@ -30,6 +30,8 @@
       programs.zathura.enable = true;
       programs.zoxide.enable = true;
 
+      gtk.gtk4.theme = null;
+
       # Hyprland ================================================================
       wayland.windowManager.hyprland.enable = true;
       services.hyprpaper = let
