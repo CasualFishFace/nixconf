@@ -3,6 +3,7 @@
     imports = [
       ./direnv
       ./emacs
+      ./firefox
       ./ghostty
       ./helix
       ./hyprland
