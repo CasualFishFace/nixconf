@@ -5,14 +5,15 @@ in {
     modules = [
       ../../hardware-configuration.nix
       
+      self.nixosModules.essential
       self.nixosModules.bootloader
       self.nixosModules.networking
       self.nixosModules.users
+
       {
-        # Flakes, experimental features, overlays.
-        nix.settings.experimental-features = [ "nix-command" "flakes" ];
-        nix.settings.trusted-users = [ "root" "fishface" ];
-        nixpkgs.config.allowUnfree = true;
+        boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+        networking.hostName = "desktop";
+        nix.settings.trusted-users = [ "fishface" ];
         nixpkgs.overlays = [
           (_: prev: {
             openldap = prev.openldap.overrideAttrs {
@@ -20,9 +21,6 @@ in {
             };
           })
         ];
-
-        boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
-        networking.hostName = "desktop"; # Define your hostname.
 
         # Internationalisation properties
         i18n.defaultLocale = "en_US.UTF-8";
@@ -44,6 +42,7 @@ in {
           variant = "";
         };
 
+        # Never change this unless you know what you're doing.
         system.stateVersion = "25.05";
       }
     ];
