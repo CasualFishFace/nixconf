@@ -13,7 +13,7 @@
   } {
     debug = true;
     imports = [
-      (inputs.import-tree [ ./hosts ./nixosModules ./homeModules ])
+      (inputs.import-tree [ ./hosts ./nixosModules ])
     ];
 
     systems = [
