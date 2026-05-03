@@ -3,6 +3,8 @@
 in {
   flake.nixosConfigurations.desktop = lib.nixosSystem {
     modules = [
+      ../../hardware-configuration.nix
+      
       self.nixosModules.bootloader
       self.nixosModules.networking
       self.nixosModules.users.fishface
