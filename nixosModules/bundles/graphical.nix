@@ -5,6 +5,7 @@
 { self, ... }: {
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
+      # inputs.stylix.nixosModules.stylix
       self.nixosModules.cliTools
       self.nixosModules.displayManagers
       self.nixosModules.essential
@@ -33,6 +34,8 @@
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
       programs.discord.enable = lib.mkDefault true;
+
+      # stylix.enable = true;
     };
   };
 }

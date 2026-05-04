@@ -6,12 +6,13 @@
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # stylix.url = "github:nix-community/stylix";
   };
 
   outputs = inputs@{ self, import-tree, home-manager, ... }: inputs.flake-parts.lib.mkFlake {
     inherit inputs;
   } {
-    debug = true;
+    # debug = true;
     imports = let
       inherit (inputs.nixpkgs) lib;
     in [
