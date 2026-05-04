@@ -3,14 +3,11 @@
 in {
   flake.nixosConfigurations.desktop = lib.nixosSystem {
     modules = [
-      ../../hardware-configuration.nix
+      self.nixosModules.bundles
       
-      self.nixosModules.essential
-      self.nixosModules.bootloader
-      self.nixosModules.networking
-      self.nixosModules.users
-
       {
+        myNixos.bundles.graphical.enable = true;
+        
         boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
         networking.hostName = "desktop";
         nix.settings.trusted-users = [ "fishface" ];
