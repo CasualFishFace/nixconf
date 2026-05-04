@@ -34,7 +34,7 @@
     programs.fuzzel.enable = true;
     programs.ghostty.enable = true;
     programs.hyprshot.enable = true;
-    # programs.krita.enable = true;
+    programs.krita.enable = true;
     programs.neovim.enable = true;
     programs.quickshell.enable = true;
     programs.waybar.enable = true;
