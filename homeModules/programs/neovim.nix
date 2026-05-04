@@ -13,6 +13,6 @@ _top: {
       withPython3 = false;
     };
 
-    xdg.configFile.nvim.source = "${dotfiles}/nvim";
+    home.file.nvim.source = "${dotfiles}/nvim";
   };
 }
