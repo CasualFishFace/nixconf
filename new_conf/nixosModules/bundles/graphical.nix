@@ -14,7 +14,6 @@
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
       imports = [
-        /etc/nixos/hardware-configuration.nix
         self.nixosModules.cliTools
         self.nixosModules.displayManagers
         self.nixosModules.essential

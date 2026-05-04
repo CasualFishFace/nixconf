@@ -3,6 +3,7 @@
 in {
   flake.nixosConfigurations.desktop = lib.nixosSystem {
     modules = [
+      /etc/nixos/hardware-configuration.nix
       self.nixosModules.bundles
       
       {
