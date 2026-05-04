@@ -1,7 +1,7 @@
 _top: {
   flake.homeModules.programs = { config, lib, ... }: let
     inherit (config.lib.file) mkOutOfStoreSymlink;
-    dotfiles = mkOutOfStoreSymlink "${config.xdg.configHome}/.dotfiles";
+    dotfiles = mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles";
   in {
     home.sessionVariables = {
       EDITOR = lib.mkDefault "nvim";
