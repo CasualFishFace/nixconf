@@ -2,15 +2,14 @@
 # larger part of a configuration. Bundles also have sensible defaults that can be changed without
 # much thought.
 
-{ inputs, self, ... }: {
+{ self, ... }: {
   flake.nixosModules.desktops = { pkgs, config, lib, ... }: {
     imports = [
-      # inputs.stylix.nixosModules.stylix
-      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.cliTools
       self.nixosModules.displayManagers
       self.nixosModules.essential
       self.nixosModules.fonts
+      self.nixosModules.homeManager
       self.nixosModules.programs
       self.nixosModules.specialisations
       self.nixosModules.windowManagers
@@ -39,14 +38,6 @@
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
-
-      home-manager = {
-      	useGlobalPkgs = true;
-	useUserPackages = true;
-	extraSpecialArgs = {};
-      };
-
-      # stylix.enable = true;
     };
   };
 }
