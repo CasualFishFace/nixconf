@@ -8,14 +8,16 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = inputs@{ self, ... }: inputs.flake-parts.lib.mkFlake {
+  outputs = inputs@{ self, import-tree, home-manager, ... }: inputs.flake-parts.lib.mkFlake {
     inherit inputs;
   } {
     debug = true;
-    imports = [
-      inputs.home-manager.flakeModules.home-manager
-      (inputs.import-tree [
-        ./hosts
+    imports = let
+      inherit (inputs.nixpkgs) lib;
+    in [
+      home-manager.flakeModules.home-manager
+      (import-tree.filterNot (lib.hasSuffix "hardware-configuration.nix") ./hosts)
+      (import-tree [
         ./nixosModules
         ./homeConfigurations
         ./homeModules
