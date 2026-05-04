@@ -9,7 +9,8 @@
       self.nixosModules.displayManagers
       self.nixosModules.essential
       self.nixosModules.fonts
-      self.nixosModules.ghostty
+      self.nixosModules.programs
+      self.nixosModules.specialisations
       self.nixosModules.users
       self.nixosModules.windowManagers
     ];
@@ -24,11 +25,14 @@
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
       security.rtkit.enable = lib.mkDefault true;
-      services.pipewire.enable = lib.mkDefault true;
       services.displayManager.gdm.enable = lib.mkDefault true;
+      services.flatpak.enable = lib.mkDefault true;
+      services.fwupd.enable = lib.mkDefault true;
+      services.pipewire.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
+      programs.discord.enable = lib.mkDefault true;
     };
   };
 }
