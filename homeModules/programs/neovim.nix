@@ -13,6 +13,9 @@ _top: {
       withPython3 = false;
     };
 
-    home.file.nvim.source = "${dotfiles}/nvim";
+    home.file.nvim = {
+      source = "${dotfiles}/nvim";
+      target = ".config/nvim";
+    };
   };
 }
