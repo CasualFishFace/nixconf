@@ -12,9 +12,11 @@
     inherit inputs;
   } {
     debug = true;
-    imports = [
-      (inputs.import-tree [ ./hosts ./nixosModules ])
-    ];
+    imports = [ (inputs.import-tree [
+      ./bundles
+      ./hosts
+      ./nixosModules
+    ]) ];
 
     systems = [
       "x86_64-linux"
