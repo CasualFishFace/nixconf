@@ -12,6 +12,7 @@ _top: {
       find = "fd";
       grep = "rg";
       tree = "tree --dirsfirst";
+      vim = "neovim";
     };
   };
 }

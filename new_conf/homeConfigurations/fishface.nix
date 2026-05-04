@@ -19,6 +19,8 @@
         };
 
         programs.firefox.enable = true;
+        programs.discord.enable = true;
+        programs.neovim.enable = true;
       })
     ];
   };
