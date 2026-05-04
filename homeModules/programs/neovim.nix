@@ -1,6 +1,9 @@
 _top: {
   flake.homeModules.programs = {
-    programs.neovim.withRuby = false;
-    programs.neovim.withPython3 = false;
+    programs.neovim = {
+      defaultEditor = true;
+      withRuby = false;
+      withPython3 = false;
+    };
   };
 }

@@ -26,10 +26,14 @@
       inherit (config.myNixos) desktops;
     in lib.mkIf desktops.graphical.enable {
       security.rtkit.enable = lib.mkDefault true;
+
       services.displayManager.gdm.enable = lib.mkDefault true;
       services.flatpak.enable = lib.mkDefault true;
       services.fwupd.enable = lib.mkDefault true;
+      services.geoclue2.enable = lib.mkDefault true;
+      services.localtimed.enable = lib.mkDefault true;
       services.pipewire.enable = lib.mkDefault true;
+
       programs.hyprland.enable = lib.mkDefault true;
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
