@@ -28,6 +28,7 @@
       };
     };
     
+    programs.bash.enable = true;
     programs.discord.enable = true;
     programs.firefox.enable = true;
     programs.fuzzel.enable = true;
