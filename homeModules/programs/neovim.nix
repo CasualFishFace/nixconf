@@ -1,21 +1,22 @@
 _top: {
   flake.homeModules.programs = { config, lib, ... }: let
     inherit (config.lib.file) mkOutOfStoreSymlink;
-    dotfiles = mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles";
+    dotpath = "${config.home.homeDirectory}/.dotfiles";
+    dotfiles = mkOutOfStoreSymlink dotpath;
   in {
     home.sessionVariables = {
       EDITOR = lib.mkDefault "nvim";
     };
 
+    # xdg.configFile.nvim.source = "${dotfiles}/nvim";
+
     programs.neovim = {
       defaultEditor = true;
       withRuby = false;
       withPython3 = false;
-    };
-
-    home.file.nvim = {
-      source = "${dotfiles}/nvim";
-      target = ".config/nvim";
+      extraLuaConfig = ''
+        dofile("${dotpath}/nvim/init.lua")
+      '';
     };
   };
 }
