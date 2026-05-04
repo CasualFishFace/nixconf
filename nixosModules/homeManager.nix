@@ -9,5 +9,5 @@
       useUserPackages = true;
       extraSpecialArgs = {};
     };
-  }
+  };
 }
