@@ -1,4 +1,4 @@
-_top: {
+{ self, ... }: {
   flake.homeModules.fishface = { pkgs, ... }: {
     imports = [
       self.homeModules.programs
