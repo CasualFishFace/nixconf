@@ -4,6 +4,16 @@
 
 { self, ... }: {
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
+    imports = [
+      self.nixosModules.cliTools
+      self.nixosModules.displayManagers
+      self.nixosModules.essential
+      self.nixosModules.fonts
+      self.nixosModules.ghostty
+      self.nixosModules.users
+      self.nixosModules.windowManagers
+    ];
+
     options.myNixos.bundles.graphical = {
       enable = lib.mkEnableOption ''
         Configures many options that typically come with a graphical OS installation.
@@ -13,16 +23,6 @@
     config = let
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
-      imports = [
-        self.nixosModules.cliTools
-        self.nixosModules.displayManagers
-        self.nixosModules.essential
-        self.nixosModules.fonts
-        self.nixosModules.ghostty
-        self.nixosModules.users
-        self.nixosModules.windowManagers
-      ];
-
       services.rtkit.enable = lib.mkDefault true;
       services.pipewire.enable = lib.mkDefault true;
       services.displayManager.gdm.enable = lib.mkDefault true;
