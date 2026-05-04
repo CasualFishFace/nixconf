@@ -3,7 +3,7 @@
 # much thought.
 
 { inputs, self, ... }: {
-  flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
+  flake.nixosModules.desktops = { pkgs, config, lib, ... }: {
     imports = [
       # inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
@@ -13,19 +13,18 @@
       self.nixosModules.fonts
       self.nixosModules.programs
       self.nixosModules.specialisations
-      self.nixosModules.users
       self.nixosModules.windowManagers
     ];
 
-    options.myNixos.bundles.graphical = {
+    options.myNixos.desktops.graphical = {
       enable = lib.mkEnableOption ''
         Configures many options that typically come with a graphical OS installation.
       '';
     };
 
     config = let
-      inherit (config.myNixos) bundles;
-    in lib.mkIf bundles.graphical.enable {
+      inherit (config.myNixos) desktops;
+    in lib.mkIf desktops.graphical.enable {
       security.rtkit.enable = lib.mkDefault true;
       services.displayManager.gdm.enable = lib.mkDefault true;
       services.flatpak.enable = lib.mkDefault true;
@@ -40,7 +39,6 @@
       	useGlobalPkgs = true;
 	useUserPackages = true;
 	extraSpecialArgs = {};
-	users = self.homeConfigurations;
       };
 
       # stylix.enable = true;

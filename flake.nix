@@ -17,7 +17,7 @@
       inherit (inputs.nixpkgs) lib;
     in [
       home-manager.flakeModules.home-manager
-      (import-tree.filterNot (lib.hasSuffix "hardware-configuration.nix") ./hosts)
+      (import-tree.filterNot (lib.hasSuffix "hardware-configuration.nix") ./nixosConfigurations)
       (import-tree [
         ./nixosModules
         ./homeConfigurations
