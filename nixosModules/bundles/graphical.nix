@@ -40,7 +40,7 @@
       	useGlobalPkgs = true;
 	useUserPackages = true;
 	extraSpecialArgs = {};
-	users = self.homeConfigurations
+	users = self.homeConfigurations;
       };
 
       # stylix.enable = true;
