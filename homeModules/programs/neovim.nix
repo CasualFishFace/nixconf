@@ -1,5 +1,5 @@
 _top: {
-  flake.homeModules.programs = {
+  flake.homeModules.programs = { lib, ... }: {
     home.sessionVariables = {
       EDITOR = lib.mkDefault "nvim";
     };
