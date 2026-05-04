@@ -11,6 +11,7 @@ _top: {
     environment.shellAliases = {
       find = "fd";
       grep = "rg";
+      tree = "tree --dirsfirst";
     };
   };
 }
