@@ -14,7 +14,7 @@ _top: {
       defaultEditor = true;
       withRuby = false;
       withPython3 = false;
-      extraLuaConfig = ''
+      initLua = ''
         dofile("${dotpath}/nvim/init.lua")
       '';
     };
