@@ -1,35 +1,29 @@
 {
-  description = ''
-    CasualFishFace's NixOS & Home Manager configuration flake.
-  '';
+  description = "CasualFishFace's NixOS Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs";
-
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    import-tree.url = "github:vic/import-tree";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake {
+  outputs = inputs@{ self, ... }: inputs.flake-parts.lib.mkFlake {
     inherit inputs;
-    specialArgs.myLib = import ./lib inputs;
   } {
+    debug = true;
     imports = [
-      ./hosts
-      ./homeModules
-      ./nixosModules
-      ./packages
+      inputs.home-manager.flakeModules.home-manager
+      (inputs.import-tree [
+        ./hosts
+        ./nixosModules
+        ./homeConfigurations
+        ./homeModules
+      ])
     ];
 
-    systems = [ "x86_64-linux" ];
+    systems = [
+      "x86_64-linux"
+    ];
   };
 }
