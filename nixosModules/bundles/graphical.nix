@@ -6,6 +6,7 @@
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
       # inputs.stylix.nixosModules.stylix
+      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.cliTools
       self.nixosModules.displayManagers
       self.nixosModules.essential
@@ -34,6 +35,13 @@
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
       programs.discord.enable = lib.mkDefault true;
+
+      home-manager = {
+      	useGlobalPkgs = true;
+	useUserPackages = true;
+	extraSpecialArgs = {};
+	users = self.homeConfigurations
+      };
 
       # stylix.enable = true;
     };
