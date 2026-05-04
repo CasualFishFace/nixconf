@@ -2,7 +2,7 @@
 # larger part of a configuration. Bundles also have sensible defaults that can be changed without
 # much thought.
 
-{ self, ... }: {
+{ inputs, self, ... }: {
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
       # inputs.stylix.nixosModules.stylix
