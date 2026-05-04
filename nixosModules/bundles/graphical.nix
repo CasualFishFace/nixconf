@@ -3,7 +3,7 @@
 # much thought.
 
 { self, ... }: {
-  flake.nixosModules.desktops = { pkgs, config, lib, ... }: {
+  flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
       self.nixosModules.cliTools
       self.nixosModules.displayManagers
@@ -15,15 +15,15 @@
       self.nixosModules.windowManagers
     ];
 
-    options.myNixos.desktops.graphical = {
+    options.myNixos.bundles.graphical = {
       enable = lib.mkEnableOption ''
         Configures many options that typically come with a graphical OS installation.
       '';
     };
 
     config = let
-      inherit (config.myNixos) desktops;
-    in lib.mkIf desktops.graphical.enable {
+      inherit (config.myNixos) bundles;
+    in lib.mkIf bundles.graphical.enable {
       security.rtkit.enable = lib.mkDefault true;
 
       services.displayManager.gdm.enable = lib.mkDefault true;
