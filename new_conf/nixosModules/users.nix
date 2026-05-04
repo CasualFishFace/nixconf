@@ -1,24 +1,12 @@
 { inputs, ... }: {
   flake.nixosModules.users = args@{ config, lib, ... }: let
-    inherit (config.users) blacklist whitelist;
-
-    allowed-user = u:
-      (blacklist == null || !(builtins.elem u blacklist))
-      && (whitelist == null || (builtins.elem u whitelist));
+    inherit (config.users) blacklist;
+    allowed-user = u: (blacklist == null || !(builtins.elem u blacklist));
   in {
     options.users = {
       blacklist = lib.mkOption {
         description = ''
           A custom blacklist option to disallow specific users from a system config.
-        '';
-
-        default = null;
-        type = with lib.types; nullOr (listOf str);
-      };
-
-      whitelist = lib.mkOption {
-        description = ''
-          A custom whitelist option to allow only specific users onto a system config.
         '';
 
         default = null;

@@ -33,6 +33,13 @@
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
       programs.discord.enable = lib.mkDefault true;
+
+      home-manager = {
+        extraSpecialArgs = {};
+        backupFileExtension = "bak";
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
     };
   };
 }

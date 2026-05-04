@@ -3,7 +3,10 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    # home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      follows = "nixpkgs";
+    };
     import-tree.url = "github:vic/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
@@ -12,10 +15,14 @@
     inherit inputs;
   } {
     debug = true;
-    imports = [ (inputs.import-tree [
-      ./hosts
-      ./nixosModules
-    ]) ];
+    imports = [
+      inputs.home-manager.flakeModules.home-manager
+      (inputs.import-tree [
+        ./hosts
+        ./nixosModules
+        ./homeConfigurations
+      ])
+    ];
 
     systems = [
       "x86_64-linux"
