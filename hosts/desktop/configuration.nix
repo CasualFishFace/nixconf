@@ -2,7 +2,7 @@
   flake.nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.bundles
-      ./../../hardware-configuration.nix
+      ./hardware-configuration.nix
       { 
         myNixos.bundles.graphical.enable = true;
         
