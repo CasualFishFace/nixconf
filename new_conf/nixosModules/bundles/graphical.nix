@@ -23,7 +23,7 @@
     config = let
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
-      services.rtkit.enable = lib.mkDefault true;
+      security.rtkit.enable = lib.mkDefault true;
       services.pipewire.enable = lib.mkDefault true;
       services.displayManager.gdm.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
