@@ -21,6 +21,7 @@
         ./hosts
         ./nixosModules
         ./homeConfigurations
+        ./homeModules
       ])
     ];
 
