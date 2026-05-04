@@ -1,5 +1,5 @@
 _top: {
-  flake.homeModules.hyprland = { lib, ... }: {
+  flake.homeModules.programs = { lib, ... }: {
     services.hyprpaper.settings = {
       # preload = null;
       splash = false;
