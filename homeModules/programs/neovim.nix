@@ -1,7 +1,7 @@
 _top: {
   flake.homeModules.programs = { config, lib, ... }: let
     inherit (config.lib.file) mkOutOfStoreSymlink;
-    dotfiles = mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles";
+    dotfiles = mkOutOfStoreSymlink "${config.xdg.configHome}/.dotfiles";
   in {
     home.sessionVariables = {
       EDITOR = lib.mkDefault "nvim";
@@ -11,7 +11,8 @@ _top: {
       defaultEditor = true;
       withRuby = false;
       withPython3 = false;
-      initLua = builtins.readFile "${dotfiles}/nvim/init.lua";
     };
+
+    xdg.configFile.nvim.source = "${dotfiles}/nvim";
   };
 }
