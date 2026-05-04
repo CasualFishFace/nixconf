@@ -1,15 +1,9 @@
-{ inputs, self, ... }: let
-  inherit (inputs.nixpkgs) lib;
-in {
-  flake.nixosConfigurations.desktop = lib.nixosSystem {
-    system = "x86_64-linux";
-    specialArgs = { inherit inputs; };
+{ inputs, self, ... }: {
+  flake.nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.bundles
-      
-      {
-        imports = [ ./hardware-configuration.nix ];
-
+      ./../../hardware-configuration.nix
+      { 
         myNixos.bundles.graphical.enable = true;
         
         boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
