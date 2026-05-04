@@ -17,6 +17,8 @@
             '')
           ];
         };
+
+        programs.firefox.enable = true;
       })
     ];
   };
