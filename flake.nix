@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nvf.url = "github:notashelf/nvf";
     # stylix.url = "github:nix-community/stylix";
   };
 
@@ -22,6 +23,7 @@
         ./nixosModules
         ./homeConfigurations
         ./homeModules
+        ./packages
       ])
     ];
 
