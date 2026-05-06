@@ -16,8 +16,8 @@
           then "${noctalia-command} ipc call launcher toggle"
           else lib.getExe config.myHome.launcher;
 
-        "Mod+H".action.focus-window-or-column-left = {};
-        "Mod+L".action.focus-window-or-column-right = {};
+        "Mod+H".action.focus-column-left = {};
+        "Mod+L".action.focus-column-right = {};
         "Mod+J".action.focus-window-or-workspace-down = {};
         "Mod+K".action.focus-window-or-workspace-up = {};
       };
