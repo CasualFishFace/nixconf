@@ -1,10 +1,18 @@
-{ self, ... }: {
-  flake.homeModules.fishface = { pkgs, ... }: {
+{ inputs, self, ... }: {
+  flake.homeModules.fishface = { pkgs, ... }: let
+    inherit (pkgs.stdenv.hostPlatform) system;
+    noctalia = inputs.noctalia.packages.${system}.default;
+  in {
     imports = [
+      self.homeModules.myHome
       self.homeModules.programs
     ];
 
     programs.home-manager.enable = true;
+
+    myHome.launcher = pkgs.fuzzel;
+    myHome.statusBar = noctalia;
+    myHome.terminal = pkgs.ghostty;
 
     home = {
       stateVersion = "25.05";

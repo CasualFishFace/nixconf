@@ -1,5 +1,5 @@
 _top: {
-  flake.homeModules.programs = { lib, ... }: {
+  flake.homeModules.programs = { config, lib, ... }: {
     services.hyprpaper.settings = {
       # preload = null;
       splash = false;
@@ -11,9 +11,9 @@ _top: {
       ################
 
       monitor = ", preferred, auto, auto";
-      "$terminal" = "ghostty";
-      "$menu" = "fuzzel";
-      "$bar" = "waybar";
+      "$terminal" = lib.getExe config.myHome.terminal;
+      "$menu" = lib.getExe config.myHome.launcher;
+      "$bar" = lib.getExe config.myHome.statusBar;
       "$emoji-picker" = "bemoji -t";
 
       #################
