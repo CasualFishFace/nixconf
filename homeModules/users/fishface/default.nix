@@ -35,6 +35,7 @@
     programs.fuzzel.enable = true;
     programs.ghostty.enable = true;
     programs.hyprshot.enable = true;
+    programs.niri.enable = true;
     programs.nvf.enable = true;
     programs.quickshell.enable = true;
     programs.waybar.enable = true;

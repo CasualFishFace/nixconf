@@ -16,6 +16,8 @@
         style = "mocha";
       };
 
+      additionalRuntimePaths = [ "~/.config/nvim" ];
+
       statusline.lualine.enable = true;
       telescope.enable = true;
       autocomplete.nvim-cmp.enable = true;
