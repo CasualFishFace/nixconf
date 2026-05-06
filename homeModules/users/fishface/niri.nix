@@ -30,7 +30,7 @@
         empty-workspace-above-first = true;
         focus-ring.width = 2;
         gaps = 5;
-        insert-hint.off = true;
+        insert-hint.enable = false;
 
         preset-column-widths = builtins.map (proportion: { inherit proportion; }) [
           0.33333
