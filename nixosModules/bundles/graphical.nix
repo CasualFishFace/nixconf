@@ -27,7 +27,7 @@
       services.geoclue2.enable = lib.mkDefault true;
       services.localtimed.enable = lib.mkDefault true;
       services.pipewire.enable = lib.mkDefault true;
-      services.xserver.enable = lib.mkDefault true;
+      # services.xserver.enable = lib.mkDefault true;
 
       programs.bash.enable = lib.mkDefault true;
       programs.discord.enable = lib.mkDefault true;
@@ -35,6 +35,7 @@
       programs.ghostty.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
       programs.niri.enable = lib.mkDefault true;
+      programs.xwayland.enable = lib.mkDefault true;
     };
   };
 }

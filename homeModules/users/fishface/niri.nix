@@ -48,7 +48,7 @@
       gestures.hot-corners.enable = false;
 
       input = {
-        focus-follows-mouse = {};
+        focus-follows-mouse.enable = true;
       };
 
       layout = {
