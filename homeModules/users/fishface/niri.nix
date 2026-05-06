@@ -33,8 +33,8 @@
         "Mod+Space".action.switch-focus-between-floating-and-tiling = {};
         "Mod+Shift+Space".action.toggle-window-floating = {};
 
-        "Mod+F".action.fullscreen-window = {};
-        "Mod+Ctrl+F".action.maximize-column = {};
+        "Mod+F".action.maximize-column = {};
+        "Mod+Shift+F".action.fullscreen-window = {};
 
         "Mod+O".action.toggle-overview = {};
 
