@@ -45,13 +45,10 @@
         "Mod+Ctrl+Shift+M".action.do-screen-transition = {};
       };
 
+      gestures.hot-corners.enable = false;
+
       input = {
         focus-follows-mouse = {};
-      };
-
-      outputs = {
-        "DVI-D-1".hot-corners.enable = false;
-        "HDMI-A-1".hot-corners.enable = false;
       };
 
       layout = {
@@ -74,6 +71,11 @@
           (builtins.map (name: { ${name} = 5; }) [ "left" "right" "top" "bottom" ]);
 
         tab-indicator.hide-when-single-tab = true;
+      };
+
+      outputs = {
+        "DVI-D-1" = {};
+        "HDMI-A-1" = {};
       };
 
       prefer-no-csd = true;
