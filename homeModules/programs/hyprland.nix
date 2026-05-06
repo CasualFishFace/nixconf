@@ -1,5 +1,9 @@
-_top: {
-  flake.homeModules.programs = { config, lib, ... }: {
+{ inputs, ... }: {
+  flake.homeModules.programs = { config, pkgs, lib, ... }: let
+    inherit (inputs) noctalia;
+    noctalia-exe = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    noctalia-command = lib.getExe noctalia-exe;
+  in {
     services.hyprpaper.settings = {
       # preload = null;
       splash = false;
@@ -12,7 +16,9 @@ _top: {
 
       monitor = ", preferred, auto, auto";
       "$terminal" = lib.getExe config.myHome.terminal;
-      "$menu" = lib.getExe config.myHome.launcher;
+      "$menu" = if config.myHome.launcher == null
+          then "${noctalia-command} ipc call launcher toggle"
+          else lib.getExe config.myHome.launcher;
       "$bar" = lib.getExe config.myHome.statusBar;
       "$emoji-picker" = "bemoji -t";
 

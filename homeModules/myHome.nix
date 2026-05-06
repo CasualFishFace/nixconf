@@ -2,7 +2,8 @@ _top: {
   flake.homeModules.myHome = { config, lib, ... }: {
     options.myHome = {
       launcher = lib.mkOption {
-        type = lib.types.package;
+        default = null;
+        type = with lib.types; nullOr package;
       };
 
       statusBar = lib.mkOption {

@@ -10,7 +10,6 @@
 
     programs.home-manager.enable = true;
 
-    myHome.launcher = pkgs.fuzzel;
     myHome.statusBar = noctalia;
     myHome.terminal = pkgs.ghostty;
 
