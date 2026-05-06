@@ -10,16 +10,11 @@
       self.nixosModules.essential
       self.nixosModules.fonts
       self.nixosModules.homeManager
+      self.nixosModules.myNixos
       self.nixosModules.programs
       self.nixosModules.specialisations
       self.nixosModules.windowManagers
     ];
-
-    options.myNixos.bundles.graphical = {
-      enable = lib.mkEnableOption ''
-        Configures many options that typically come with a graphical OS installation.
-      '';
-    };
 
     config = let
       inherit (config.myNixos) bundles;
@@ -38,7 +33,7 @@
       programs.firefox.enable = lib.mkDefault true;
       programs.ghostty.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
-      programs.niri.enable = true;
+      programs.niri.enable = lib.mkDefault true;
     };
   };
 }
