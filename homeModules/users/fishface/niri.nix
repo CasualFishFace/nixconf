@@ -10,16 +10,41 @@
 
     programs.niri.settings = {
       binds = {
+        "Mod+Shift+/".action.help = {};
         "Mod+Q".action.close-window = {};
         "Mod+Return".action.spawn-sh = lib.getExe config.myHome.terminal;
         "Mod+D".action.spawn-sh = if config.myHome.statusBar == noctalia-exe
           then "${noctalia-command} ipc call launcher toggle"
           else lib.getExe config.myHome.launcher;
 
-        "Mod+H".action.focus-column-left = {};
-        "Mod+L".action.focus-column-right = {};
+        "Mod+H".action.focus-column-or-monitor-left = {};
+        "Mod+L".action.focus-column-or-monitor-right = {};
         "Mod+J".action.focus-window-or-workspace-down = {};
         "Mod+K".action.focus-window-or-workspace-up = {};
+        "Mod+Ctrl+H".action.focus-monitor-left = {};
+        "Mod+Ctrl+L".action.focus-monitor-right = {};
+
+        "Mod+Shift+H".action.move-column-left-or-to-monitor-left = {};
+        "Mod+Shift+L".action.move-column-right-or-to-monitor-right = {};
+        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = {};
+        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = {};
+        "Mod+Shift+Ctrl+H".action.move-window-to-monitor-left = {};
+        "Mod+Shift+Ctrl+L".action.move-window-to-monitor-right = {};
+
+        "Mod+Space".action.switch-focus-between-floating-and-tiling = {};
+        "Mod+Shift+Space".action.toggle-window-floating = {};
+
+        "Mod+F".action.fullscreen-window = {};
+        "Mod+Ctrl+F".action.maximize-column = {};
+
+        "Mod+O".action.toggle-overview = {};
+        "Mod+Ctrl+R".action.load-config-file = {};
+
+        "Print".action.screenshot = {};
+        "Mod+Print".action.screenshot-window = {};
+        "Mod+Ctrl+Print".action.screenshot-screen = {};
+
+        "Mod+Ctrl+Shift+M".action.do-screen-transition = {};
       };
 
       layout = {
