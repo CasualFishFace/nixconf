@@ -82,6 +82,9 @@
 
       spawn-at-startup = [
         { command = [ noctalia-command ]; }
+      ];
+
+      spawn-sh-at-startup = [
         { command = [ (lib.getExe pkgs.xwayland-satellite) ]; }
       ];
     };
