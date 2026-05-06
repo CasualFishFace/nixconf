@@ -16,7 +16,7 @@
       layout.gaps = 5;
       binds = {
         "Mod+Return".action.spawn-sh = lib.getExe config.myHome.terminal;
-        "Mod+D".action.spawn = if config.myHome.launcher == null
+        "Mod+D".action.spawn-sh = if config.myHome.launcher == null
           then "${noctalia-command} ipc call launcher toggle"
           else lib.getExe config.myHome.launcher;
         "Mod+Q".action.close-window = {};
