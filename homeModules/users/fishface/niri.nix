@@ -9,8 +9,8 @@
     programs.niri.settings = {
       layout.gaps = 5;
       binds = {
-        "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
-        "Mod+Q".close-window = null;
+        "Mod+Return".action.spawn-sh = lib.getExe pkgs.ghostty;
+        "Mod+Q".action.close-window = null;
       };
     };
   };
