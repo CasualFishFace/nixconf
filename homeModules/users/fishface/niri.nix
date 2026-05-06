@@ -46,6 +46,7 @@
       };
 
       gestures.hot-corners.enable = false;
+      hotkey-overlay.hide-not-bound = true;
 
       input = {
         focus-follows-mouse.enable = true;
