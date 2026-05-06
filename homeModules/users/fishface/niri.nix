@@ -8,8 +8,6 @@
       niri-flake.homeModules.niri
     ];
 
-    home.packages = [ pkgs.xwayland-satellite ];
-    programs.xwayland.enable = true;
     programs.niri.settings = {
       binds = {
         "Mod+Q".action.close-window = {};
@@ -84,6 +82,7 @@
 
       spawn-at-startup = [
         { command = [ noctalia-command ]; }
+        { command = [ lib.getExe pkgs.xwayland-satellite ]; }
       ];
     };
   };
