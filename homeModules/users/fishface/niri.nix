@@ -46,7 +46,11 @@
       };
 
       gestures.hot-corners.enable = false;
-      hotkey-overlay.hide-not-bound = true;
+
+      hotkey-overlay = {
+        hide-not-bound = true;
+        skip-at-startup = true;
+      };
 
       input = {
         focus-follows-mouse.enable = true;
