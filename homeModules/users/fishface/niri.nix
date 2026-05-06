@@ -38,7 +38,9 @@
           0.66667
         ];
 
-        struts = builtins.map (name: { ${name} = 5; }) [ "left" "right" "top" "bottom" ];
+        struts = lib.mergeAttrsList
+          (builtins.map (name: { ${name} = 5; }) [ "left" "right" "top" "bottom" ]);
+
         tab-indicator.hide-when-single-tab = true;
       };
 
