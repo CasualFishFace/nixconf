@@ -7,6 +7,7 @@
     import-tree.url = "github:vic/import-tree";
     niri-flake.url = "github:sodiboo/niri-flake";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     nvf.url = "github:notashelf/nvf";
     # stylix.url = "github:nix-community/stylix";
   };
