@@ -2,6 +2,7 @@
   flake.homeModules.fishface = { pkgs, lib, ... }: let
     inherit (inputs) niri-flake noctalia;
     noctalia-exe = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    noctalia-command = lib.getExe noctalia-exe;
   in {
     imports = [
       niri-flake.homeModules.niri
@@ -9,7 +10,7 @@
 
     programs.niri.settings = {
       spawn-at-startup = [
-        (lib.getExe noctalia-exe)
+        { command = [ noctalia-command ]; }
       ];
 
       layout.gaps = 5;
