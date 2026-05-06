@@ -10,7 +10,6 @@
 
     programs.niri.settings = {
       binds = {
-        "Mod+Shift+/".action.help = {};
         "Mod+Q".action.close-window = {};
         "Mod+Return".action.spawn-sh = lib.getExe config.myHome.terminal;
         "Mod+D".action.spawn-sh = if config.myHome.statusBar == noctalia-exe
@@ -38,7 +37,6 @@
         "Mod+Ctrl+F".action.maximize-column = {};
 
         "Mod+O".action.toggle-overview = {};
-        "Mod+Ctrl+R".action.load-config-file = {};
 
         "Print".action.screenshot = {};
         "Mod+Print".action.screenshot-window = {};
