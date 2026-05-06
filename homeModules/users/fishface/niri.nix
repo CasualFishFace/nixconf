@@ -46,11 +46,13 @@
       };
 
       input = {
-        focus-follows-mouse = true;
+        focus-follows-mouse = {};
       };
 
-      output."DVI-D-1".hot-corners.enable = false;
-      output."HDMI-A-1".hot-corners.enable = false;
+      outputs = {
+        "DVI-D-1".hot-corners.enable = false;
+        "HDMI-A-1".hot-corners.enable = false;
+      };
 
       layout = {
         always-center-single-column = true;
