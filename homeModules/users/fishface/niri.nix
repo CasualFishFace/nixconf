@@ -45,6 +45,13 @@
         "Mod+Ctrl+Shift+M".action.do-screen-transition = {};
       };
 
+      input = {
+        focus-follows-mouse = true;
+      };
+
+      output."DVI-D-1".hot-corners.enable = false;
+      output."HDMI-A-1".hot-corners.enable = false;
+
       layout = {
         always-center-single-column = true;
         center-focused-column = "never";
