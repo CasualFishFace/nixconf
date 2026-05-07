@@ -28,23 +28,13 @@
     "widgets": {
       "left": [
         {
-          "colorizeSystemIcon": "none",
-          "colorizeSystemText": "none",
-          "customIconPath": "",
-          "enableColorization": false,
-          "icon": "rocket",
-          "iconColor": "none",
-          "id": "Launcher",
-          "useDistroLogo": false
-        },
-        {
           "clockColor": "none",
-          "customFont": "",
+          "customFont": "JetBrainsMono NF",
           "formatHorizontal": "HH:mm ddd, MMM dd",
-          "formatVertical": "HH mm - dd MM",
+          "formatVertical": "HH mm ss",
           "id": "Clock",
           "tooltipFormat": "HH:mm ddd, MMM dd",
-          "useCustomFont": false
+          "useCustomFont": true
         },
         {
           "compactMode": true,
@@ -69,17 +59,6 @@
           "usePadding": false
         },
         {
-          "colorizeIcons": false,
-          "hideMode": "hidden",
-          "id": "ActiveWindow",
-          "maxWidth": 145,
-          "scrollingMode": "hover",
-          "showIcon": true,
-          "showText": true,
-          "textColor": "none",
-          "useFixedWidth": false
-        },
-        {
           "compactMode": false,
           "hideMode": "hidden",
           "hideWhenIdle": false,
@@ -94,26 +73,32 @@
           "textColor": "none",
           "useFixedWidth": false,
           "visualizerType": "linear"
+        },
+        {
+          "colorName": "primary",
+          "hideWhenIdle": true,
+          "id": "AudioVisualizer",
+          "width": 150
         }
       ],
       "center": [
         {
           "characterCount": 2,
-          "colorizeIcons": false,
+          "colorizeIcons": true,
           "emptyColor": "secondary",
           "enableScrollWheel": true,
           "focusedColor": "primary",
           "followFocusedScreen": false,
           "fontWeight": "bold",
           "groupedBorderOpacity": 1,
-          "hideUnoccupied": false,
-          "iconScale": 0.8,
+          "hideUnoccupied": true,
+          "iconScale": 0.7,
           "id": "Workspace",
-          "labelMode": "index",
-          "occupiedColor": "secondary",
-          "pillSize": 0.6,
-          "showApplications": false,
-          "showApplicationsHover": false,
+          "labelMode": "none",
+          "occupiedColor": "tertiary",
+          "pillSize": 0.7,
+          "showApplications": true,
+          "showApplicationsHover": true,
           "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 1
@@ -123,7 +108,7 @@
         {
           "blacklist": [],
           "chevronColor": "none",
-          "colorizeIcons": false,
+          "colorizeIcons": true,
           "drawerEnabled": true,
           "hidePassive": false,
           "id": "Tray",
@@ -131,7 +116,7 @@
         },
         {
           "hideWhenZero": false,
-          "hideWhenZeroUnread": false,
+          "hideWhenZeroUnread": true,
           "iconColor": "none",
           "id": "NotificationHistory",
           "showUnreadBadge": true,
@@ -139,11 +124,11 @@
         },
         {
           "deviceNativePath": "__default__",
-          "displayMode": "graphic-clean",
-          "hideIfIdle": false,
+          "displayMode": "icon-always",
+          "hideIfIdle": true,
           "hideIfNotDetected": true,
           "id": "Battery",
-          "showNoctaliaPerformance": false,
+          "showNoctaliaPerformance": true,
           "showPowerProfiles": false
         },
         {
@@ -154,21 +139,14 @@
           "textColor": "none"
         },
         {
-          "applyToAllMonitors": false,
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Brightness",
-          "textColor": "none"
-        },
-        {
           "colorizeDistroLogo": false,
-          "colorizeSystemIcon": "none",
+          "colorizeSystemIcon": "secondary",
           "colorizeSystemText": "none",
           "customIconPath": "",
-          "enableColorization": false,
+          "enableColorization": true,
           "icon": "noctalia",
           "id": "ControlCenter",
-          "useDistroLogo": false
+          "useDistroLogo": true
         }
       ]
     },
@@ -187,12 +165,12 @@
     "avatarImage": "/home/fishface/Pictures/neco-arc-doorbell.gif",
     "dimmerOpacity": 0.1,
     "showScreenCorners": false,
-    "forceBlackScreenCorners": false,
+    "forceBlackScreenCorners": true,
     "scaleRatio": 1,
     "radiusRatio": 1,
     "iRadiusRatio": 1,
     "boxRadiusRatio": 1,
-    "screenRadiusRatio": 1,
+    "screenRadiusRatio": 0.7000000000000001,
     "animationSpeed": 1,
     "animationDisabled": false,
     "compactLockScreen": false,
@@ -262,7 +240,7 @@
     "settingsPanelSideBarCardStyle": false
   },
   "location": {
-    "name": "",
+    "name": "Lebanon",
     "weatherEnabled": true,
     "weatherShowEffects": true,
     "weatherTaliaMascotAlways": false,
@@ -275,7 +253,7 @@
     "firstDayOfWeek": 1,
     "hideWeatherTimezone": false,
     "hideWeatherCityName": true,
-    "autoLocate": false
+    "autoLocate": true
   },
   "calendar": {
     "cards": [
@@ -614,7 +592,7 @@
     "volumeStep": 5,
     "volumeOverdrive": false,
     "spectrumFrameRate": 60,
-    "visualizerType": "wave",
+    "visualizerType": "mirrored",
     "spectrumMirrored": true,
     "mprisBlacklist": [],
     "preferredPlayer": "spotify",
@@ -682,10 +660,33 @@
     "customCommands": "[]"
   },
   "desktopWidgets": {
-    "enabled": false,
+    "enabled": true,
     "overviewEnabled": true,
-    "gridSnap": false,
+    "gridSnap": true,
     "gridSnapScale": false,
-    "monitorWidgets": []
+    "monitorWidgets": [
+      {
+        "name": "DVI-D-1",
+        "widgets": [
+          {
+            "hideMode": "visible",
+            "id": "MediaPlayer",
+            "roundedCorners": true,
+            "scale": 2.0075903347126434,
+            "showAlbumArt": true,
+            "showBackground": true,
+            "showButtons": true,
+            "showVisualizer": true,
+            "visualizerType": "mirrored",
+            "x": 560,
+            "y": 820
+          }
+        ]
+      },
+      {
+        "name": "HDMI-A-1",
+        "widgets": []
+      }
+    ]
   }
 }
