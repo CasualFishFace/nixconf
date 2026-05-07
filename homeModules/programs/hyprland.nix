@@ -16,9 +16,7 @@
 
       monitor = ", preferred, auto, auto";
       "$terminal" = lib.getExe config.myHome.terminal;
-      "$menu" = if config.myHome.launcher == null
-          then "${noctalia-command} ipc call launcher toggle"
-          else lib.getExe config.myHome.launcher;
+      "$menu" = lib.getExe config.myHome.launcher;
       "$bar" = lib.getExe config.myHome.statusBar;
       "$emoji-picker" = "bemoji -t";
 

@@ -1,9 +1,9 @@
 _top: {
-  flake.homeModules.myHome = { config, lib, ... }: {
+  flake.homeModules.myHome = { pkgs, config, lib, ... }: {
     options.myHome = {
       launcher = lib.mkOption {
-        default = null;
-        type = with lib.types; nullOr package;
+        default = pkgs.fuzzel;
+        type = lib.types.package;
       };
 
       statusBar = lib.mkOption {
