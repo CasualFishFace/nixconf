@@ -97,8 +97,8 @@
           "labelMode": "none",
           "occupiedColor": "tertiary",
           "pillSize": 0.7,
-          "showApplications": true,
-          "showApplicationsHover": true,
+          "showApplications": false,
+          "showApplicationsHover": false,
           "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 1
