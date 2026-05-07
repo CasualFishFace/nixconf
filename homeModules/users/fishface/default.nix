@@ -44,6 +44,7 @@
     programs.hyprshot.enable = true;
     programs.niri.enable = true;
     programs.nvf.enable = true;
+    programs.spotify.enable = true;
     programs.quickshell.enable = true;
     programs.waybar.enable = true;
     programs.zoxide.enable = true;
