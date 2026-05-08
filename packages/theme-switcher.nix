@@ -1,7 +1,7 @@
 _top: {
   perSystem = { pkgs, ... }: let
-    theme = "$XDG_CONFIG_HOME/ghostty/themes/custom";
-    noctalia-colors = "$XDG_CONFIG_HOME/noctalia/colors.json";
+    theme = "$HOME/.config/ghostty/themes/custom";
+    noctalia-colors = "$HOME/.config/noctalia/colors.json";
   in {
     packages.theme-switcher = pkgs.writers.writePython3Bin "theme-switcher" {} ''
       import re
