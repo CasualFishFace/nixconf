@@ -3,10 +3,10 @@ _top: {
     programs.ghostty = {
       enableBashIntegration = true;
       settings = {
+        background-opacity = 0.7;
         gtk-titlebar = false;
+        theme = "custom";
       };
     };
   };
-
-  flake.homeModules.theming = {};
 }
