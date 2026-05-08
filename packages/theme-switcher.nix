@@ -6,6 +6,7 @@ _top: {
     packages.theme-switcher = pkgs.writers.writePython3Bin "theme-switcher" {} ''
       import re
 
+
       def get_colors():
           json = open("${noctalia-colors}")
           lines = json.split("\n")
@@ -21,7 +22,7 @@ _top: {
             cursor-text = #c6d0f5
             """)
           for i, color in enumerate(get_colors()):
-            f.write(f"palette = {i}={color}")
+              f.write(f"palette = {i}={color}")
     '';
   };
 }
