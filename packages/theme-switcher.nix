@@ -1,20 +1,28 @@
 _top: {
-  perSystem = { pkgs, ... }: let
-    theme = "$HOME/.config/ghostty/themes/custom";
-    noctalia-colors = "$HOME/.config/noctalia/colors.json";
-  in {
+  perSystem = { pkgs, ... }: {
     packages.theme-switcher = pkgs.writers.writePython3Bin "theme-switcher" {} ''
       import re
+      import os
+
+
+      HOME = os.environ["HOME"]
 
 
       def get_colors():
-          json = open("${noctalia-colors}")
-          lines = json.split("\n")
+          json = open(f"{HOME}/.config/noctalia/colors.json", "r")
+          lines = json.readlines()
           json.close()
-          return map(lambda x: re.search("#[0-9a-fA-F]{6}", x).group(), lines[1:-1])
+          res = map(lambda line: re.search("#[0-9a-fA-F]{6}", line), lines[1:-1])
+          res = filter(lambda x: x is not None, res)
+          return map(lambda x: x.group(), res)
 
 
-      with open("${theme}", "w") as f:
+      try:
+          os.mkdir(f"{HOME}/.config/ghostty/themes")
+      except FileExistsError:
+          pass
+
+      with open(f"{HOME}/.config/ghostty/themes/custom", "w") as f:
           f.write("""
             background = #303446
             foreground = #c6d0f5
@@ -22,7 +30,7 @@ _top: {
             cursor-text = #c6d0f5
             """)
           for i, color in enumerate(get_colors()):
-              f.write(f"palette = {i}={color}")
+              f.write(f"palette = {i}={color}\n")
     '';
   };
 }
