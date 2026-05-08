@@ -6,6 +6,7 @@
     imports = [
       self.homeModules.myHome
       self.homeModules.programs
+      self.homeModules.theming
     ];
 
     programs.home-manager.enable = true;

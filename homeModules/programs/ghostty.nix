@@ -7,4 +7,6 @@ _top: {
       };
     };
   };
+
+  flake.homeModules.theming = {};
 }

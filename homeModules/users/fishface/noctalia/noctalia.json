@@ -132,7 +132,7 @@
           "showPowerProfiles": false
         },
         {
-          "displayMode": "onhover",
+          "displayMode": "alwaysShow",
           "iconColor": "none",
           "id": "Volume",
           "middleClickCommand": "pwvucontrol || pavucontrol",
@@ -273,12 +273,12 @@
   },
   "wallpaper": {
     "enabled": true,
-    "overviewEnabled": false,
+    "overviewEnabled": true,
     "directory": "/etc/nixos/themes",
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
-    "viewMode": "recursive",
+    "viewMode": "single",
     "setWallpaperOnAllMonitors": true,
     "linkLightAndDarkWallpapers": true,
     "fillMode": "crop",
@@ -290,21 +290,16 @@
     "randomIntervalSec": 300,
     "transitionDuration": 1500,
     "transitionType": [
-      "fade",
-      "disc",
-      "stripes",
-      "wipe",
-      "pixelate",
-      "honeycomb"
+      "fade"
     ],
     "skipStartupTransition": true,
     "transitionEdgeSmoothness": 0.05,
     "panelPosition": "follow_bar",
-    "hideWallpaperFilenames": false,
+    "hideWallpaperFilenames": true,
     "useOriginalImages": false,
     "overviewBlur": 0.4,
     "overviewTint": 0.6,
-    "useWallhaven": false,
+    "useWallhaven": true,
     "wallhavenQuery": "",
     "wallhavenSorting": "relevance",
     "wallhavenOrder": "desc",
@@ -630,7 +625,7 @@
     "manualSunset": "18:30"
   },
   "hooks": {
-    "enabled": false,
+    "enabled": true,
     "wallpaperChange": "",
     "darkModeChange": "",
     "screenLock": "",

@@ -33,6 +33,7 @@
         "Mod+Space".action.switch-focus-between-floating-and-tiling = {};
         "Mod+Shift+Space".action.toggle-window-floating = {};
 
+        "Mod+R".action.switch-preset-column-width = {};
         "Mod+F".action.maximize-column = {};
         "Mod+Shift+F".action.fullscreen-window = {};
 
@@ -42,7 +43,8 @@
         "Mod+Print".action.screenshot-window = {};
         "Mod+Ctrl+Print".action.screenshot-screen = {};
 
-        "Mod+Ctrl+Shift+M".action.do-screen-transition = {};
+        "Mod+V".action.spawn = lib.mkIf (config.myHome.statusBar == noctalia-exe)
+          "${noctalia-command} ipc call plugin:clipboard toggle";
       };
 
       gestures.hot-corners.enable = false;
@@ -58,6 +60,11 @@
           max-scroll-amount = "0%";
         };
       };
+
+      # layer-rule {
+      #   match namespace="^notifications$"
+      #   block-out-from "screencast"
+      # }
 
       layout = {
         always-center-single-column = true;
