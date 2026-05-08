@@ -3,7 +3,7 @@ _top: {
     theme = "$XDG_CONFIG_HOME/ghostty/themes/custom";
     noctalia-colors = "$XDG_CONFIG_HOME/noctalia/colors.json";
   in {
-    packages.theme-switcher = pkgs.writers.writePython3Bin "theme-switcher" ''
+    packages.theme-switcher = pkgs.writers.writePython3Bin "theme-switcher" {} ''
       import re
 
       def get_colors():
