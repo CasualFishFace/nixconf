@@ -43,8 +43,7 @@
         "Mod+Print".action.screenshot-window = {};
         "Mod+Ctrl+Print".action.screenshot-screen = {};
 
-        "Mod+V".action.spawn = lib.mkIf (config.myHome.statusBar == noctalia-exe)
-          "${noctalia-command} ipc call plugin:clipboard toggle";
+        "Mod+V".action.spawn = "${noctalia-command} ipc call plugin:clipboard toggle";
       };
 
       gestures.hot-corners.enable = false;
