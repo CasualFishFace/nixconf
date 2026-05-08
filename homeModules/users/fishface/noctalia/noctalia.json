@@ -299,7 +299,7 @@
     "useOriginalImages": false,
     "overviewBlur": 0.4,
     "overviewTint": 0.6,
-    "useWallhaven": true,
+    "useWallhaven": false,
     "wallhavenQuery": "",
     "wallhavenSorting": "relevance",
     "wallhavenOrder": "desc",
@@ -662,21 +662,7 @@
     "monitorWidgets": [
       {
         "name": "DVI-D-1",
-        "widgets": [
-          {
-            "hideMode": "visible",
-            "id": "MediaPlayer",
-            "roundedCorners": true,
-            "scale": 2.0075903347126434,
-            "showAlbumArt": true,
-            "showBackground": true,
-            "showButtons": true,
-            "showVisualizer": true,
-            "visualizerType": "mirrored",
-            "x": 560,
-            "y": 820
-          }
-        ]
+        "widgets": []
       },
       {
         "name": "HDMI-A-1",
