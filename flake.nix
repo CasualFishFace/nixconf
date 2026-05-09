@@ -9,7 +9,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     nvf.url = "github:notashelf/nvf";
-    # stylix.url = "github:nix-community/stylix";
   };
 
   outputs = inputs@{ self, import-tree, home-manager, flake-parts, ... }: flake-parts.lib.mkFlake {
