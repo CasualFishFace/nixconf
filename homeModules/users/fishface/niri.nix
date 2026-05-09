@@ -98,6 +98,11 @@
         { command = [ noctalia-command ]; }
       ];
 
+      window-rule = {
+        geometry-corner-radius = 12;
+        clip-to-geometry = true;
+      };
+
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     };
   };
