@@ -31,6 +31,8 @@ _top: {
             """)
           for i, color in enumerate(get_colors()):
               f.write(f"palette = {i}={color}\n")
+
+      os.system("pkill -SIGUSR2 ghostty")
     '';
   };
 }
