@@ -19,6 +19,11 @@
     config = let
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
+      hardware.opentabletdriver = {
+        enable = true;
+        daemon.enable = true;
+      };
+
       security.rtkit.enable = lib.mkDefault true;
 
       services.displayManager.gdm.enable = lib.mkDefault true;
