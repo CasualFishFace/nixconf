@@ -1,3 +1,5 @@
+# pyright: reportOptionalMemberAccess=false
+
 import re
 import subprocess as sp
 import os

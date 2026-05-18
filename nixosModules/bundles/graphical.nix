@@ -5,6 +5,7 @@
 { self, ... }: {
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
+      self.nixosModules.audio
       self.nixosModules.cliTools
       self.nixosModules.displayManagers
       self.nixosModules.essential
@@ -31,7 +32,6 @@
       services.fwupd.enable = lib.mkDefault true;
       services.geoclue2.enable = lib.mkDefault true;
       services.localtimed.enable = lib.mkDefault true;
-      services.pipewire.enable = lib.mkDefault true;
       services.xserver.enable = lib.mkDefault true;
 
       programs.bash.enable = lib.mkDefault true;
