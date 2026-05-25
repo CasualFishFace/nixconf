@@ -5,7 +5,7 @@ _top: {
     };
 
     services.pipewire = {
-      enable = lib.mkDefault false;
+      enable = false;
       alsa.enable = true;
       alsa.support32Bit = true;
       audio.enable = true;
