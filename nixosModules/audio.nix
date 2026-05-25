@@ -1,6 +1,6 @@
 _top: {
   flake.nixosModules.audio = { lib, ... }: {
-    serivces.pulseaudio = {
+    services.pulseaudio = {
       enable = lib.mkDefault true;
     };
 
