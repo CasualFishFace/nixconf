@@ -1,11 +1,7 @@
 _top: {
   flake.nixosModules.audio = { lib, ... }: {
-    services.pulseaudio = {
-      enable = lib.mkDefault true;
-    };
-
     services.pipewire = {
-      enable = false;
+      enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       audio.enable = true;
