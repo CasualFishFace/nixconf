@@ -8,7 +8,7 @@
         myNixos.bundles.graphical.enable = true;
         myNixos.users.fishface.enable = true;
         
-        networking.hostName = "desktop";
+        networking.hostName = "laptop";
         nix.settings.trusted-users = [ "fishface" ];
         nixpkgs.overlays = [
           (_: prev: {
