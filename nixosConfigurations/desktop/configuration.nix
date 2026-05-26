@@ -6,7 +6,7 @@
       self.nixosModules.users
       { 
         myNixos.bundles.graphical.enable = true;
-	myNixos.users.fishface.enable = true;
+        myNixos.users.fishface.enable = true;
         
         boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
         networking.hostName = "desktop";
