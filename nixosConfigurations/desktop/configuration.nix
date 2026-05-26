@@ -33,7 +33,11 @@
           LC_TIME = "en_US.UTF-8";
         };
 
-        hardware.nvidia.modesetting.enable = true;
+        hardware.nvidia = {
+          modesetting.enable = true;
+          open = true;
+        };
+
         services.xserver.videoDrivers = [ "nvidia" ];
         services.xserver.xkb = {
           layout = "us";
