@@ -3,7 +3,6 @@
     inherit (inputs) niri-flake noctalia;
     noctalia-exe = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     noctalia-command = lib.getExe noctalia-exe;
-    ghostty-command = lib.getExe pkgs.ghostty;
   in {
     imports = [
       niri-flake.homeModules.niri
