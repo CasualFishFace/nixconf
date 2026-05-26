@@ -33,7 +33,8 @@
           LC_TIME = "en_US.UTF-8";
         };
 
-        # Configure keymap in X11
+        hardware.nvidia.modesetting.enable = true;
+        services.xserver.videoDrivers = [ "nvidia" ];
         services.xserver.xkb = {
           layout = "us";
           variant = "";
