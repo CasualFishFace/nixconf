@@ -97,7 +97,7 @@
 
       spawn-at-startup = [
         { command = [ noctalia-command ]; }
-        { command = [ ghostty-command ]; }
+        { command = [ (lib.getExe config.myHome.terminal) ]; }
       ];
 
       window-rules = [{
