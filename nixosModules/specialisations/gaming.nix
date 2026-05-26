@@ -37,11 +37,9 @@ _top: {
         # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
       };
 
-      hardware.graphics.enable = true;
-      hardware.opengl = {
+      hardware.graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
       };
     };
   };
