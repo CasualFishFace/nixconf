@@ -3,7 +3,7 @@ _top: {
     environment.systemPackages = with pkgs; [
         fd
         git
-        neovim
+        # neovim
         ripgrep
         tree
     ];
@@ -12,7 +12,7 @@ _top: {
       find = "fd";
       grep = "rg";
       tree = "tree --dirsfirst";
-      vim = "nvim";
+      # vim = "nvim";
     };
   };
 }
