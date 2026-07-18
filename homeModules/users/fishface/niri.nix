@@ -96,6 +96,7 @@
 
       spawn-at-startup = [
         { command = [ noctalia-command ]; }
+        { command = [ (lib.getExe config.myHome.terminal) ]; }
       ];
 
       window-rules = [{
