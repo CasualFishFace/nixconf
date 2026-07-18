@@ -42,6 +42,6 @@
       wrappers.packages = {}; # packages to exclude/include.
     };
 
-    systems = nixpkgs.lib.platforms.all;
+    systems = inputs.nixpkgs.lib.platforms.all;
   };
 }
