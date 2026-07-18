@@ -16,5 +16,5 @@ _top: {
       inherits = "github_dark";
       "ui.background" = "transparent";
     };
-  }
+  };
 }
