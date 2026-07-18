@@ -12,7 +12,14 @@
     # nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, import-tree, home-manager, flake-parts, ... }: flake-parts.lib.mkFlake {
+  outputs = inputs@{
+    self,
+    import-tree,
+    home-manager,
+    flake-parts,
+    wrappers,
+    ...
+  }: flake-parts.lib.mkFlake {
     inherit inputs;
   } {
     # debug = true;
