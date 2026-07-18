@@ -22,6 +22,10 @@
           sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
         '')
       ];
+
+      sessionVariables = {
+        "EDITOR" = "hx";
+      };
     
       pointerCursor = {
         enable = true;
@@ -37,6 +41,7 @@
     
     programs.bash.enable = true;
     programs.bazaar.enable = true;
+    programs.direnv.enable = true;
     programs.discord.enable = true;
     programs.firefox.enable = true;
     programs.fuzzel.enable = true;
