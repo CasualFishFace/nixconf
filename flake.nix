@@ -7,8 +7,9 @@
     import-tree.url = "github:vic/import-tree";
     niri-flake.url = "github:sodiboo/niri-flake";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    wrappers.url = "github:birdeehub/nix-wrapper-modules";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
   };
 
   outputs = inputs@{ self, import-tree, home-manager, flake-parts, ... }: flake-parts.lib.mkFlake {
@@ -19,6 +20,7 @@
       inherit (inputs.nixpkgs) lib;
     in [
       home-manager.flakeModules.home-manager
+      wrappers.flakeModules.wrappers
       (import-tree.filterNot (lib.hasSuffix "hardware-configuration.nix") ./nixosConfigurations)
       (import-tree [
         ./nixosModules
@@ -28,6 +30,11 @@
       ])
     ];
 
-    systems = [ "x86_64-linux" ];
+    perSystem = { pkgs, ... }: {
+      wrappers.control_type = "exclude";
+      wrappers.packages = {}; # packages to exclude/include.
+    };
+
+    systems = nixpkgs.lib.platforms.all;
   };
 }
