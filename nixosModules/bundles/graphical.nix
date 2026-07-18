@@ -10,7 +10,6 @@
       self.nixosModules.displayManagers
       self.nixosModules.essential
       self.nixosModules.fonts
-      self.nixosModules.homeManager
       self.nixosModules.myNixos
       self.nixosModules.programs
       self.nixosModules.specialisations

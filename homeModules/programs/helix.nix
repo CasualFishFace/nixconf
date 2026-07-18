@@ -2,7 +2,10 @@ _top: {
   flake.homeModules.programs = { config, lib, ... }: {
     config = lib.mkIf config.programs.helix.enable {
       programs.helix.settings = {
-        editor.line-number = "relative";
+        editor = {
+          bufferline = "multiple";
+          line-number = "relative";
+        };
         theme = "custom";
       };
 

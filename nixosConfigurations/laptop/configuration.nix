@@ -4,6 +4,7 @@
       ./hardware-configuration.nix
       self.nixosModules.bundles
       self.nixosModules.users
+      self.nixosModules.homeManager
       {
         myNixos.bundles.graphical.enable = true;
         myNixos.users.fishface.enable = true;
