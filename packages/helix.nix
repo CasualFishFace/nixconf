@@ -8,7 +8,7 @@
           bufferline = "multiple";
           color-modes = true;
           cursorline = true;
-          indent-heuristic = "tree-sitter";
+          indent-heuristic = "hybrid";
           inline-diagnostics = {
             cursor-line = "hint";
             other-lines = "error";
