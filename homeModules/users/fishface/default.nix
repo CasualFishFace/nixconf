@@ -2,6 +2,7 @@
   flake.homeModules.fishface = { pkgs, config, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     noctalia = inputs.noctalia.packages.${system}.default;
+    myPkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [
       self.homeModules.myHome
