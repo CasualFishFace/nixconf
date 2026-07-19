@@ -204,16 +204,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1780336545,
-        "narHash": "sha256-vhVhuXzFrIOfcssC/9hDHx7MHzDKjF3keHuREOQqQiQ=",
+        "lastModified": 1773734432,
+        "narHash": "sha256-IF5ppUWh6gHGHYDbtVUyhwy/i7D261P7fWD1bPefOsw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4df1b885d76a54e1aa1a318f8d16fd6005b6401f",
+        "rev": "cda48547b432e8d3b18b4180ba07473762ec8558",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -268,7 +268,7 @@
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
-        "wrapper-modules": "wrapper-modules"
+        "wrappers": "wrappers"
       }
     },
     "systems": {
@@ -308,21 +308,21 @@
         "type": "github"
       }
     },
-    "wrapper-modules": {
+    "wrappers": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1782135443,
-        "narHash": "sha256-vAmbArdCyjqpVW+37aCy/PMBOLIqukUXLQuEKLwUhA4=",
-        "owner": "birdeehub",
-        "repo": "nix-wrapper-modules",
-        "rev": "6e7f66fa2cdf4d63162580b438f7fcf87c28a46f",
+        "lastModified": 1784213309,
+        "narHash": "sha256-A9C90KsA6FsRkFPTA1C1sHP13d6AMuGOvsvI7qjHz8g=",
+        "owner": "lassulus",
+        "repo": "wrappers",
+        "rev": "a04c2ee17fb9679198d0a852ad8709bc152dfac2",
         "type": "github"
       },
       "original": {
-        "owner": "birdeehub",
-        "repo": "nix-wrapper-modules",
+        "owner": "lassulus",
+        "repo": "wrappers",
         "type": "github"
       }
     },

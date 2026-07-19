@@ -1,7 +1,6 @@
 { inputs, ... }: {
   perSystem = _args: {
     packages.helix = (wrappers.wrapperModules.helix.apply {
-      inherit settings;
       settings = {
         editor = {
           bufferline = "multiple";
