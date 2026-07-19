@@ -42,6 +42,6 @@
       wrappers.packages = {}; # packages to exclude/include.
     };
 
-    systems = inputs.nixpkgs.lib.platforms.all;
+    systems = [ "x86_64-linux" ];
   };
 }
