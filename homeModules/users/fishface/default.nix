@@ -1,56 +1,60 @@
 { inputs, self, ... }: {
-  flake.homeModules.fishface = { pkgs, ... }: let
+  flake.homeModules.fishface = { pkgs, config, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     noctalia = inputs.noctalia.packages.${system}.default;
-    myPkgs = self.packages.${pkgs.system};
+    myPkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [
       self.homeModules.myHome
       self.homeModules.programs
     ];
 
-    programs.home-manager.enable = true;
+    config = {
+      programs.home-manager.enable = true;
 
-    myHome.statusBar = noctalia;
-    myHome.terminal = myPkgs.ghostty;
+      myHome.statusBar = noctalia;
+      myHome.terminal = myPkgs.ghostty;
 
-    home = {
-      stateVersion = "25.05";
-      username = "fishface";
-      homeDirectory = "/home/fishface";
-      packages = [
-        (pkgs.writeShellScriptBin "startgaming" ''
-          sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
-        '')
-      ];
+      home = {
+        stateVersion = "25.05";
+        username = "fishface";
+        homeDirectory = "/home/fishface";
+        packages = [
+          config.myHome.terminal
+          myPkgs.helix
+          (pkgs.writeShellScriptBin "startgaming" ''
+            sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
+          '')
+        ];
 
-      pointerCursor = {
-        enable = true;
-        size = 96;
+        pointerCursor = {
+          enable = true;
+          size = 96;
     
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
+          package = pkgs.bibata-cursors;
+          name = "Bibata-Modern-Classic";
     
-        hyprcursor.enable = true;
-        hyprcursor.size = 96;
+          hyprcursor.enable = true;
+          hyprcursor.size = 96;
+        };
       };
+    
+      programs.bash.enable = true;
+      programs.bazaar.enable = true;
+      programs.direnv.enable = true;
+      programs.discord.enable = true;
+      programs.firefox.enable = true;
+      programs.fuzzel.enable = true;
+      programs.hyprshot.enable = true;
+      programs.niri.enable = true;
+      programs.spotify.enable = true;
+      programs.quickshell.enable = true;
+      programs.waybar.enable = true;
+      programs.zoxide.enable = true;
+    
+      services.hyprpaper.enable = true;
+    
+      wayland.windowManager.hyprland.enable = true;
     };
-    
-    programs.bash.enable = true;
-    programs.bazaar.enable = true;
-    programs.direnv.enable = true;
-    programs.discord.enable = true;
-    programs.firefox.enable = true;
-    programs.fuzzel.enable = true;
-    programs.hyprshot.enable = true;
-    programs.niri.enable = true;
-    programs.spotify.enable = true;
-    programs.quickshell.enable = true;
-    programs.waybar.enable = true;
-    programs.zoxide.enable = true;
-    
-    services.hyprpaper.enable = true;
-    
-    wayland.windowManager.hyprland.enable = true;
   };
 }
