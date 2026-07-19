@@ -268,7 +268,7 @@
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
-        "wrappers": "wrappers"
+        "wrapper-modules": "wrapper-modules"
       }
     },
     "systems": {
@@ -308,7 +308,7 @@
         "type": "github"
       }
     },
-    "wrappers": {
+    "wrapper-modules": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
       },
