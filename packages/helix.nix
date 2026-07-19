@@ -2,6 +2,8 @@ _top: {
   flake.wrappers.helix = { pkgs, wlib, ... }: {
     imports = [ wlib.wrapperModules.helix ];
 
+    defaultEditor = true;
+
     settings = {
       editor = {
         bufferline = "multiple";

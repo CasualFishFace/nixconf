@@ -23,10 +23,6 @@
         '')
       ];
 
-      sessionVariables = {
-        "EDITOR" = "hx";
-      };
-    
       pointerCursor = {
         enable = true;
         size = 96;
@@ -46,7 +42,7 @@
     programs.firefox.enable = true;
     programs.fuzzel.enable = true;
     programs.ghostty.enable = true;
-    programs.helix.enable = true;
+    # programs.helix.enable = true;
     programs.hyprshot.enable = true;
     programs.niri.enable = true;
     # programs.nvf.enable = true;
