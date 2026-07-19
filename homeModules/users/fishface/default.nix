@@ -2,7 +2,6 @@
   flake.homeModules.fishface = { pkgs, config, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     noctalia = inputs.noctalia.packages.${system}.default;
-    myPkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [
       self.homeModules.myHome
@@ -21,7 +20,6 @@
         homeDirectory = "/home/fishface";
         packages = [
           config.myHome.terminal
-          myPkgs.helix
           (pkgs.writeShellScriptBin "startgaming" ''
             sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
           '')
