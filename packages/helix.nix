@@ -5,7 +5,17 @@ _top: {
     settings = {
       editor = {
         bufferline = "multiple";
+        color-modes = true;
+        cursorline = true;
+        indent-heuristic = "tree-sitter";
+        inline-diagnostics = {
+          cursor-line = "hint";
+          other-lines = "error";
+        };
+        jump-label-alphabet = "1234567890";
         line-number = "relative";
+        mouse = false;
+        rainbow-brackets = true;
         rulers = [ 100 ];
       };
 
