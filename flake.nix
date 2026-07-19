@@ -34,9 +34,6 @@
       ])
     ];
 
-    perSystem = { pkgs, ... }: {
-    };
-
     systems = [ "x86_64-linux" ];
   };
 }

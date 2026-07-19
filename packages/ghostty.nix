@@ -1,0 +1,13 @@
+{ inputs, ... }: {
+  perSystem = { pkgs, ... }: {
+    packages.ghostty = (inputs.wrappers.wrapperModules.ghostty.apply {
+      inherit pkgs;
+      
+      settings = {
+        background-opacity = 0.7;
+        gtk-titlebar = false;
+        theme = "github_dark";
+      };
+    }).wrapper;
+  };
+}
