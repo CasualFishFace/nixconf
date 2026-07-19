@@ -6,7 +6,7 @@
       settings = {
         background-opacity = 0.7;
         gtk-titlebar = false;
-        theme = "github_dark";
+        theme = "GitHub Dark Default";
       };
     }).wrapper;
   };

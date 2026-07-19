@@ -2,6 +2,7 @@
   flake.homeModules.fishface = { pkgs, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     noctalia = inputs.noctalia.packages.${system}.default;
+    myPkgs = self.packages.${pkgs.system};
   in {
     imports = [
       self.homeModules.myHome
@@ -11,7 +12,7 @@
     programs.home-manager.enable = true;
 
     myHome.statusBar = noctalia;
-    myHome.terminal = pkgs.ghostty;
+    myHome.terminal = myPkgs.ghostty;
 
     home = {
       stateVersion = "25.05";
@@ -41,11 +42,8 @@
     programs.discord.enable = true;
     programs.firefox.enable = true;
     programs.fuzzel.enable = true;
-    programs.ghostty.enable = true;
-    # programs.helix.enable = true;
     programs.hyprshot.enable = true;
     programs.niri.enable = true;
-    # programs.nvf.enable = true;
     programs.spotify.enable = true;
     programs.quickshell.enable = true;
     programs.waybar.enable = true;

@@ -36,7 +36,6 @@
       programs.bash.enable = lib.mkDefault true;
       programs.discord.enable = lib.mkDefault true;
       programs.firefox.enable = lib.mkDefault true;
-      programs.ghostty.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
       programs.niri.enable = lib.mkDefault true;
       programs.xwayland.enable = lib.mkDefault true;

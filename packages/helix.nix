@@ -16,7 +16,6 @@
           jump-label-alphabet = "1234567890";
           line-number = "relative";
           mouse = false;
-          rainbow-brackets = true;
           rulers = [ 100 ];
         };
 
