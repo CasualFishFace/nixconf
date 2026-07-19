@@ -16,7 +16,6 @@
     import-tree,
     home-manager,
     flake-parts,
-    wrapper-modules,
     ...
   }: flake-parts.lib.mkFlake {
     inherit inputs;
