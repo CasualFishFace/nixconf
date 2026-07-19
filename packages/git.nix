@@ -4,5 +4,5 @@
       inherit pkgs;
       settings.core.editor = "$EDITOR";
     });
-  }
+  };
 }
