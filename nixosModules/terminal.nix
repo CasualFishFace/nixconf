@@ -7,7 +7,6 @@
         nixd
         ripgrep
         tree
-        zsh
     ] ++ (with myPkgs; [
       git
       helix
@@ -17,6 +16,19 @@
       find = "fd";
       grep = "rg";
       tree = "tree --dirsfirst";
+    };
+
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      flags = [ "--cmd cd" ];
+    };
+
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableLsColors = true;
+      enableSyntaxHighlighting = true;
     };
   };
 }

@@ -49,8 +49,7 @@
       programs.spotify.enable = true;
       programs.quickshell.enable = true;
       programs.waybar.enable = true;
-      programs.zoxide.enable = true;
-    
+
       services.hyprpaper.enable = true;
     
       wayland.windowManager.hyprland.enable = true;
