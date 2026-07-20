@@ -12,7 +12,6 @@
   };
 
   outputs = inputs@{
-    self,
     import-tree,
     home-manager,
     flake-parts,
