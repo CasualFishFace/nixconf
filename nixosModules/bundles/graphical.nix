@@ -6,7 +6,7 @@
   flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
     imports = [
       self.nixosModules.audio
-      self.nixosModules.cliTools
+      self.nixosModules.terminal
       self.nixosModules.displayManagers
       self.nixosModules.essential
       self.nixosModules.fonts

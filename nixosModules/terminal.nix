@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.nixosModules.cliTools = { pkgs, config, lib, ... }: let
+  flake.nixosModules.terminal = { pkgs, ... }: let
     myPkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     environment.systemPackages = with pkgs; [
