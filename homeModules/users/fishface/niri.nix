@@ -69,20 +69,20 @@
         always-center-single-column = true;
         center-focused-column = "never";
         default-column-display = "tabbed";
-        default-column-width.proportion = 0.5;
+        default-column-width.proportion = 1;
         empty-workspace-above-first = true;
         focus-ring.width = 2;
         gaps = 5;
         insert-hint.enable = false;
 
-        preset-column-widths = builtins.map (proportion: { inherit proportion; }) [
+        preset-column-widths = map (proportion: { inherit proportion; }) [
           0.33333
           0.5
           0.66667
         ];
 
         struts = lib.mergeAttrsList
-          (builtins.map (name: { ${name} = 5; }) [ "left" "right" "top" "bottom" ]);
+          (map (name: { ${name} = 5; }) [ "left" "right" "top" "bottom" ]);
 
         tab-indicator.hide-when-single-tab = true;
       };
