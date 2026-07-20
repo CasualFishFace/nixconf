@@ -4,6 +4,7 @@
   in {
     environment.systemPackages = with pkgs; [
         fd
+        nixd
         ripgrep
         tree
     ] ++ (with myPkgs; [
