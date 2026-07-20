@@ -28,7 +28,7 @@
       enable = true;
       enableCompletion = true;
       enableLsColors = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
     };
   };
 }
