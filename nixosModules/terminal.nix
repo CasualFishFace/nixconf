@@ -1,10 +1,10 @@
 { self, ... }: {
-  flake.nixosModules.terminal = { pkgs, ... }: let
+  flake.nixosModules.terminal = { pkgs, lib, ... }: let
     myPkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     environment = {
       sessionVariables = {
-        "EDITOR" = "hx";
+        "EDITOR" = lib.getExe myPkgs.helix;
       };
       shellAliases = {
         find = "fd";
