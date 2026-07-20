@@ -33,6 +33,11 @@
       enableCompletion = true;
       enableLsColors = true;
       syntaxHighlighting.enable = true;
+      ohMyZsh = {
+        enable = true;
+        plugins = [];
+        theme = "simple";
+      };
     };
 
     users.defaultUserShell = pkgs.zsh;
