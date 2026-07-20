@@ -7,6 +7,7 @@
         nixd
         ripgrep
         tree
+        zsh
     ] ++ (with myPkgs; [
       git
       helix
