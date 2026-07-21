@@ -69,7 +69,7 @@
         always-center-single-column = true;
         center-focused-column = "never";
         default-column-display = "tabbed";
-        default-column-width.proportion = 1;
+        default-column-width.proportion = 1.0;
         empty-workspace-above-first = true;
         focus-ring.width = 2;
         gaps = 5;
