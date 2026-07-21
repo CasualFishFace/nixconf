@@ -34,7 +34,6 @@
       services.xserver.enable = lib.mkDefault true;
 
       programs.bash.enable = lib.mkDefault true;
-      programs.discord.enable = lib.mkDefault true;
       programs.firefox.enable = lib.mkDefault true;
       programs.hyprland.enable = lib.mkDefault true;
       programs.niri.enable = lib.mkDefault true;
