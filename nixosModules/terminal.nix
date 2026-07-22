@@ -12,10 +12,11 @@
         tree = "tree --dirsfirst";
       };
       systemPackages = with pkgs; [
-          fd
-          nixd
-          ripgrep
-          tree
+        devenv
+        fd
+        nixd
+        ripgrep
+        tree
       ] ++ (with myPkgs; [
         git
         helix

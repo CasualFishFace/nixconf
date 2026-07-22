@@ -40,7 +40,6 @@
     
       programs.bash.enable = true;
       programs.bazaar.enable = true;
-      programs.direnv.enable = true;
       programs.firefox.enable = true;
       programs.fuzzel.enable = true;
       programs.hyprshot.enable = true;
