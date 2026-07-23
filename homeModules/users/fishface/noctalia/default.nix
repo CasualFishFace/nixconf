@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  flake.homeModules.fishface = { pkgs, ... }: {
+  flake.homeModules.fishface = _args: {
     imports = [
       inputs.noctalia.homeModules.default
     ];
