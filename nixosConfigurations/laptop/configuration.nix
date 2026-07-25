@@ -33,6 +33,7 @@
           LC_TIME = "en_US.UTF-8";
         };
 
+        services.upower.enable = true;
         services.xserver.videoDrivers = [ "amdgpu" ];
         services.xserver.xkb = {
           layout = "us";
