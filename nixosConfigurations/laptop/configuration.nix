@@ -5,7 +5,7 @@
       self.nixosModules.bundles
       self.nixosModules.users
       self.nixosModules.homeManager
-      {
+      ({ pkgs, ... }: {
         myNixos.bundles.graphical.enable = true;
         myNixos.users.fishface.enable = true;
         
@@ -33,6 +33,13 @@
           LC_TIME = "en_US.UTF-8";
         };
 
+        environment.systemPackages = [ pkgs.bluez ];
+
+        services.blueman = {
+          enable = true;
+          withApplet = true;
+        };
+
         services.upower.enable = true;
         services.xserver.videoDrivers = [ "amdgpu" ];
         services.xserver.xkb = {
@@ -42,7 +49,7 @@
 
         # Never change this unless you know what you're doing.
         system.stateVersion = "25.05";
-      }
+      })
     ];
   };
 }
