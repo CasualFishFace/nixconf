@@ -19,6 +19,10 @@
     config = let
       inherit (config.myNixos) bundles;
     in lib.mkIf bundles.graphical.enable {
+      nixpkgs.config.permittedInsecurePackages = [
+        "electron-38.8.4"
+      ];
+
       hardware.opentabletdriver = {
         enable = true;
         daemon.enable = true;
