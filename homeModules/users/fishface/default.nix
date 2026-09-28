@@ -21,6 +21,7 @@
         homeDirectory = "/home/fishface";
         packages = [
           config.myHome.terminal
+          pkgs.markdown-oxide
           (pkgs.writeShellScriptBin "startgaming" ''
             sudo /run/current-system/specialisation/gaming/bin/switch-to-configuration switch
           '')

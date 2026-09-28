@@ -3,7 +3,7 @@
 # much thought.
 
 { self, ... }: {
-  flake.nixosModules.bundles = { pkgs, config, lib, ... }: {
+  flake.nixosModules.bundles = { config, lib, ... }: {
     imports = [
       self.nixosModules.audio
       self.nixosModules.terminal
