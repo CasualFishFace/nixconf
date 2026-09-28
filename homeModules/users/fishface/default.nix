@@ -45,6 +45,7 @@
       programs.hyprshot.enable = true;
       programs.niri.enable = true;
       programs.spotify.enable = true;
+      programs.stoat.enable = true;
       programs.quickshell.enable = true;
       programs.vesktop.enable = true;
       programs.waybar.enable = true;
