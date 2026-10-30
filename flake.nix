@@ -1,38 +1,26 @@
 {
-  description = "CasualFishFace's NixOS Config";
-
+  description = ''Dendritic Nix config by CasualFishFace'';
   inputs = {
+    nixpkgs.url = "nixpkgs";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
-    niri-flake.url = "github:sodiboo/niri-flake";
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    wrappers.url = "github:lassulus/wrappers";
+    wrappers.url = "github:nix-community/nix-wrapper-modules";
   };
-
-  outputs = inputs@{
-    import-tree,
-    home-manager,
-    flake-parts,
-    ...
-  }: flake-parts.lib.mkFlake {
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {
     inherit inputs;
+    specialArgs = {
+      mylib = import ./lib inputs;
+    };
   } {
-    # debug = true;
-    imports = let
-      inherit (inputs.nixpkgs) lib;
-    in [
-      home-manager.flakeModules.home-manager
-      (import-tree.filterNot (lib.hasSuffix "hardware-configuration.nix") ./nixosConfigurations)
+    imports = with inputs; [
+      wrappers.flakeModules.wrappers
       (import-tree [
-        ./nixosModules
-        ./homeConfigurations
-        ./homeModules
-        ./packages
+        ./features
+        ./hosts
+        ./modules
       ])
-    ];
-
-    systems = [ "x86_64-linux" ];
+    ]; 
   };
 }
+
