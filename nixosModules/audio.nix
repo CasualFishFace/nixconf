@@ -1,5 +1,5 @@
 _top: {
-  flake.nixosModules.audio = { lib, ... }: {
+  flake.nixosModules.audio = { ... }: {
     services.pipewire = {
       enable = true;
       alsa.enable = true;
