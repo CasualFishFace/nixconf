@@ -6,6 +6,7 @@ in {
 
     audio
     bootloader
+    gdm
     minimalSystem
     networking
     nvidia
