@@ -1,6 +1,7 @@
-{ moduleWithSystem, ... }: {
-  flake.wrappers.niri = { self', pkgs, wlib, lib, ... }: let
-    terminal = self'.packages.ghostty;
+{ moduleWithSystem, withSystem, ... }: {
+  flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
+    withSystem' = withSystem pkgs.stdenv.hostPlatform.system;
+    terminal = withSystem' ({ self', ... }: self'.packages.ghostty);
     launcher = pkgs.fuzzel;
   in {
     imports = [ wlib.wrapperModules.niri ];
