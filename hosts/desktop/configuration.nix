@@ -11,15 +11,5 @@ in {
     nvidia
     time
     users
-
-    {
-      services.displayManager = {
-        enable = true;
-        autoLogin = {
-          enable = true;
-          user = "fishface";
-        };
-      };
-    }
   ];
 }
