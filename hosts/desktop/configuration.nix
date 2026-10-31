@@ -12,15 +12,21 @@ in {
     time
     users
 
-    ({ pkgs, ... }: {
+    ({ pkgs, ... }: let
+      packages = self.packages.${pkgs.stdenv.hostPlatform.system};
+    in {
       services.displayManager = {
         ly.enable = true;
       };
 
       programs.niri = {
         enable = true;
-        package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+        package = packages.niri;
       };
+
+      environment.systemPackages = [
+        packages.librewolf
+      ];
     })
   ];
 }
