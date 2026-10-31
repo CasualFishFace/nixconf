@@ -1,16 +1,18 @@
 { moduleWithSystem, ... }: {
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
     terminal = pkgs.ghostty;
+    launcher = pkgs.fuzzel;
   in {
     imports = [ wlib.wrapperModules.niri ];
     settings = {
       binds = {
         "Mod+Q".close-window = _: {};
+        "Mod+Ctrl+Q".quit = _: {};
         "Mod+Return".spawn-sh = lib.getExe terminal;
         # "Mod+D".spawn-sh = if config.myHome.statusBar == noctalia-exe
         #   then "${noctalia-command} ipc call launcher toggle"
         #   else lib.getExe config.myHome.launcher;
-        "Mod+D".spawn-sh = lib.getExe pkgs.fuzzel;
+        "Mod+D".spawn-sh = lib.getExe launcher;
 
         "Mod+H".focus-column-or-monitor-left = _: {};
         "Mod+L".focus-column-or-monitor-right = _: {};
@@ -75,9 +77,9 @@
         insert-hint = _: {};
 
         preset-column-widths = map (proportion: { inherit proportion; }) [
-          0.33333
+          0.25
           0.5
-          0.66667
+          0.75
         ];
 
         struts = lib.mergeAttrsList
@@ -97,16 +99,18 @@
         (lib.getExe terminal)
       ];
 
-      # window-rules = [{
-      #   geometry-corner-radius = {
-      #     top-left = 12.0;
-      #     top-right = 12.0;
-      #     bottom-right = 12.0;
-      #     bottom-left = 12.0;
-      #   };
-
-      #   clip-to-geometry = true;
-      # }];
+      window-rules = [
+        {
+          matches = [{ app-id = ".*"; }];
+          clip-to-geometry = true;
+          geometry-corner-radius = {
+            top-left = 12.0;
+            top-right = 12.0;
+            bottom-right = 12.0;
+            bottom-left = 12.0;
+          };
+        }
+      ];
 
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     };
