@@ -35,26 +35,25 @@
 
         "Mod+O".toggle-overview = _: {};
 
-        # "Print".screenshot = {};
-        # "Mod+Print".screenshot-window = {};
-        # "Mod+Ctrl+Print".screenshot-screen = {};
+        "Print".screenshot = _: {};
+        "Mod+Print".screenshot-window = _: {};
+        "Mod+Ctrl+Print".screenshot-screen = _: {};
 
         # "Mod+V".spawn-sh = "${noctalia-command} ipc call plugin:clipboard toggle";
       };
 
-      # gestures.hot-corners.enable = false;
+      gestures.hot-corners = _: {};
 
       hotkey-overlay = {
         hide-not-bound = true;
         skip-at-startup = true;
       };
 
-      # input = {
-      #   focus-follows-mouse = {
-      #     enable = true;
-      #     max-scroll-amount = "0%";
-      #   };
-      # };
+      input = {
+        focus-follows-mouse = _: {
+          max-scroll-amount = "0%";
+        };
+      };
 
       layer-rules = [
         {
@@ -73,7 +72,7 @@
         empty-workspace-above-first = true;
         focus-ring.width = 2;
         gaps = 5;
-        # insert-hint.enable = false;
+        insert-hint = _: {};
 
         preset-column-widths = map (proportion: { inherit proportion; }) [
           0.33333

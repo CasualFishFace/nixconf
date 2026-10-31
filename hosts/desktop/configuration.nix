@@ -11,5 +11,16 @@ in {
     nvidia
     time
     users
+
+    ({ pkgs, ... }: {
+      services.displayManager = {
+        ly.enable = true;
+      };
+
+      programs.niri = {
+        enable = true;
+        package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+      };
+    })
   ];
 }
