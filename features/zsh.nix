@@ -4,7 +4,9 @@
   in {
       imports = [ wlib.wrapperModules.zsh ];
       runtimePkgs = withSystem' ({ self', ... }: [
+        self'.packages.git
         self'.packages.helix
+        pkgs.zoxide
       ]);
 
       zshAliases = {
@@ -16,7 +18,7 @@
       };
 
       zshrc.content = /* bash */ ''
-        eval "$(${lib.getExe pkgs.zoxide} init --cmd cd zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
       '';
   };  
 }
