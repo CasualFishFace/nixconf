@@ -15,10 +15,12 @@ in {
     users
     zsh
 
-    {
+    ({ pkgs, ... }: {
       services.displayManager = {
         ly.enable = true;
       };
-    }
+
+      environment.systemPackages = [ pkgs.discord ];
+    })
   ];
 }

@@ -26,8 +26,8 @@
       '';
   };  
 
-  flake.nixosModules.zsh = {
-    programs.zsh = moduleWithSystem ({ self', ... }: {
+  flake.nixosModules.zsh = moduleWithSystem ({ self', ... }: {
+    programs.zsh = {
       enable = true;
       package = self'.packages.zsh;
       enableCompletion = true;
@@ -38,6 +38,6 @@
         plugins = [];
         theme = "simple";
       };
-    });
-  };
+    };
+  });
 }
