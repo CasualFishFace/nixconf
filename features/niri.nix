@@ -1,4 +1,4 @@
-{ ... }: {
+{ moduleWithSystem, ... }: {
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
     terminal = pkgs.ghostty;
   in {
@@ -111,4 +111,9 @@
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     };
   };
+
+  flake.nixosModules.niri = moduleWithSystem ({ self', ... }: {
+    programs.niri.enable = true;
+    programs.niri.package = self'.packages.niri;
+  });
 }

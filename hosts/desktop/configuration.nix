@@ -6,27 +6,19 @@ in {
 
     audio
     bootloader
+    librewolf
     minimalSystem
     networking
+    niri
     nvidia
     time
     users
+    zsh
 
-    ({ pkgs, ... }: let
-      packages = self.packages.${pkgs.stdenv.hostPlatform.system};
-    in {
+    {
       services.displayManager = {
         ly.enable = true;
       };
-
-      programs.niri = {
-        enable = true;
-        package = packages.niri;
-      };
-
-      environment.systemPackages = [
-        packages.librewolf
-      ];
-    })
+    }
   ];
 }
