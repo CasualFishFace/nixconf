@@ -11,6 +11,15 @@ in {
     nvidia
     time
     users
-    zoxide
+
+    {
+      services.displayManager = {
+        enable = true;
+        autoLogin = {
+          enable = true;
+          user = "fishface";
+        };
+      };
+    }
   ];
 }

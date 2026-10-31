@@ -5,56 +5,56 @@
     imports = [ wlib.wrapperModules.niri ];
     settings = {
       binds = {
-        "Mod+Q".action.close-window = {};
-        "Mod+Return".action.spawn-sh = lib.getExe terminal;
-        # "Mod+D".action.spawn-sh = if config.myHome.statusBar == noctalia-exe
+        "Mod+Q".close-window = _: {};
+        "Mod+Return".spawn-sh = lib.getExe terminal;
+        # "Mod+D".spawn-sh = if config.myHome.statusBar == noctalia-exe
         #   then "${noctalia-command} ipc call launcher toggle"
         #   else lib.getExe config.myHome.launcher;
-        "Mod+D".action.spawn-sh = lib.getExe pkgs.fuzzel;
+        "Mod+D".spawn-sh = lib.getExe pkgs.fuzzel;
 
-        "Mod+H".action.focus-column-or-monitor-left = {};
-        "Mod+L".action.focus-column-or-monitor-right = {};
-        "Mod+J".action.focus-window-or-workspace-down = {};
-        "Mod+K".action.focus-window-or-workspace-up = {};
-        "Mod+Ctrl+H".action.focus-monitor-left = {};
-        "Mod+Ctrl+L".action.focus-monitor-right = {};
+        "Mod+H".focus-column-or-monitor-left = _: {};
+        "Mod+L".focus-column-or-monitor-right = _: {};
+        "Mod+J".focus-window-or-workspace-down = _: {};
+        "Mod+K".focus-window-or-workspace-up = _: {};
+        "Mod+Ctrl+H".focus-monitor-left = _: {};
+        "Mod+Ctrl+L".focus-monitor-right = _: {};
 
-        "Mod+Shift+H".action.move-column-left-or-to-monitor-left = {};
-        "Mod+Shift+L".action.move-column-right-or-to-monitor-right = {};
-        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = {};
-        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = {};
-        "Mod+Shift+Ctrl+H".action.move-window-to-monitor-left = {};
-        "Mod+Shift+Ctrl+L".action.move-window-to-monitor-right = {};
+        "Mod+Shift+H".move-column-left-or-to-monitor-left = _: {};
+        "Mod+Shift+L".move-column-right-or-to-monitor-right = _: {};
+        "Mod+Shift+J".move-window-down-or-to-workspace-down = _: {};
+        "Mod+Shift+K".move-window-up-or-to-workspace-up = _: {};
+        "Mod+Shift+Ctrl+H".move-window-to-monitor-left = _: {};
+        "Mod+Shift+Ctrl+L".move-window-to-monitor-right = _: {};
 
-        "Mod+Space".action.switch-focus-between-floating-and-tiling = {};
-        "Mod+Shift+Space".action.toggle-window-floating = {};
+        "Mod+Space".switch-focus-between-floating-and-tiling = _: {};
+        "Mod+Shift+Space".toggle-window-floating = _: {};
 
-        "Mod+R".action.switch-preset-column-width = {};
-        "Mod+F".action.maximize-column = {};
-        "Mod+Shift+F".action.fullscreen-window = {};
+        "Mod+R".switch-preset-column-width = _: {};
+        "Mod+F".maximize-column = _: {};
+        "Mod+Shift+F".fullscreen-window = _: {};
 
-        "Mod+O".action.toggle-overview = {};
+        "Mod+O".toggle-overview = _: {};
 
-        "Print".action.screenshot = {};
-        "Mod+Print".action.screenshot-window = {};
-        "Mod+Ctrl+Print".action.screenshot-screen = {};
+        # "Print".screenshot = {};
+        # "Mod+Print".screenshot-window = {};
+        # "Mod+Ctrl+Print".screenshot-screen = {};
 
-        # "Mod+V".action.spawn-sh = "${noctalia-command} ipc call plugin:clipboard toggle";
+        # "Mod+V".spawn-sh = "${noctalia-command} ipc call plugin:clipboard toggle";
       };
 
-      gestures.hot-corners.enable = false;
+      # gestures.hot-corners.enable = false;
 
       hotkey-overlay = {
         hide-not-bound = true;
         skip-at-startup = true;
       };
 
-      input = {
-        focus-follows-mouse = {
-          enable = true;
-          max-scroll-amount = "0%";
-        };
-      };
+      # input = {
+      #   focus-follows-mouse = {
+      #     enable = true;
+      #     max-scroll-amount = "0%";
+      #   };
+      # };
 
       layer-rules = [
         {
@@ -73,7 +73,7 @@
         empty-workspace-above-first = true;
         focus-ring.width = 2;
         gaps = 5;
-        insert-hint.enable = false;
+        # insert-hint.enable = false;
 
         preset-column-widths = map (proportion: { inherit proportion; }) [
           0.33333
@@ -98,16 +98,16 @@
         (lib.getExe terminal)
       ];
 
-      window-rules = [{
-        geometry-corner-radius = {
-          top-left = 12.0;
-          top-right = 12.0;
-          bottom-right = 12.0;
-          bottom-left = 12.0;
-        };
+      # window-rules = [{
+      #   geometry-corner-radius = {
+      #     top-left = 12.0;
+      #     top-right = 12.0;
+      #     bottom-right = 12.0;
+      #     bottom-left = 12.0;
+      #   };
 
-        clip-to-geometry = true;
-      }];
+      #   clip-to-geometry = true;
+      # }];
 
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     };
