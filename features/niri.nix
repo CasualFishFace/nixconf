@@ -100,18 +100,18 @@
         (lib.getExe terminal)
       ];
 
-      window-rules = [
-        {
-          matches = [{ app-id = ".*"; }];
-          clip-to-geometry = true;
-          geometry-corner-radius = {
-            top-left = 12.0;
-            top-right = 12.0;
-            bottom-right = 12.0;
-            bottom-left = 12.0;
-          };
-        }
-      ];
+      # window-rules = [
+      #   {
+      #     matches = [{ app-id = ".*"; }];
+      #     clip-to-geometry = true;
+      #     geometry-corner-radius = {
+      #       top-left = 12.0;
+      #       top-right = 12.0;
+      #       bottom-right = 12.0;
+      #       bottom-left = 12.0;
+      #     };
+      #   }
+      # ];
 
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     };
