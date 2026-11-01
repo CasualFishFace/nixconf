@@ -1,11 +1,18 @@
-{ moduleWithSystem, withSystem, ... }: {
+{ inputs, moduleWithSystem, withSystem, ... }: {
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
-    withSystem' = withSystem pkgs.stdenv.hostPlatform.system;
-    terminal = withSystem' ({ self', ... }: self'.packages.ghostty);
+    inherit (pkgs.stdenv.hostPlatform) system;
+    terminal = withSystem system({ self', ... }: self'.packages.ghostty);
+    noctalia = inputs.noctalia.packages.${system}.default;
     launcher = pkgs.fuzzel;
   in {
     imports = [ wlib.wrapperModules.niri ];
+    runtimePkgs = [ noctalia ];
     settings = {
+      spawn-at-startup = [
+        (lib.getExe noctalia)
+        (lib.getExe terminal)
+      ];
+
       binds = {
         "Mod+Q".close-window = _: {};
         "Mod+Ctrl+Q".quit = _: {};
@@ -95,10 +102,6 @@
       };
 
       prefer-no-csd = true;
-
-      spawn-at-startup = [
-        (lib.getExe terminal)
-      ];
 
       # window-rules = [
       #   {
