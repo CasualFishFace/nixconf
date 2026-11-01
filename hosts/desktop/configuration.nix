@@ -10,6 +10,7 @@ in {
     minimalSystem
     networking
     niri
+    noctalia
     nvidia
     time
     users
