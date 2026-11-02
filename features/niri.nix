@@ -59,12 +59,6 @@
         skip-at-startup = true;
       };
 
-      input = {
-        focus-follows-mouse = _: {
-          max-scroll-amount = "0%";
-        };
-      };
-
       layer-rules = [
         {
           block-out-from = "screen-capture";

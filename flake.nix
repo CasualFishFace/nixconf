@@ -11,7 +11,17 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake {
     inherit inputs;
     specialArgs = {
-      mylib = import ./lib inputs;
+      mylib =
+        let
+          inherit (inputs.nixpkgs) lib;
+          import-with-inputs = file: import file {
+            inherit inputs lib;
+            config = imported-content {};
+          };
+          mergeMap = f: list: lib.mergeAttrsList (map f list)
+          imported-content = {}: mergeMap (import-tree ./lib).imports;
+        in
+        imported-content {};
     };
   } {
     imports = with inputs; [

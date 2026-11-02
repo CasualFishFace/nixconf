@@ -1,8 +1,12 @@
 { inputs, ... }: {
-  flake.wrappers.noctalia = { pkgs, wlib, ... }: let
+  flake.wrappers.noctalia = { config, pkgs, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
   in {
-    imports = [ wlib.modules.default ];
-    package = inputs.noctalia.packages.${system}.default;
+    config = {
+      package = inputs.noctalia.packages.${system}.default;      
+      inherit (config)
+        recommendedServices
+        systemd;
+    };
   };
 }
