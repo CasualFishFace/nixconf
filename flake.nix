@@ -9,21 +9,26 @@
     wrappers.url = "github:nix-community/nix-wrapper-modules";
   };
   outputs = inputs@{
+    nixpkgs,
     wrappers,
     import-tree,
     flake-parts,
     ...
   }: flake-parts.lib.mkFlake rec {
     inherit inputs;
-    specialArgs.mylib = map (p: import p {
-      inherit inputs;
-      inherit (inputs.nixpkgs) lib;
-      inherit (specialArgs) mylib;
-    }) (
-      import-tree
-        (i: i.addPath ./lib)
-        (i: i.files)
-    );
+    specialArgs.mylib =
+      let
+        unevaluated =
+          (import-tree.new
+            (i: i.addPath ./lib)
+            (i: i.map import)).leaves.result;
+        evaluate = u: u {
+          inherit inputs;
+          inherit (nixpkgs) lib;
+          inherit (specialArgs) mylib;
+        };
+      in
+      map evaluate unevaluated;
   } {
     imports = [
       wrappers.flakeModules.wrappers
