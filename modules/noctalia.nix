@@ -1,12 +1,13 @@
-{inputs, ...}: {
-  flake.nixosModules.noctalia = {...}: {
-    imports = [ inputs.noctalia.nixosModules.default ];
-    nix.settings.substituters = [ "https://noctalia.cachix.org" ];
-    nix.settings.trusted-public-keys = [ "noctalia.cachicx.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+{inputs, moduleWithSystem, ...}: {
+  flake.nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
+  flake.nixosModules.noctalia = moduleWithSystem ({self', ...}: {
     programs.noctalia = {
-      enable = true;
+      package = self'.packages.noctalia;
       recommendedServices.enable = true;
       systemd.enable = true;
     };
-  };
+  });
 }

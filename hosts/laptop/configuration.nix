@@ -1,21 +1,17 @@
-{ self, mylib, ... }: {
-  flake.nixosConfigurations.laptop = with self.nixosModules; mylib.mkHost "laptop" [
-    ./_hardware-configuration.nix
+{self, ...}: {
+  flake.nixosConfigurations.laptop = self.nixosModules.hosts.laptop;
+  flake.nixosModules.hosts = {lib, ...}: {
+    laptop = lib.nixosSystem {
+      modules = with self.nixosModules; [
+        minimalHosts.laptop
+        audio
+        gaming
+        librewolf
 
-    audio
-    bootloader
-    gaming
-    librewolf
-    minimalSystem
-    networking
-    niri
-    noctalia
-    time
-    users
-    zsh
-
-    {
-      services.displayManager.ly.enable = true;
-    }
-  ];
+        {
+          services.displayManager.ly.enable = true;
+        }
+      ];
+    };
+  };
 }

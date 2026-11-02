@@ -1,24 +1,20 @@
-{ self, mylib, ... }: let
-  inherit (mylib) mkHost;
-in {
-  flake.nixosConfigurations.desktop = with self.nixosModules; mkHost "desktop" [
-    ./_hardware-configuration.nix
+{self, ...}: {
+  flake.nixosConfigurations.desktop = self.nixosModules.hosts.desktop;
+  flake.nixosModules.hosts = {lib, ...}: {
+    desktop = lib.nixosSystem {
+      modules = with self.nixosModules; [
+        minimalHosts.desktop
+        audio
+        gaming
+        librewolf
+        niri
+        noctalia
+        nvidia
 
-    audio
-    bootloader
-    gaming
-    librewolf
-    minimalSystem
-    networking
-    niri
-    noctalia
-    nvidia
-    time
-    users
-    zsh
-
-    {
-      services.displayManager.ly.enable = true;
-    }
-  ];
+        {
+          services.displayManager.ly.enable = true;
+        }
+      ];
+    };
+  };
 }

@@ -9,6 +9,7 @@
     wrappers.url = "github:nix-community/nix-wrapper-modules";
   };
   outputs = inputs@{
+    self,
     nixpkgs,
     wrappers,
     import-tree,
@@ -23,7 +24,7 @@
             (i: i.addPath ./lib)
             (i: i.map import)).leaves.result;
         evaluate = u: u {
-          inherit inputs;
+          inherit self inputs;
           inherit (nixpkgs) lib;
           inherit (specialArgs) mylib;
         };

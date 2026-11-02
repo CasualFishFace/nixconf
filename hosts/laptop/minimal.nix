@@ -1,12 +1,6 @@
-{ self, mylib, ... }: {
-  flake.nixosConfigurations.minlap = with self.nixosModules; mylib.mkHost "laptop" [
-    ./_hardware-configuration.nix
-
-    bootloader
-    minimalSystem
-    networking
-    time
-    users
-    zsh
-  ];
+{self, mylib, ...}: {
+  flake.nixosConfigurations.laptop-minimal = self.nixosModules.minimalHostModules.laptop;
+  flake.nixosModules.minimalHosts = {...}: {
+    laptop = mylib.mkMinimalHost "laptop";
+  };
 }

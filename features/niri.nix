@@ -2,7 +2,7 @@
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     terminal = withSystem system({ self', ... }: self'.packages.ghostty);
-    noctalia = inputs.noctalia.packages.${system}.default;
+    noctalia = pkgs.noctalia;
     launcher = pkgs.fuzzel;
   in {
     imports = [ wlib.wrapperModules.niri ];
