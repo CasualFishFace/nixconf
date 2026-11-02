@@ -8,23 +8,25 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     wrappers.url = "github:nix-community/nix-wrapper-modules";
   };
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {
+  outputs = inputs@{
+    self,
+    wrappers,
+    import-tree,
+    flake-parts,
+    ...
+  }: flake-parts.lib.mkFlake rec {
     inherit inputs;
-    specialArgs = {
-      mylib =
-        let
-          inherit (inputs.nixpkgs) lib;
-          import-with-inputs = file: import file {
-            inherit inputs lib;
-            config = imported-content {};
-          };
-          mergeMap = f: list: lib.mergeAttrsList (map f list);
-          imported-content = {}: mergeMap (inputs.import-tree ./lib).imports;
-        in
-        imported-content {};
-    };
+    specialArgs.mylib = map (p: import p {
+      inherit inputs;
+      inherit (inputs.nixpkgs) lib;
+      inherit (specialArgs) mylib;
+    }) (
+      import-tree
+        (i: i.addPath ./lib)
+        (i: i.files)
+    );
   } {
-    imports = with inputs; [
+    imports = [
       wrappers.flakeModules.wrappers
       (import-tree [
         ./features

@@ -1,5 +1,5 @@
-inputs: {
-  mkHost = name: modules: inputs.nixpkgs.lib.nixosSystem {
+{ lib, ... }: {
+  mkHost = name: modules: lib.nixosSystem {
     modules = modules ++ [ {
       networking.hostName = name;
     } ];

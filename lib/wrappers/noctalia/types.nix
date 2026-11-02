@@ -1,5 +1,5 @@
 { lib, ... }: {
-  noctalia.types = rec {
+  noctalia.types = {
     widget = let
       inherit (lib.types) either enum;
     in

@@ -1,15 +1,15 @@
-{ config, lib, ... }: {
+{ mylib, lib, ... }: {
   noctalia = {
     mkColorOption = default: lib.mkOption {
       inherit default;
-      type = lib.types.nullOr config.noctalia.types.color;
+      type = lib.types.nullOr mylib.noctalia.types.color;
     };
     mkBorderOption = { color, width }: lib.mkOption {
       default = {
         inherit color width;
       };
       type = lib.types.submodule {
-        color = config.noctalia.mkColorOption null;
+        color = mylib.noctalia.mkColorOption null;
         width = lib.mkOption {
           default = 2.0;
           type = lib.types.float;
