@@ -27,8 +27,13 @@
           inherit (nixpkgs) lib;
           inherit (specialArgs) mylib;
         };
+        merged =
+          let
+            mapped = map evaluate unevaluated;
+          in
+          nixpkgs.lib.mergeAttrsList mapped;
       in
-      map evaluate unevaluated;
+      merged;
   } {
     imports = [
       wrappers.flakeModules.wrappers
