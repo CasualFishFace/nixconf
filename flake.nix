@@ -18,8 +18,8 @@
             inherit inputs lib;
             config = imported-content {};
           };
-          mergeMap = f: list: lib.mergeAttrsList (map f list)
-          imported-content = {}: mergeMap (import-tree ./lib).imports;
+          mergeMap = f: list: lib.mergeAttrsList (map f list);
+          imported-content = {}: mergeMap (inputs.import-tree ./lib).imports;
         in
         imported-content {};
     };

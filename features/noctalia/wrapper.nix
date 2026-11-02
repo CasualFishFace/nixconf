@@ -5,7 +5,7 @@
     imports = [
       wlib.modules.default
     ];
-    runtimePkgs = [
+    config.runtimePkgs = [
       inputs.noctalia.packages.${system}.default
     ];
     options = {
