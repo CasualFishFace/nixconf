@@ -9,7 +9,6 @@
     wrappers.url = "github:nix-community/nix-wrapper-modules";
   };
   outputs = inputs@{
-    self,
     wrappers,
     import-tree,
     flake-parts,
