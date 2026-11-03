@@ -2,8 +2,8 @@
   flake.nixosConfigurations.desktop =
     mylib.mkHost "desktop" (with self.nixosModules; [
       ./_hardware-configuration.nix
-      audio
       gaming
+      graphicalSystem
       librewolf
       ly
       niri
