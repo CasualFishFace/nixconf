@@ -6,5 +6,6 @@
       graphicalSystem
       librewolf
       ly
+      niri
     ]);
 }
