@@ -8,7 +8,7 @@
       ));
 
       user.email = "casualfishface@proton.me";
-      user.name = "Fish Face";
+      user.name = "CasualFishFace";
     };
   };
 }

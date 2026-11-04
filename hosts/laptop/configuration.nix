@@ -6,6 +6,7 @@
       graphicalSystem
       librewolf
       ly
+      niri
       noctalia
     ]);
 }

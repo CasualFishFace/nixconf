@@ -2,12 +2,12 @@
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     terminal = self.packages.${system}.ghostty;
-    # noctalia = self.inputs.noctalia.packages.${system}.default;
+    noctalia = self.inputs.noctalia.packages.${system}.default;
   in {
     imports = [ wlib.wrapperModules.niri ];
     settings = {
       spawn-at-startup = [
-        # (lib.getExe noctalia)
+        (lib.getExe noctalia)
         (lib.getExe terminal)
       ];
 
@@ -15,7 +15,7 @@
         "Mod+Q".close-window = _: {};
         "Mod+Ctrl+Q".quit = _: {};
         "Mod+Return".spawn-sh = lib.getExe terminal;
-        # "Mod+D".spawn-sh = "${lib.getExe noctalia} ipc call launcher toggle";
+        "Mod+D".spawn-sh = "${lib.getExe noctalia} ipc call launcher toggle";
 
         "Mod+H".focus-column-or-monitor-left = _: {};
         "Mod+L".focus-column-or-monitor-right = _: {};
@@ -44,7 +44,7 @@
         "Mod+Print".screenshot-window = _: {};
         "Mod+Ctrl+Print".screenshot-screen = _: {};
 
-        # "Mod+V".spawn-sh = "${lib.getExe noctalia} ipc call plugin:clipboard toggle";
+        "Mod+V".spawn-sh = "${lib.getExe noctalia} ipc call plugin:clipboard toggle";
       };
 
       gestures.hot-corners = _: {};
