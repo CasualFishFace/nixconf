@@ -22,7 +22,7 @@
         rulers = [ 80 ];
       };
 
-      theme = "custom";
+      # theme = "custom";
     };
 
     themes.custom = {
