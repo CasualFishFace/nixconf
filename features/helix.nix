@@ -1,5 +1,5 @@
 {moduleWithSystem, ...}: {
-  flake.wrappers.helix = {pkgs, wlib, lib, ...}: {
+  flake.wrappers.helix = {pkgs, wlib, ...}: {
     imports = [ wlib.wrapperModules.helix ];
 
     runtimePkgs = [ pkgs.nixd ];
@@ -26,13 +26,24 @@
     };
 
     themes.custom = {
-      inherits = lib.mkDefault "github_dark";
+      inherits = "github_dark";
       "ui.background" = "transparent";
     };
   };
 
-  flake.nixosModules.helix = moduleWithSystem ({ self', ... }: {
-    programs.helix.enable = true;
-    programs.helix.package = self'.packages.helix;
-  });
+  flake.nixosModules.myNixos = moduleWithSystem ({self', config, ...}:
+    let
+      noctalia-enabled = config.programs.noctalia.enable;
+    in
+    {
+      config.environment.systemPackages = [(
+        if noctalia-enabled then
+          self'.wrappers.helix.wrap {
+            theme = "noctalia";
+          }
+        else
+          self'.packages.helix
+      )];
+    }
+  );
 }

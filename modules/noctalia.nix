@@ -10,9 +10,4 @@
       package = inputs.noctalia.packages.${system}.default;
     };
   });
-
-  flake.wrappers = {
-    helix.themes.custom.inherits = "noctalia";
-    ghostty.settings.theme = "noctalia";
-  };
 }

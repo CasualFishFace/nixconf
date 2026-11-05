@@ -1,12 +1,28 @@
-{...}: {
-  flake.wrappers.ghostty = {wlib, lib, ...}: {
+{moduleWithSystem, ...}: {
+  flake.wrappers.ghostty = {wlib, ...}: {
     imports = [ wlib.wrapperModules.ghostty ];
 
     settings = {
       background-opacity = 0.7;
       font-size = 14;
       gtk-titlebar = false;
-      theme = lib.mkDefault "GitHub Default Dark";
+      theme = "GitHub Dark Default";
     };
   };
+
+  flake.nixosModules.myNixos = moduleWithSystem ({self', config, ...}:
+    let
+      noctalia-enabled = config.programs.noctalia.enable;
+    in
+    {
+      config.environment.systemPackages = [(
+        if noctalia-enabled then
+          self'.wrappers.ghostty.wrap {
+            settings.theme = "noctalia";
+          }
+        else
+          self'.packages.ghostty
+      )];
+    }
+  );
 }

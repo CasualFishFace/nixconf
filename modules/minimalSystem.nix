@@ -1,6 +1,10 @@
 {self, ...}: {
   flake.nixosModules.minimalSystem = { ... }: {
-    imports = with self.nixosModules; [ zsh ];
+    imports = with self.nixosModules; [
+      myNixos
+      zsh
+    ];
+
     nix.settings.trusted-users = [ "root" ];
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
