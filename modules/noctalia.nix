@@ -7,7 +7,7 @@
 
     environment.systemPackages = [
       # self'.packages.noctalia
-      inputs.packages.noctalia.${system}.default
+      inputs.noctalia.packages.${system}.default
     ];
   });
 }

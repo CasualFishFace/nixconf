@@ -1,4 +1,4 @@
-{ self, moduleWithSystem, ... }: {
+{self, moduleWithSystem, ...}: {
   flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
     terminal = self.packages.${system}.ghostty;
