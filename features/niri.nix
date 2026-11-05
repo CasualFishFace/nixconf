@@ -3,6 +3,7 @@
     inherit (pkgs.stdenv.hostPlatform) system;
     terminal = self.packages.${system}.ghostty;
     noctalia = self.inputs.noctalia.packages.${system}.default;
+    browser = self.packages.${system}.librewolf;
   in {
     imports = [ wlib.wrapperModules.niri ];
     settings = {
@@ -16,6 +17,7 @@
         "Mod+Ctrl+Q".quit = _: {};
         "Mod+Return".spawn-sh = lib.getExe terminal;
         "Mod+D".spawn-sh = "${lib.getExe noctalia} msg panel-toggle launcher";
+        "Mod+B".spawn-sh = lib.getExe browser;
 
         "Mod+H".focus-column-or-monitor-left = _: {};
         "Mod+L".focus-column-or-monitor-right = _: {};
