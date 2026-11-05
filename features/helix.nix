@@ -1,5 +1,5 @@
-{ moduleWithSystem, ... }: {
-  flake.wrappers.helix = { pkgs, wlib, ... }: {
+{moduleWithSystem, ...}: {
+  flake.wrappers.helix = {pkgs, wlib, lib, ...}: {
     imports = [ wlib.wrapperModules.helix ];
 
     runtimePkgs = [ pkgs.nixd ];
@@ -22,11 +22,11 @@
         rulers = [ 80 ];
       };
 
-      # theme = "custom";
+      theme = "custom";
     };
 
     themes.custom = {
-      inherits = "github_dark";
+      inherits = lib.mkDefault "github_dark";
       "ui.background" = "transparent";
     };
   };
