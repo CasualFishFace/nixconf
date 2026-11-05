@@ -15,7 +15,7 @@
         "Mod+Q".close-window = _: {};
         "Mod+Ctrl+Q".quit = _: {};
         "Mod+Return".spawn-sh = lib.getExe terminal;
-        "Mod+D".spawn-sh = "${lib.getExe noctalia} ipc call launcher toggle";
+        "Mod+D".spawn-sh = "${lib.getExe noctalia} msg panel-toggle launcher";
 
         "Mod+H".focus-column-or-monitor-left = _: {};
         "Mod+L".focus-column-or-monitor-right = _: {};
