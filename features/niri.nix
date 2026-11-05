@@ -44,7 +44,8 @@
         "Mod+Print".screenshot-window = _: {};
         "Mod+Ctrl+Print".screenshot-screen = _: {};
 
-        "Mod+V".spawn-sh = "${lib.getExe noctalia} ipc call plugin:clipboard toggle";
+        # TODO: Clipboard plugin SOON
+        # "Mod+V".spawn-sh = "${lib.getExe noctalia} ipc call plugin:clipboard toggle";
       };
 
       gestures.hot-corners = _: {};
