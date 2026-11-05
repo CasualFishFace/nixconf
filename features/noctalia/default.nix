@@ -12,7 +12,7 @@
   };
   flake.nixosModules.noctalia = moduleWithSystem ({self', ...}: {
     environment.etc."nixos/features/noctalia/noctalia-full-config.toml".source =
-      "/home/fishface/config.toml";
+      "/home/fishface/.config/noctalia/config.toml";
     programs.noctalia = {
       inherit (self'.wrapperModules.noctalia.config)
         recommendedServices
