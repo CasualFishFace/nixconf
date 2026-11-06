@@ -1,23 +1,29 @@
 {self, moduleWithSystem, ...}: {
-  flake.wrappers.niri = { pkgs, wlib, lib, ... }: let
+  flake.wrappers.niri = { config, pkgs, wlib, lib, ... }: let
     inherit (pkgs.stdenv.hostPlatform) system;
-    terminal = self.packages.${system}.ghostty;
     noctalia = self.inputs.noctalia.packages.${system}.default;
-    browser = self.packages.${system}.librewolf;
   in {
     imports = [ wlib.wrapperModules.niri ];
-    settings = {
+    options.browser = lib.mkOption {
+      default = pkgs.librewolf;
+      type = lib.types.package;
+    };
+    options.terminal = lib.mkOption {
+      default = pkgs.ghostty;
+      type = lib.types.package;
+    };
+    config.settings = {
       spawn-at-startup = [
         (lib.getExe noctalia)
-        (lib.getExe terminal)
+        (lib.getExe config.terminal)
       ];
 
       binds = {
         "Mod+Q".close-window = _: {};
         "Mod+Ctrl+Q".quit = _: {};
-        "Mod+Return".spawn-sh = lib.getExe terminal;
+        "Mod+Return".spawn-sh = lib.getExe config.terminal;
         "Mod+D".spawn-sh = "${lib.getExe noctalia} msg panel-toggle launcher";
-        "Mod+B".spawn-sh = lib.getExe browser;
+        "Mod+B".spawn-sh = lib.getExe config.browser;
 
         "Mod+H".focus-column-or-monitor-left = _: {};
         "Mod+L".focus-column-or-monitor-right = _: {};
@@ -112,8 +118,14 @@
     };
   };
 
-  flake.nixosModules.niri = moduleWithSystem ({ self', ... }: {
-    programs.niri.enable = true;
-    programs.niri.package = self'.packages.niri;
-  });
+  flake.nixosModules.niri = moduleWithSystem ({self', ...}:
+    {config, ...}:
+    {
+      programs.niri.enable = true;
+      programs.niri.package = self'.packages.niri.wrap {
+        browser = self'.packages.librewolf;
+        terminal = config.programs.ghostty.package;
+      };
+    }
+  );
 }
