@@ -1,5 +1,5 @@
 {moduleWithSystem, ...}: {
-  flake.wrappers.helix = {pkgs, wlib, ...}: {
+  flake.wrappers.helix = {pkgs, wlib, lib, ...}: {
     imports = [ wlib.wrapperModules.helix ];
 
     runtimePkgs = [ pkgs.nixd ];
@@ -22,7 +22,7 @@
         rulers = [ 80 ];
       };
 
-      theme = "custom";
+      theme = lib.mkDefault "custom";
     };
 
     themes.custom = {
@@ -31,19 +31,19 @@
     };
   };
 
-  flake.nixosModules.myNixos = moduleWithSystem ({self', config, ...}:
-    let
-      noctalia-enabled = config.programs.noctalia.enable;
-    in
-    {
-      config.environment.systemPackages = [(
-        if noctalia-enabled then
-          self'.wrappers.helix.wrap {
-            theme = "noctalia";
-          }
-        else
-          self'.packages.helix
-      )];
+  flake.nixosModules.myNixos = moduleWithSystem ({self', ...}:
+    {config, pkgs, lib, ...}: {
+      options.programs.helix = {
+        enable = lib.mkEnableOption "Enables Helix, the modal text editor";
+        package = lib.mkOption {
+          default = pkgs.helix;
+          type = lib.types.package;
+        };
+      };
+      config = {
+        programs.helix.package = lib.mkDefault self'.packages.helix;
+        environment.systemPackages = [ config.programs.helix.package ];
+      };
     }
   );
 }
