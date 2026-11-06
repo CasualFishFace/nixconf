@@ -12,21 +12,20 @@
 
   flake.nixosModules.myNixos = moduleWithSystem ({self', ...}:
     {config, pkgs, lib, ...}:
-    let
-      noctalia-enabled = config.programs.noctalia.enable;
-      extra-ghostty-config = if noctalia-enabled then
-        { settings.theme = "noctalia"; }
-      else
-        {};
-    in
     {
-      options.programs.ghostty.package = lib.mkOption {
-        default = pkgs.ghostty;
-        type = lib.types.package;
+      options.programs.ghostty = {
+        enable = lib.mkEnableOption "Enables Ghostty, a terminal emulator written in Zig";
+        package = lib.mkOption {
+          default = pkgs.ghostty;
+          type = lib.types.package;
+        };
       };
       config = {
-        programs.ghostty.package = self'.packages.ghostty.wrap extra-ghostty-config;
-        environment.systemPackages = [ config.programs.ghostty.package ];
+        programs.ghostty.enable = lib.mkDefault true;
+        programs.ghostty.package = lib.mkDefault self'.packages.ghostty;
+        environment.systemPackages = lib.mkIf config.programs.ghostty.enable [
+          config.programs.ghostty.package
+        ];
       };
     }
   );

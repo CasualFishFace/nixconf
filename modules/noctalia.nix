@@ -12,6 +12,12 @@
         package = inputs.noctalia.packages.${system}.default;
       };
 
+      programs.ghostty.package = lib.mkIf (
+        config.programs.noctalia.enable
+      ) (self'.packages.ghostty.wrap {
+        settings.theme = "noctalia";
+      });
+
       programs.helix.package = lib.mkIf (
         config.programs.noctalia.enable
       ) (self'.packages.helix.wrap {

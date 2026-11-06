@@ -41,8 +41,11 @@
         };
       };
       config = {
+        programs.helix.enable = lib.mkDefault true;
         programs.helix.package = lib.mkDefault self'.packages.helix;
-        environment.systemPackages = [ config.programs.helix.package ];
+        environment.systemPackages = lib.mkIf config.programs.helix.enable [
+          config.programs.helix.package
+        ];
       };
     }
   );
