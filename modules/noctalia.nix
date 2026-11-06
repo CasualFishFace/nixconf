@@ -23,7 +23,7 @@
       ) (self'.packages.helix.wrap {
         settings.theme = "noctalia";
         themes.noctalia = let
-          result = builtins.tryEval ./../themes/noctalia-helix.toml;
+          result = builtins.tryEval /etc/nixos/themes/noctalia-helix.toml;
         in if result.success then
           builtins.readFile result.value
         else
