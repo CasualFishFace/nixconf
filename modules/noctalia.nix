@@ -23,16 +23,13 @@
       ) (self'.packages.helix.wrap {
         settings.theme = "noctalia";
         themes.noctalia = let
-          result = builtins.tryEval "/etc/nixos/themes/noctalia-helix.toml";
+          home = builtins.getEnv "HOME";
+          result = builtins.tryEval "${home}/.config/helix/themes/noctalia.toml";
         in if result.success then
           builtins.readFile result.value
         else
           "inherits = \"custom\"";
       });
-
-      systemd.tmpfiles.rules = [
-        "L+ /etc/nixos/themes/noctalia-helix.toml - - - - /home/fishface/.config/helix/themes/noctalia.toml"
-      ];
     }
   );
 }
