@@ -22,14 +22,12 @@
         config.programs.noctalia.enable
       ) (self'.packages.helix.wrap {
         settings.theme = "noctalia";
-        themes.noctalia = let
-          home = builtins.getEnv "HOME";
-          result = builtins.tryEval "${home}/.config/helix/themes/noctalia.toml";
-        in if result.success then
-          builtins.readFile result.value
-        else
-          "inherits = \"custom\"";
+        themes.noctalia = builtins.readFile ./../themes/apps/helix/noctalia.toml;
       });
+
+      systemd.tmpfiles.rules = [
+        "L+ /etc/nixos/themes/apps/helix - - - - /home/fishface/.config/helix/themes"
+      ];
     }
   );
 }
