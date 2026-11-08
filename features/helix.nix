@@ -2,7 +2,7 @@
   flake.wrappers.helix = {pkgs, wlib, lib, ...}: {
     imports = [ wlib.wrapperModules.helix ];
 
-    runtimePkgs = [ pkgs.nixd ];
+    runtimePkgs = [ pkgs.nixd pkgs.nixdoc ];
 
     languages = {};
 
