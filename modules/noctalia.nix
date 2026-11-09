@@ -24,7 +24,11 @@
         config.programs.noctalia.enable
       ) (self'.packages.helix.wrap {
         settings.theme = "noctalia";
-        themes.noctalia = builtins.readFile ./../themes/apps/helix/noctalia.toml;
+        drv.postBuild = ''
+          themes="${placeholder "out"}/hx-config/helix/themes"
+          mkdir -p "$themes"
+          ln -s /home/fishface/.config/helix/themes/noctalia.toml "$themes/noctalia.toml"
+        '';
       });
 
       systemd.tmpfiles.rules = [
