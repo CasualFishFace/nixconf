@@ -30,10 +30,6 @@
           ln -s /home/fishface/.config/helix/themes/noctalia.toml "$themes/noctalia.toml"
         '';
       });
-
-      systemd.tmpfiles.rules = [
-        "L+ /etc/nixos/themes/apps/helix - - - - /home/fishface/.config/helix/themes"
-      ];
     }
   );
 }
