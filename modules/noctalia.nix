@@ -10,6 +10,8 @@
       programs.noctalia = {
         enable = lib.mkDefault true;
         package = inputs.noctalia.packages.${system}.default;
+        recommendedServices.enable = lib.mkDefault true;
+        systemd.enable = lib.mkDefault false;
       };
 
       programs.ghostty.package = lib.mkIf (
