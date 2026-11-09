@@ -13,7 +13,7 @@
       };
     };
 
-  flake.nixosModules.myNixos = moduleWithSystem ({self', lib, ...}: {
+  flake.nixosModules.myNixos = moduleWithSystem ({self', ...}: {lib, ...}: {
     programs.git.enable = lib.mkDefault true;
     programs.git.package = self'.packages.git;
   });
