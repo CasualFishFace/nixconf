@@ -9,5 +9,6 @@
       niri
       noctalia
       nvidia
+      spotify
     ]);
 }
