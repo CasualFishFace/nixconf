@@ -7,7 +7,7 @@
     config = {
       programs.spotify.enable = lib.mkDefault true;
       environment.systemPackages = lib.mkIf config.programs.spotify.enable [
-        pkgs.spotify
+        pkgs.spotify-pkayer
       ];
     };
   };
