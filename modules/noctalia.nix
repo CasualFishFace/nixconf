@@ -33,7 +33,9 @@
 
       programs.niri.package = lib.mkIf (
         config.programs.noctalia.enable
-      ) (config.programs.niri.package.wrap {
+      ) (self'.packages.niri.wrap {
+        browser = self'.packages.librewolf;
+        terminal = config.programs.ghostty.package;
         settings.extraConfig = ''
           include optional=true "./lib/noctalia.kdl"
         '';
