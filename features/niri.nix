@@ -114,13 +114,13 @@
   };
 
   flake.nixosModules.niri = moduleWithSystem ({self', ...}:
-    {config, ...}:
+    {config, lib, ...}:
     {
-      programs.niri.enable = true;
-      programs.niri.package = self'.packages.niri.wrap {
+      programs.niri.enable = lib.mkDefault true;
+      programs.niri.package = lib.mkDefault (self'.packages.niri.wrap {
         browser = self'.packages.librewolf;
         terminal = config.programs.ghostty.package;
-      };
+      });
     }
   );
 }

@@ -1,6 +1,9 @@
 {inputs, moduleWithSystem, ...}: {
   flake.nixosModules.noctalia = moduleWithSystem ({self', system, ...}:
     {config, lib, ...}:
+    let
+      noctaliaMk = wrapped: lib.mkIf config.programs.noctalia.enable wrapped;
+    in
     {
       nix.settings = {
         extra-substituters = [ "https://noctalia.cachix.org" ];
@@ -20,14 +23,20 @@
         settings.theme = "noctalia";
       });
 
-      programs.helix.package = lib.mkIf (
-        config.programs.noctalia.enable
-      ) (self'.packages.helix.wrap {
+      programs.helix.package = noctaliaMk (self'.packages.helix.wrap {
         settings.theme = "noctalia";
         drv.postBuild = ''
           themes="${placeholder "out"}/hx-config/helix/themes"
           mkdir -p "$themes"
-          ln -s /home/fishface/.config/helix/themes/noctalia.toml "$themes/noctalia.toml"
+          ln -s $HOME/.config/helix/themes/noctalia.toml "$themes/noctalia.toml"
+        '';
+      });
+
+      programs.niri.package = noctaliaMk (self'.packages.niri.wrap {
+        drv.postBuild = ''
+          cfg="${placeholder "out"}"
+          mkdir -p "$cfg"
+          ln -s $HOME/.config/niri/noctalia.kdl "$cfg/noctalia.kdl"
         '';
       });
     }
