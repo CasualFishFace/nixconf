@@ -65,7 +65,7 @@
               then result.value
               else config.programs.noctalia.extraConfig;
           in
-          [ "f+ /home/fishface/.config/noctalia/config.toml - - - - ${cfg}" ];
+          [ "f /home/fishface/.config/noctalia/config.toml - - - - ${cfg}" ];
       };
     }
   );
