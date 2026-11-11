@@ -54,6 +54,18 @@
             ln -s /home/fishface/.config/niri/noctalia.kdl "$cfg/noctalia.kdl"
           '';
         });
+
+        systemd.tmpfiles.rules =
+          let
+            result = builtins.tryEval (
+              builtins.readFile config.programs.noctalia.extraConfig
+            );
+            cfg =
+              if result.success
+              then result.value
+              else config.programs.noctalia.extraConfig;
+          in
+          [ "f+ /home/fishface/.config/noctalia/config.toml - - - - ${cfg}" ];
       };
     }
   );
