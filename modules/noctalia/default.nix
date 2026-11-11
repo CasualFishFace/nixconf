@@ -17,7 +17,7 @@
 
         programs.noctalia = {
           enable = lib.mkDefault true;
-          package = lib.mkDefault inputs'.packages.noctalia;
+          package = lib.mkDefault inputs'.noctalia.packages.default;
           recommendedServices.enable = lib.mkDefault true;
           systemd.enable = lib.mkDefault false;
           extraConfig = lib.mkDefault ./config.toml;
