@@ -5,8 +5,8 @@
     {
       options = {
         programs.noctalia.extraConfig = lib.mkOption {
-          default = null;
-          type = with lib.types; nullOr (oneOf [ path str ]);
+          default = ./config.toml;
+          type = with lib.types; nullOr path;
         };
       };
       config = {
@@ -20,7 +20,6 @@
           package = lib.mkDefault inputs'.noctalia.packages.default;
           recommendedServices.enable = lib.mkDefault true;
           systemd.enable = lib.mkDefault false;
-          extraConfig = lib.mkDefault ./config.toml;
         };
 
         programs.ghostty.package = lib.mkIf (
@@ -57,15 +56,12 @@
 
         systemd.tmpfiles.rules =
           let
-            result = builtins.tryEval (
-              builtins.readFile config.programs.noctalia.extraConfig
-            );
-            cfg =
-              if result.success
-              then result.value
-              else config.programs.noctalia.extraConfig;
+            noctalia-enable = config.programs.noctalia.enable;
+            cfg = config.programs.noctalia.extraConfig;
           in
-          [ "f /home/fishface/.config/noctalia/config.toml - - - - ${cfg}" ];
+          lib.mkIf (noctalia-enable && cfg != null) [
+            "L+ /home/fishface/.config/noctalia/config.toml - - - - ${cfg}"
+          ];
       };
     }
   );
